@@ -16,9 +16,8 @@ def go_to_version_folder(base_dir:str):
         for entry in entries:
             if entry.is_dir():
                 next_dir = entry.path
-                print("Next directory:", next_dir)
-                exit()
-
+                return next_dir
+        return None
 
 def find_nukleus_files(base_directory = "/work/bb1203/data_NUKLEUS_CMOR/"):
     yaml_file = "nukleus_files.yaml"
@@ -30,10 +29,15 @@ def find_nukleus_files(base_directory = "/work/bb1203/data_NUKLEUS_CMOR/"):
         if "evaluation" in directory:
             continue
 
+        rsds_folder=go_to_version_folder(os.path.join(directory, 'rsds'))
+        sfcWind_folder=go_to_version_folder(os.path.join(directory, 'sfcWind'))
+        if not rsds_folder or not sfcWind_folder:
+            continue
+
         new_data = {
             f"{directory}": {
-                "rsds": f"{go_to_version_folder(os.path.join(directory, 'rsds'))}",
-                "sfcWind": f"{go_to_version_folder(os.path.join(directory, 'sfcWind'))}",
+                "rsds": f"{rsds_folder}",
+                "sfcWind": f"{sfcWind_folder}",
             }
         }
 
@@ -50,3 +54,6 @@ def find_nukleus_files(base_directory = "/work/bb1203/data_NUKLEUS_CMOR/"):
         # Write the updated data back to the YAML file
         with open(yaml_file, "w") as file:
             yaml.dump(existing_data, file, default_flow_style=False, sort_keys=True)
+
+if __name__ == "__main__":
+    find_nukleus_files()
