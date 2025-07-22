@@ -11,18 +11,17 @@ def find_directories(root_dir:str, frequency:str):
                 results.append(dirpath)
     return results
 
-def go_to_version_folder(base_dir:str):
+def go_to_version_folder(base_dir:str)->str|None:
     with os.scandir(base_dir) as entries:
         for entry in entries:
             if entry.is_dir():
-                next_dir = entry.path
-                return next_dir
+                return entry.path
         return None
 
-def find_nukleus_files(base_directory = "/work/bb1203/data_NUKLEUS_CMOR/"):
+def find_nukleus_files(base_directory:str = "/work/bb1203/data_NUKLEUS_CMOR/",delete_old:bool=False)->None:
     yaml_file = "nukleus_files.yaml"
 
-    if os.path.exists(yaml_file):
+    if delete_old and os.path.exists(yaml_file):
         os.remove(yaml_file)
 
     for directory in find_directories(root_dir=base_directory, frequency="1hr"):
