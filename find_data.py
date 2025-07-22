@@ -34,6 +34,7 @@ def find_nukleus_files(base_directory: str = "/work/bb1203/data_NUKLEUS_CMOR/") 
             continue
 
         rsds_folder = go_to_version_folder(os.path.join(directory, "rsds"))
+        tas_folder = go_to_version_folder(os.path.join(directory, "tas"))
         ua100m_folder = go_to_version_folder(os.path.join(directory, "ua100m"))
         va100m_folder = go_to_version_folder(os.path.join(directory, "va100m"))
         if not rsds_folder or not ua100m_folder or not va100m_folder:
@@ -41,6 +42,7 @@ def find_nukleus_files(base_directory: str = "/work/bb1203/data_NUKLEUS_CMOR/") 
 
         json_entries[directory] = {
             "rsds": rsds_folder,
+            "tas": tas_folder,
             "ua100m": ua100m_folder,
             "va100m": va100m_folder,
         }
