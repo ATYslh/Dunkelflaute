@@ -8,7 +8,7 @@ def find_directories(root_dir: str, frequency: str):
 
     for dirpath, dirnames, filenames in os.walk(root_dir):
         # If this directory matches the desired frequency and has both files, record it
-        if frequency in dirpath and {"sfcWind", "rsds"}.issubset(dirnames):
+        if frequency in dirpath and {"ua100m","va100m", "rsds"}.issubset(dirnames):
             results.append(dirpath)
 
         # If we've hit any frequency folder, don't recurse further
@@ -34,13 +34,15 @@ def find_nukleus_files(base_directory: str = "/work/bb1203/data_NUKLEUS_CMOR/") 
             continue
 
         rsds_folder = go_to_version_folder(os.path.join(directory, "rsds"))
-        sfcWind_folder = go_to_version_folder(os.path.join(directory, "sfcWind"))
-        if not rsds_folder or not sfcWind_folder:
+        ua100m_folder = go_to_version_folder(os.path.join(directory, "ua100m"))
+        va100m_folder = go_to_version_folder(os.path.join(directory, "va100m"))
+        if not rsds_folder or not ua100m_folder or not va100m_folder:
             continue
 
         json_entries[directory] = {
             "rsds": rsds_folder,
-            "sfcWind": sfcWind_folder,
+            "ua100m": ua100m_folder,
+            "va100m": va100m_folder,
         }
 
     if json_entries:
