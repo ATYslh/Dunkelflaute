@@ -8,7 +8,7 @@ def find_directories(root_dir: str, frequency: str):
 
     for dirpath, dirnames, filenames in os.walk(root_dir):
         # If this directory matches the desired frequency and has both files, record it
-        if frequency in dirpath and {"ua100m", "va100m", "rsds"}.issubset(dirnames):
+        if frequency in dirpath and {"ua100m", "va100m", "rsds","tas"}.issubset(dirnames):
             results.append(dirpath)
 
         # If we've hit any frequency folder, don't recurse further

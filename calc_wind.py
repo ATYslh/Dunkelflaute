@@ -40,7 +40,7 @@ def _power_curve(ws: np.ndarray) -> np.ndarray:
 
 def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
     os.system(
-        f"cdo -selindexbox,{hpf.get_indexbox(u_wind)} -ifthen {hpf.mask_path(u_wind)} -expr,'sfcWind=hypot(ULON,VLAT)' -merge {u_wind} {v_wind} {outfile}")
+        f"cdo -selindexbox,{hpf.get_indexbox(u_wind)} -ifthen {hpf.mask_path(u_wind)} -expr,'sfcWind=hypot(ua100m,va100m)' -merge {u_wind} {v_wind} {outfile}")
 
 
 def calc_wind_capacity_factor(input_file: str, output_file: str):
@@ -59,18 +59,18 @@ def calc_wind_capacity_factor(input_file: str, output_file: str):
 
 
 def cf_wind(folder_dict: dict, overwrite_existing: bool) -> None:
-    output_filename = hpf.generate_filename(folder_dict["ua100"], "wind")
+    output_filename = hpf.generate_filename(folder_dict["ua100m"], "wind")
     if not overwrite_existing and os.path.exists(output_filename):
         return
 
-    u_folder = folder_dict["ua100"]
-    v_folder = folder_dict["va100"]
+    u_folder = folder_dict["ua100m"]
+    v_folder = folder_dict["va100m"]
 
     u_files = hpf.get_sorted_nc_files(u_folder)
     v_files = hpf.get_sorted_nc_files(v_folder)
 
     if len(u_files) != len(v_files):
-        raise ValueError("ua100 and va100 folders do not have the same number of files")
+        raise ValueError("ua100m and va100m folders do not have the same number of files")
 
     wind_file = "/scratch/g/g260190/dummy_wind.nc"
     for index, (u_wind, v_wind) in enumerate(zip(u_files, v_files)):
