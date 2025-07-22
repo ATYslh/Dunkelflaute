@@ -3,7 +3,6 @@ import os
 import numpy as np
 import xarray as xr
 
-import calculate_CF
 import helper_functions as hpf
 
 _WIND = np.array(
@@ -41,25 +40,7 @@ def _power_curve(ws: np.ndarray) -> np.ndarray:
 
 def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
     os.system(
-        f"cdo -selindexbox,{get_indexbox(u_wind)} -ifthen {mask_path(u_wind)} -expr,'sfcWind=hypot(ULON,VLAT)' -merge {u_wind} {v_wind} {outfile}")
-
-
-def get_indexbox(folder: str):
-    if "EUR-11" in folder:
-        return "190,241,185,254"
-    if "CEU-3" in folder:
-        return "63,271,70,354"
-    raise ValueError("could not identify which indexbox to use")
-
-
-def mask_path(folder: str) -> str:
-    if "EUR-11" in folder:
-        resolution = "EUR-11"
-    elif "CEU-3" in folder:
-        resolution = "CEU-3"
-    else:
-        raise ValueError("could not identify which mask to use")
-    return f"/work/gg0302/g260190/rsds_analysis/Subregion_Masks/{resolution}/Germany_mask.nc"
+        f"cdo -selindexbox,{hpf.get_indexbox(u_wind)} -ifthen {hpf.mask_path(u_wind)} -expr,'sfcWind=hypot(ULON,VLAT)' -merge {u_wind} {v_wind} {outfile}")
 
 
 def calc_wind_capacity_factor(input_file: str, output_file: str):
@@ -78,7 +59,7 @@ def calc_wind_capacity_factor(input_file: str, output_file: str):
 
 
 def cf_wind(folder_dict: dict, overwrite_existing: bool) -> None:
-    output_filename = calculate_CF.generate_filename(folder_dict["ua100"], "wind")
+    output_filename = hpf.generate_filename(folder_dict["ua100"], "wind")
     if not overwrite_existing and os.path.exists(output_filename):
         return
 
