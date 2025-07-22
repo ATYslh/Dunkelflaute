@@ -1,186 +1,223 @@
 {
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/rsds/v20230301",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/tas/v20230301",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/ua100m/v20230301",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/va100m/v20230301"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/rsds/v20230301",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/tas/v20230301",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/ua100m/v20230301",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/va100m/v20230301"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v2-transient-aerosols/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v2-transient-aerosols/1hr/rsds/v20241226",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v2-transient-aerosols/1hr/tas/v20241226",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v2-transient-aerosols/1hr/ua100m/v20241226",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v2-transient-aerosols/1hr/va100m/v20241226"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/rsds/v20230301",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/tas/v20230301",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/ua100m/v20230301",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/va100m/v20230301"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/rsds/v20230301",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/tas/v20230301",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/ua100m/v20230301",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/v1/1hr/va100m/v20230301"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr/rsds/v20230222",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr/tas/v20230222",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr/ua100m/v20230222",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr/va100m/v20230222"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr/rsds/v20250610",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr/tas/v20250610",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr/ua100m/v20250610",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm3/nukleus-x0n1-v1/1hr/va100m/v20250610"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MIROC-MIROC6/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/EUR-11/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230313",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230313",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230313",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230313"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230313",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230313",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230313",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230313"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230313",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230313",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230313",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230313"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230313",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230313",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230313",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230313"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230313",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230313",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230313",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230313"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230313",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230313",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230313",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-KIT/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-KIT-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230313"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230222",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230222",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230222",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230222"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230222",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230222",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230222",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230222"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/rsds/v20230222",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/tas/v20230222",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/ua100m/v20230222",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-Hereon/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-Hereon-CCLM-6-0-clm2/nukleus-x2yn2-v1/1hr/va100m/v20230222"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MIROC-MIROC6/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/MPI-M-MPI-ESM1-2-HR/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp585-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     },
     "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr": {
         "rsds": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/rsds/v20240201",
+        "tas": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/tas/v20240201",
         "ua100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua100m/v20240201",
         "va100m": "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp245-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/va100m/v20240201"
     }
