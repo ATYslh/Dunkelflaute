@@ -1,7 +1,5 @@
-Plan for 
+Plan for calculations
 
-1. Traverse all folders down to the 1hr
-2. Check if rsds and the 100 meter winds are there; otherwise give warning
 3. check if capacity factors have already been calced
 4. create_names for output files (something that contains the gcm,rcm, scenario and all the other jazz)
 5. cut field into correct shape (depending on if EUR-11 or CEU-3)
