@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 
 def find_directories(root_dir: str, frequency: str):
@@ -8,7 +8,7 @@ def find_directories(root_dir: str, frequency: str):
 
     for dirpath, dirnames, filenames in os.walk(root_dir):
         # If this directory matches the desired frequency and has both files, record it
-        if frequency in dirpath and {"ua100m","va100m", "rsds"}.issubset(dirnames):
+        if frequency in dirpath and {"ua100m", "va100m", "rsds"}.issubset(dirnames):
             results.append(dirpath)
 
         # If we've hit any frequency folder, don't recurse further
@@ -48,7 +48,3 @@ def find_nukleus_files(base_directory: str = "/work/bb1203/data_NUKLEUS_CMOR/") 
     if json_entries:
         with open(json_file, "w") as file:
             json.dump(json_entries, file, indent=4)
-
-
-if __name__ == "__main__":
-    find_nukleus_files()
