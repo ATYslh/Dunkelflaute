@@ -1,12 +1,22 @@
+"""
+Helper functions.
+"""
+
 import os
-import json
+
 
 def generate_filename(folder: str, variable: str) -> str:
+    """
+    Generates the filename of the final output.
+    """
     parts = folder.split("/")
     return "_".join([parts[4], parts[6], parts[7], parts[9], variable])
 
 
 def get_sorted_nc_files(folder_path):
+    """
+    Returns a sorted list of all nc_files in the folder_path.
+    """
     nc_files = [
         os.path.join(folder_path, f)
         for f in os.listdir(folder_path)
@@ -16,6 +26,9 @@ def get_sorted_nc_files(folder_path):
 
 
 def get_indexbox(folder: str):
+    """
+    Returns the indices which are used to crop the field to only Germany.
+    """
     if "EUR-11" in folder:
         return "190,241,185,254"
     if "CEU-3" in folder:
@@ -24,6 +37,9 @@ def get_indexbox(folder: str):
 
 
 def mask_path(folder: str) -> str:
+    """
+    Returns the path to the mask file.
+    """
     if "EUR-11" in folder:
         resolution = "EUR-11"
     elif "CEU-3" in folder:
@@ -31,7 +47,3 @@ def mask_path(folder: str) -> str:
     else:
         raise ValueError("could not identify which mask to use")
     return f"/work/gg0302/g260190/rsds_analysis/Subregion_Masks/{resolution}/Germany_mask.nc"
-
-def load_folder_locations() -> dict:
-    with open('nukleus_files.json', 'r', encoding='utf-8') as file:
-        return json.load(file)

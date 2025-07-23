@@ -1,3 +1,7 @@
+"""
+This calculates the dunkelflaute.
+"""
+
 import os
 
 import numpy as np
@@ -5,6 +9,13 @@ import xarray as xr
 
 
 def calculate_dunkelflaute(wind_filename: str, pv_filename: str, overwrite_existing: bool) -> None:
+    """
+    This function calculates the Dunkelflauten file. Uses 20% threshold.
+    :param wind_filename:
+    :param pv_filename:
+    :param overwrite_existing:
+    :return: None
+    """
     output_filename = os.path.basename(pv_filename).replace("CF_PV", "Dunkelflaute")
     outfile_name = os.path.join(
         "Dunkelflaute", output_filename
