@@ -61,6 +61,7 @@ def calc_capacity_factor(h_rel, g, g_stc=1000):
 
 
 def calculate_pv(folder_dict: dict, overwrite_existing: bool):
+    os.system("rm /scratch/g/g260190/pv*.nc")
     output_filename = hpf.generate_filename(folder_dict["rsds"], "pv")
     if not overwrite_existing and os.path.exists(output_filename):
         return
@@ -76,3 +77,7 @@ def calculate_pv(folder_dict: dict, overwrite_existing: bool):
 
     for index, (tas, rsds) in enumerate(zip(tas_files, rsds_files)):
         calculate_capacity_factor_pv_main(tas, rsds, f"/scratch/g/g260190/pv_{index:03}.nc")
+        
+    
+    os.system(f"cdo -z zip -cat /scratch/g/g260190/wind_???.nc {output_filename}")
+    os.system("rm /scratch/g/g260190/pv*.nc")

@@ -13,5 +13,4 @@ def calculate_capacity_factors(overwrite_existing: bool = False):
     nukleus_folders = load_folder_locations()
     for folder_dict in nukleus_folders:
         calc_wind.cf_wind(nukleus_folders[folder_dict], overwrite_existing)
-        # calc_pv.calculate_pv(nukleus_folders[folder_dict], overwrite_existing)
-        exit()
+        calc_pv.calculate_pv(nukleus_folders[folder_dict], overwrite_existing)

@@ -59,6 +59,7 @@ def calc_wind_capacity_factor(input_file: str, output_file: str):
 
 
 def cf_wind(folder_dict: dict, overwrite_existing: bool) -> None:
+    os.system("rm /scratch/g/g260190/wind*.nc")
     output_filename = hpf.generate_filename(folder_dict["ua100m"], "wind")
     if not overwrite_existing and os.path.exists(output_filename):
         return
@@ -78,3 +79,4 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> None:
         calc_wind_capacity_factor(input_file=wind_file, output_file=f"/scratch/g/g260190/wind_{index:03}.nc")
 
     os.system(f"cdo -z zip -cat /scratch/g/g260190/wind_???.nc {output_filename}")
+    os.system("rm /scratch/g/g260190/wind*.nc")
