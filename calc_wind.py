@@ -108,10 +108,10 @@ def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
     Calculates the wind speed.
     """
     os.system(
-        f"cdo -selindexbox,{hpf.get_indexbox(u_wind)} "
-        f"-ifthen {hpf.mask_path(u_wind)} -expr,"
-        f"'sfcWind=hypot(ua100m,va100m)'"
-        f" -merge {u_wind} {v_wind} {outfile}"
+        f"cdo -expr,'sfcWind=hypot(ua100m,va100m)' "
+        f"-selindexbox,{hpf.get_indexbox(u_wind)} "
+        f"-ifthen {hpf.mask_path(u_wind)} "
+        f"-merge {u_wind} {v_wind} {outfile}"
     )
 
 
