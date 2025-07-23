@@ -73,10 +73,11 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> None:
     if len(u_files) != len(v_files):
         raise ValueError("ua100m and va100m folders do not have the same number of files")
 
-    wind_file = "/scratch/g/g260190/dummy_wind.nc"
+    wind_file = f"Wind/{output_filename}"
     for index, (u_wind, v_wind) in enumerate(zip(u_files, v_files)):
-        calculate_wind(u_wind, v_wind, wind_file)
-        calc_wind_capacity_factor(input_file=wind_file, output_file=f"/scratch/g/g260190/wind_{index:03}.nc")
+        calculate_wind(u_wind, v_wind, f"/scratch/g/g260190/wind_{index:03}.nc")
+        calc_wind_capacity_factor(input_file=wind_file, output_file=f"/scratch/g/g260190/cf_wind_{index:03}.nc")
 
-    os.system(f"cdo -z zip -cat /scratch/g/g260190/wind_???.nc {output_filename}")
-    os.system("rm /scratch/g/g260190/wind*.nc")
+    os.system(f"cdo -z zip -cat /scratch/g/g260190/wind_???.nc {os.path.join('Wind', output_filename)}")
+    os.system(f"cdo -z zip -cat /scratch/g/g260190/cf_wind_???.nc {os.path.join('CF_Wind',output_filename)}")
+    os.system("rm /scratch/g/g260190/*wind*.nc")
