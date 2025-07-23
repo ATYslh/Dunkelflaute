@@ -14,3 +14,4 @@ def calculate_capacity_factors(overwrite_existing: bool = False):
     for folder_dict in nukleus_folders:
         cf_wind=calc_wind.cf_wind(nukleus_folders[folder_dict], overwrite_existing)
         cf_pv=calc_pv.calculate_pv(nukleus_folders[folder_dict], overwrite_existing)
+        calc_Dunkelflaute.calculate_dunkelflaute(cf_wind, cf_pv, overwrite_existing)

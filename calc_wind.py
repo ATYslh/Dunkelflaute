@@ -60,8 +60,8 @@ def calc_wind_capacity_factor(input_file: str, output_file: str):
 
 def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
     os.system("rm /scratch/g/g260190/wind*.nc")
-    output_filename = hpf.generate_filename(folder_dict["ua100m"], "wind")
-    cf_wind_output = os.path.join('CF_Wind', output_filename)
+    output_filename = hpf.generate_filename(folder_dict["ua100m"], "CF_Wind")
+    cf_wind_output = os.path.join('CF_Wind', hpf.generate_filename(folder_dict["ua100m"], "wind"))
     if not overwrite_existing and os.path.exists(cf_wind_output):
         return cf_wind_output
 
