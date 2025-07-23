@@ -110,36 +110,18 @@ def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
     u_dummy = "/scratch/g/g260190/u_dummy.nc"
     v_dummy = "/scratch/g/g260190/v_dummy.nc"
 
-    start_time = time.time()
     os.system(
         f"cdo -ifthen {hpf.mask_path(u_wind)} -selindexbox,{hpf.get_indexbox(u_wind)} {u_wind} {u_dummy}"
     )
-    end_time = time.time()
-    print(
-        f"Execution time calculate U_wind: {end_time - start_time:.4f} seconds",
-        file=sys.stderr,
-    )
-
-    start_time = time.time()
     os.system(
         f"cdo -ifthen {hpf.mask_path(u_wind)} -selindexbox,{hpf.get_indexbox(u_wind)} {v_wind} {v_dummy}"
     )
-    end_time = time.time()
-    print(
-        f"Execution time calculate v_wind: {end_time - start_time:.4f} seconds",
-        file=sys.stderr,
-    )
 
-    start_time = time.time()
     os.system(
         f"cdo -expr,'sfcWind=hypot(ua100m,va100m)' "
         f"-merge {u_dummy} {v_dummy} {outfile}"
     )
-    end_time = time.time()
-    print(
-            f"Execution time calculate hypot Wind: {end_time - start_time:.4f} seconds",
-            file=sys.stderr,
-    )
+
 
 def calc_wind_capacity_factor(input_file: str, output_file: str):
     """
