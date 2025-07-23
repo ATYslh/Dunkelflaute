@@ -1,5 +1,5 @@
 import os
-
+import json
 
 def generate_filename(folder: str, variable: str) -> str:
     parts = folder.split("/")
@@ -31,3 +31,7 @@ def mask_path(folder: str) -> str:
     else:
         raise ValueError("could not identify which mask to use")
     return f"/work/gg0302/g260190/rsds_analysis/Subregion_Masks/{resolution}/Germany_mask.nc"
+
+def load_folder_locations() -> dict:
+    with open('nukleus_files.json', 'r', encoding='utf-8') as file:
+        return json.load(file)
