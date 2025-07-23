@@ -60,12 +60,12 @@ def calc_capacity_factor(h_rel, g, g_stc=1000):
     return h_rel * (g / g_stc)
 
 
-def calculate_pv(folder_dict: dict, overwrite_existing: bool):
+def calculate_pv(folder_dict: dict, overwrite_existing: bool) -> str:
     os.system("rm /scratch/g/g260190/pv*.nc")
     output_filename = hpf.generate_filename(folder_dict["rsds"], "pv")
     cf_pv_output = os.path.join('CF_PV', output_filename)
     if not overwrite_existing and os.path.exists(cf_pv_output):
-        return
+        return cf_pv_output
 
     tas_folder = folder_dict["tas"]
     rsds_folder = folder_dict["rsds"]
@@ -81,3 +81,4 @@ def calculate_pv(folder_dict: dict, overwrite_existing: bool):
 
     os.system(f"cdo -z zip -cat /scratch/g/g260190/pv_???.nc {cf_pv_output}")
     os.system("rm /scratch/g/g260190/pv*.nc")
+    return cf_pv_output
