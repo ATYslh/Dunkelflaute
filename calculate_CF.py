@@ -2,7 +2,7 @@ import json
 
 import calc_pv
 import calc_wind
-
+import calc_Dunkelflaute
 
 def load_folder_locations() -> dict:
     with open('nukleus_files.json', 'r', encoding='utf-8') as file:
@@ -12,5 +12,5 @@ def load_folder_locations() -> dict:
 def calculate_capacity_factors(overwrite_existing: bool = False):
     nukleus_folders = load_folder_locations()
     for folder_dict in nukleus_folders:
-        calc_wind.cf_wind(nukleus_folders[folder_dict], overwrite_existing)
-        calc_pv.calculate_pv(nukleus_folders[folder_dict], overwrite_existing)
+        cf_wind=calc_wind.cf_wind(nukleus_folders[folder_dict], overwrite_existing)
+        cf_pv=calc_pv.calculate_pv(nukleus_folders[folder_dict], overwrite_existing)
