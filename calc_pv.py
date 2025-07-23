@@ -3,6 +3,7 @@ This module calculates the PV capacity factor using temperature (tas) and radiat
 """
 
 import os
+import sys
 import time
 
 import numpy as np
@@ -164,7 +165,7 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
         start_time = time.time()
         calculate_capacity_factor_pv(tas, rsds, f"/scratch/g/g260190/pv_{index:03}.nc")
         end_time = time.time()
-        print(f"Execution time calculate CF PV: {end_time - start_time:.4f} seconds")
+        print(f"Execution time calculate CF PV: {end_time - start_time:.4f} seconds", file=sys.stderr)
 
     os.system(f"cdo -z zip -cat /scratch/g/g260190/pv_???.nc {cf_pv_output}")
     os.system("rm /scratch/g/g260190/pv*.nc")

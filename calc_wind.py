@@ -3,7 +3,9 @@ This module calculates the windspeed and the wind capacity factor.
 """
 
 import os
+import sys
 import time
+
 import numpy as np
 import xarray as xr
 
@@ -165,7 +167,10 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
         calculate_wind(u_wind, v_wind, wind_file)
 
         end_time = time.time()
-        print(f"Execution time calculate Wind: {end_time - start_time:.4f} seconds")
+        print(
+            f"Execution time calculate Wind: {end_time - start_time:.4f} seconds",
+            file=sys.stderr,
+        )
 
         start_time = time.time()
         calc_wind_capacity_factor(
@@ -174,7 +179,10 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
         )
 
         end_time = time.time()
-        print(f"Execution time calculate CF Wind: {end_time - start_time:.4f} seconds")
+        print(
+            f"Execution time calculate CF Wind: {end_time - start_time:.4f} seconds",
+            file=sys.stderr,
+        )
 
     os.system(
         f"cdo -z zip -cat /scratch/g/g260190/wind_???.nc "
