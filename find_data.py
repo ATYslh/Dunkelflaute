@@ -6,22 +6,39 @@ import json
 import os
 
 
-def find_directories(root_dir: str, frequency: str):
+def find_directories(root_dir: str, frequency: str) -> list[str]:
     """
-    searches the root directoy for a folder that contains the freq_tokens.
+    Walk root_dir. Whenever we hit a folder whose name is in freq_tokens,
+    we stop recursing and dive into its '1hr' subfolder. If within that
+    subfolder we find all required variable-dirs, we record its full path.
     """
-    results = []
+    results=[]
     freq_tokens = {"1hr", "3hr", "6hr", "day", "mon"}
+    required_vars = {"ua100m", "va100m", "rsds", "tas"}
 
-    for dirpath, dirnames, filenames in os.walk(root_dir):
-        # If this directory matches the desired frequency and has both files, record it
-        if frequency in dirpath and {"ua100m", "va100m", "rsds", "tas"}.issubset(
-            dirnames
-        ):
-            results.append(dirpath)
+    for dirpath, dirnames, _ in os.walk(root_dir):
+        # If this directory contains *any* freq token, we’ll handle it now and skip deeper
+        hit_tokens = freq_tokens.intersection(dirnames)
+        if hit_tokens:
+            # Only dive into the 1hr subfolder
+            if frequency in hit_tokens:
+                freq_dir = os.path.join(dirpath, frequency)
 
-        # If we've hit any frequency folder, don't recurse further
-        if any(token in dirpath for token in freq_tokens):
+                # list only the immediate subdirectories of root/.../1hr
+                try:
+                    subdirs = {
+                        name
+                        for name in os.listdir(freq_dir)
+                        if os.path.isdir(os.path.join(freq_dir, name))
+                    }
+                except FileNotFoundError:
+                    subdirs = set()
+
+                # if it matches the set we need, record it (and only if it’s our requested frequency)
+                if frequency == "1hr" and required_vars.issubset(subdirs):
+                    results.append(freq_dir)
+
+            # prevent os.walk from descending into any of these freq-token folders
             dirnames.clear()
 
     return results
@@ -77,7 +94,7 @@ def load_folder_locations(json_file: str) -> dict:
         return json.load(file)
 
 
-def nukleus_folders(file_name="nukleus_files.json", search=True):
+def nukleus_folders(file_name="nukleus_files.json", search=True)->dict:
     """
     Main function to return the nukleus folders. Searches if wanted, otherwise directly loads
     the json file.
