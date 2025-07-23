@@ -46,4 +46,4 @@ def mask_path(folder: str) -> str:
         resolution = "CEU-3"
     else:
         raise ValueError("could not identify which mask to use")
-    return f"/work/gg0302/g260190/rsds_analysis/Subregion_Masks/{resolution}/Germany_mask.nc"
+    return f"{resolution}_mask.nc"
