@@ -1,3 +1,6 @@
+import sys
+import datetime
+
 import calc_dunkelflaute
 import calc_pv
 import calc_wind
@@ -11,6 +14,7 @@ if __name__ == "__main__":
     )
 
     for folder_dict in nukleus_folders:
+        print(f"Start {folder_dict} at {datetime.datetime.now()}", file=sys.stderr)
         cf_wind = calc_wind.cf_wind(nukleus_folders[folder_dict], overwrite_existing)
         cf_pv = calc_pv.calculate_pv_main(
             nukleus_folders[folder_dict], overwrite_existing

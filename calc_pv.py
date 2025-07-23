@@ -3,8 +3,6 @@ This module calculates the PV capacity factor using temperature (tas) and radiat
 """
 
 import os
-import sys
-import time
 
 import numpy as np
 import xarray as xr
@@ -72,10 +70,7 @@ def relative_efficiency(
 
     # Efficiency model
     eff = (1 + a * delta_t) * (
-        1
-        + c1 * np.log(g_norm)
-        + c2 * np.log(g_norm) ** 2
-        + b * delta_t
+        1 + c1 * np.log(g_norm) + c2 * np.log(g_norm) ** 2 + b * delta_t
     )
     return eff
 
@@ -105,7 +100,16 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
     output_filename : str
         Final NetCDF file path to write.
     """
-    with xr.open_dataset(tas) as ds_tas, xr.open_dataset(rsds) as ds_rsds:
+    tas_dummy = "/scratch/g/g260190/tas_dummy.nc"
+    rsds_dummy = "/scratch/g/g260190/rsds_dummy.nc"
+    os.system(
+        f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds)} {tas} {tas_dummy}"
+    )
+    os.system(
+        f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds)} {rsds} {rsds_dummy}"
+    )
+
+    with xr.open_dataset(tas_dummy) as ds_tas, xr.open_dataset(rsds_dummy) as ds_rsds:
         # convert to °C
         tas_c = ds_tas["tas"] - 273.15
         g = ds_rsds["rsds"]
@@ -129,11 +133,7 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
         da["lat"].attrs = ds_tas["lat"].attrs
         da["lon"].attrs = ds_tas["lon"].attrs
 
-        da.to_netcdf("/scratch/g/g260190/dummy.nc")
-        os.system(
-            f"cdo -selindexbox,{hpf.get_indexbox(rsds)} -ifthen "
-            f"{hpf.mask_path(rsds)} /scratch/g/g260190/dummy.nc {output_filename}"
-        )
+        da.to_netcdf("output_filename")
 
 
 def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
@@ -148,7 +148,7 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
 
     os.system("rm /scratch/g/g260190/pv*.nc")
     output_filename = hpf.generate_filename(folder_dict["rsds"], "CF_PV")
-    cf_pv_output = os.path.join('CF_PV', output_filename)
+    cf_pv_output = os.path.join("CF_PV", output_filename)
     if not overwrite_existing and os.path.exists(cf_pv_output):
         return cf_pv_output
 
@@ -162,10 +162,7 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
         raise ValueError("tas and rsds folders do not have the same number of files")
 
     for index, (tas, rsds) in enumerate(zip(tas_files, rsds_files)):
-        start_time = time.time()
         calculate_capacity_factor_pv(tas, rsds, f"/scratch/g/g260190/pv_{index:03}.nc")
-        end_time = time.time()
-        print(f"Execution time calculate CF PV: {end_time - start_time:.4f} seconds", file=sys.stderr)
 
     os.system(f"cdo -z zip -cat /scratch/g/g260190/pv_???.nc {cf_pv_output}")
     os.system("rm /scratch/g/g260190/pv*.nc")
