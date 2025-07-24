@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+/misc.xml
+
+/__pycache__/
+/CF_PV/*.nc
+/CF_Wind/*.nc
+CF.o*
