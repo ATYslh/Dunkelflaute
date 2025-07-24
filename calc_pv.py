@@ -108,10 +108,10 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
     rsds_dummy = f"/scratch/g/g260190/rsds_{hashlib.md5(output_filename.encode()).hexdigest()}.nc"
     
     os.system(
-        f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds,'cdo')} {tas} {tas_dummy}"
+        f"cdo -s -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds,'cdo')} {tas} {tas_dummy}"
     )
     os.system(
-        f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds,'cdo')} {rsds} {rsds_dummy}"
+        f"cdo -s -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds,'cdo')} {rsds} {rsds_dummy}"
     )
 
     with xr.open_dataset(tas_dummy) as ds_tas, xr.open_dataset(rsds_dummy) as ds_rsds:
@@ -179,7 +179,7 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
             pass
 
     # concatenate and clean up
-    os.system(f"cdo -z zip -cat /scratch/g/g260190/pv_*.nc {cf_pv_output}")
+    os.system(f"cdo -s -z zip -cat /scratch/g/g260190/pv_*.nc {cf_pv_output}")
     os.system("rm -f /scratch/g/g260190/pv_*.nc")
     os.system("rm -f /scratch/g/g260190/tas_*.nc")
     os.system("rm -f /scratch/g/g260190/rsds_*.nc")

@@ -199,8 +199,8 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
     wind_cat = os.path.join(
         "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
     )
-    os.system(f"cdo -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}")
-    os.system(f"cdo -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}")
+    os.system(f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}")
+    os.system(f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}")
 
     # Clean up intermediate files
     os.system("rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc")
