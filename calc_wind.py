@@ -102,23 +102,24 @@ def _power_curve(ws: np.ndarray) -> np.ndarray:
 
 
 def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
-    """
-    Calculates the wind speed.
-    """
-    u_dummy = "/scratch/g/g260190/u_dummy.nc"
-    v_dummy = "/scratch/g/g260190/v_dummy.nc"
+    mask_path = hpf.mask_path(u_wind)
+    i0, i1, j0, j1 = map(int, hpf.get_indexbox(u_wind).split(","))
+    sel = dict(rlon=slice(i0, i1 + 1), rlat=slice(j0, j1 + 1))
+    with xr.open_dataset(mask_path) as mask_ds, xr.open_dataset(u_wind).isel(
+        **sel
+    ) as ds_u, xr.open_dataset(v_wind).isel(**sel) as ds_v:
+        mask = mask_ds["MASK"]
 
-    os.system(
-        f"cdo -ifthen {hpf.mask_path(u_wind)} -selindexbox,{hpf.get_indexbox(u_wind)} {u_wind} {u_dummy}"
-    )
-    os.system(
-        f"cdo -ifthen {hpf.mask_path(u_wind)} -selindexbox,{hpf.get_indexbox(u_wind)} {v_wind} {v_dummy}"
-    )
+        ds_u = xr.open_dataset(u_wind).isel(**sel)
+        ds_v = xr.open_dataset(v_wind).isel(**sel)
+        ua = ds_u["ua100m"]
+        va = ds_v["va100m"]
 
-    os.system(
-        f"cdo -expr,'sfcWind=hypot(ua100m,va100m)' "
-        f"-merge {u_dummy} {v_dummy} {outfile}"
-    )
+        sfcWind = xr.DataArray(
+            np.hypot(ua, va), coords=ua.coords, dims=ua.dims, name="sfcWind"
+        ).where(mask == 1)
+
+    sfcWind.to_dataset().to_netcdf(outfile)
 
 
 def calc_wind_capacity_factor(input_file: str, output_file: str):
