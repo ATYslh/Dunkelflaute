@@ -7,6 +7,7 @@ import os
 import sys
 
 import helper_functions as hpf
+import xarray as xr
 
 
 def generate_filename(folder: str, variable: str) -> str:
@@ -14,7 +15,7 @@ def generate_filename(folder: str, variable: str) -> str:
     Generates the filename of the final output.
     """
     parts = folder.split("/")
-    return "_".join([parts[4], parts[6], parts[7], parts[9], variable])
+    return "_".join([parts[4], parts[6], parts[7], parts[9], variable]) + ".nc"
 
 
 def get_sorted_nc_files(folder_path):
@@ -54,7 +55,7 @@ def mask_path(folder: str) -> str:
 
 
 def count_timesteps_in_all_files():
-    hpf.load_folder_locations("nukleus_files.json")
+    nukleus_folders = hpf.load_folder_locations("nukleus_files.json")
     time_set = set()
 
     for index, folder_dict in enumerate(nukleus_folders):
