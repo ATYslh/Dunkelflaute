@@ -3,12 +3,12 @@ This module calculates the windspeed and the wind capacity factor.
 """
 
 import os
+from multiprocessing import Pool
 
 import numpy as np
 import xarray as xr
 
 import helper_functions as hpf
-from multiprocessing import Pool
 
 _WIND = np.array(
     [
@@ -206,4 +206,3 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
     os.system("rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc")
 
     return cf_wind_output
-

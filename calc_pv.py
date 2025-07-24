@@ -3,12 +3,12 @@ This module calculates the PV capacity factor using temperature (tas) and radiat
 """
 
 import os
+from multiprocessing import Pool
 
 import numpy as np
 import xarray as xr
 
 import helper_functions as hpf
-from multiprocessing import Pool
 
 
 def module_temperature(

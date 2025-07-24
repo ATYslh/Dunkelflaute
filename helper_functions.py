@@ -2,13 +2,12 @@
 Helper functions.
 """
 
+import argparse
 import datetime
 import os
 import sys
 
-import helper_functions as hpf
 import xarray as xr
-import argparse
 
 
 def generate_filename(folder: str, variable: str) -> str:

@@ -12,7 +12,7 @@ def find_directories(root_dir: str, frequency: str) -> list[str]:
     we stop recursing and dive into its '1hr' subfolder. If within that
     subfolder we find all required variable-dirs, we record its full path.
     """
-    results=[]
+    results = []
     freq_tokens = {"1hr", "3hr", "6hr", "day", "mon"}
     required_vars = {"ua100m", "va100m", "rsds", "tas"}
 
@@ -94,7 +94,7 @@ def load_folder_locations(json_file: str) -> dict:
         return json.load(file)
 
 
-def nukleus_folders(file_name="nukleus_files.json", search=True)->dict:
+def nukleus_folders(file_name="nukleus_files.json", search=True) -> dict:
     """
     Main function to return the nukleus folders. Searches if wanted, otherwise directly loads
     the json file.

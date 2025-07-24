@@ -1,5 +1,5 @@
-import sys
 import datetime
+import sys
 
 import calc_dunkelflaute
 import calc_pv
