@@ -8,5 +8,6 @@
 /__pycache__/
 /CF_PV/*.nc
 /CF_Wind/*.nc
+/Dunkelflaute/*.nc
 /Wind/*.nc
 CF.o*
