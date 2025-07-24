@@ -133,7 +133,7 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
         da["lat"].attrs = ds_tas["lat"].attrs
         da["lon"].attrs = ds_tas["lon"].attrs
 
-        da.to_netcdf("output_filename")
+        da.to_netcdf(f"{output_filename}")
 
 
 def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
