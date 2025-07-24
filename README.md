@@ -1,7 +1,6 @@
 Plan for calculations
 
-TODO: Check if find_folder actually works as intended.
-
+TODO:
 13. Apply timmean_mean to create final output
 
 Create wind histograms:
