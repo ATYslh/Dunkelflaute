@@ -104,7 +104,7 @@ def _power_curve(ws: np.ndarray) -> np.ndarray:
 
 def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
     mask_path = hpf.mask_path(u_wind)
-    i0, i1, j0, j1 = map(int, hpf.get_indexbox(u_wind).split(","))
+    i0, i1, j0, j1 = map(int, hpf.get_indexbox(u_wind,'xarray').split(","))
     sel = dict(rlon=slice(i0, i1 + 1), rlat=slice(j0, j1 + 1))
     with xr.open_dataset(mask_path) as mask_ds, xr.open_dataset(u_wind).isel(
         **sel

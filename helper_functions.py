@@ -32,15 +32,21 @@ def get_sorted_nc_files(folder_path):
     return sorted(nc_files)
 
 
-def get_indexbox(folder: str):
+def get_indexbox(folder: str, process) -> str:
     """
     Returns the indices which are used to crop the field to only Germany.
     These are for the xarray version. If you use cdo you need to add +1 to each.
     """
     if "EUR-11" in folder:
-        return "189,240,184,253"
+        if process == "xarray":
+            return "189,240,184,253"
+        if process == "cdo":
+            return "190,241,185,254"
     if "CEU-3" in folder:
-        return "62,270,69,353"
+        if process == "xarray":
+            return "62,270,69,353"
+        if process == "cdo":
+            return "63,271,70,354"
     raise ValueError("could not identify which indexbox to use")
 
 

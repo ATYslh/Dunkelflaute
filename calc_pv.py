@@ -104,10 +104,10 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
     tas_dummy = "/scratch/g/g260190/tas_dummy.nc"
     rsds_dummy = "/scratch/g/g260190/rsds_dummy.nc"
     os.system(
-        f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds)} {tas} {tas_dummy}"
+        f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds,'cdo')} {tas} {tas_dummy}"
     )
     os.system(
-        f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds)} {rsds} {rsds_dummy}"
+        f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds,'cdo')} {rsds} {rsds_dummy}"
     )
 
     with xr.open_dataset(tas_dummy) as ds_tas, xr.open_dataset(rsds_dummy) as ds_rsds:
