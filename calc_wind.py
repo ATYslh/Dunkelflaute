@@ -8,6 +8,7 @@ import numpy as np
 import xarray as xr
 
 import helper_functions as hpf
+from multiprocessing import Pool
 
 _WIND = np.array(
     [
@@ -144,42 +145,65 @@ def calc_wind_capacity_factor(input_file: str, output_file: str):
         )
 
 
+def process_wind_task(args):
+    index, u_wind, v_wind = args
+    wind_file = f"/scratch/g/g260190/wind_{index:03}.nc"
+    cf_file = f"/scratch/g/g260190/cf_wind_{index:03}.nc"
+
+    try:
+        # Step 1: generate wind field
+        calculate_wind(u_wind, v_wind, wind_file)
+
+        # Step 2: compute capacity factor
+        calc_wind_capacity_factor(input_file=wind_file, output_file=cf_file)
+
+    except Exception:
+        raise
+
+    return wind_file, cf_file
+
+
 def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
     """
-    Main function for calculating the wind speed and wind capacity factor.
+    Main function for calculating wind speed fields and their capacity factors.
+    Returns the path to the concatenated CF file.
     """
-    os.system("rm /scratch/g/g260190/wind*.nc")
+    # Prepare output filenames and directories
     output_filename = hpf.generate_filename(folder_dict["ua100m"], "CF_Wind")
-    cf_wind_output = os.path.join(
-        "CF_Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
-    )
+
+    cf_wind_output = os.path.join("CF_Wind", output_filename)
     if not overwrite_existing and os.path.exists(cf_wind_output):
         return cf_wind_output
 
-    u_folder = folder_dict["ua100m"]
-    v_folder = folder_dict["va100m"]
+    # Clean up any old intermediate files
+    os.system("rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc")
 
-    u_files = hpf.get_sorted_nc_files(u_folder)
-    v_files = hpf.get_sorted_nc_files(v_folder)
-
+    # Gather input file lists
+    u_files = hpf.get_sorted_nc_files(folder_dict["ua100m"])
+    v_files = hpf.get_sorted_nc_files(folder_dict["va100m"])
     if len(u_files) != len(v_files):
-        raise ValueError(
-            "ua100m and va100m folders do not have the same number of files"
-        )
+        raise ValueError("ua100m and va100m folders have different file counts")
 
-    for index, (u_wind, v_wind) in enumerate(zip(u_files, v_files)):
-        wind_file = f"/scratch/g/g260190/wind_{index:03}.nc"
-        calculate_wind(u_wind, v_wind, wind_file)
+    # Prepare arguments for each worker
+    params = [(idx, u, v) for idx, (u, v) in enumerate(zip(u_files, v_files))]
 
-        calc_wind_capacity_factor(
-            input_file=wind_file,
-            output_file=f"/scratch/g/g260190/cf_wind_{index:03}.nc",
-        )
+    # Launch Pool and wait for all tasks to finish
+    num_procs = hpf.process_input_args()
+    with Pool(processes=num_procs) as pool:
+        for wind_file, cf_file in pool.imap_unordered(
+            process_wind_task, params, chunksize=1
+        ):
+            pass
 
-    os.system(
-        f"cdo -z zip -cat /scratch/g/g260190/wind_???.nc "
-        f"{os.path.join('Wind', output_filename)}"
+    # Concatenate all wind fields and CF files into final outputs
+    wind_cat = os.path.join(
+        "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
     )
-    os.system(f"cdo -z zip -cat /scratch/g/g260190/cf_wind_???.nc {cf_wind_output}")
-    os.system("rm /scratch/g/g260190/*wind*.nc")
+    os.system(f"cdo -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}")
+    os.system(f"cdo -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}")
+
+    # Clean up intermediate files
+    os.system("rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc")
+
     return cf_wind_output
+

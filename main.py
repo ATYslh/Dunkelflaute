@@ -10,7 +10,7 @@ if __name__ == "__main__":
     overwrite_existing = False
 
     nukleus_folders = find_data.nukleus_folders(
-        file_name="nukleus_files.json", search=True
+        file_name="nukleus_files.json", search=False
     )
 
     for folder_dict in nukleus_folders:

@@ -135,6 +135,11 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
 
         da.to_netcdf(f"{output_filename}")
 
+def _process_pv_task(args):
+    index, tas_file, rsds_file = args
+    out_file = f"/scratch/g/g260190/pv_{index:03}.nc"
+    calculate_capacity_factor_pv(tas_file, rsds_file, out_file)
+    return out_file
 
 def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
     """
@@ -145,25 +150,29 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
     Path
         Final concatenated CF_pv NetCDF file.
     """
+    # remove any old intermediates
+    os.system("rm -f /scratch/g/g260190/pv_*.nc")
 
-    os.system("rm /scratch/g/g260190/pv*.nc")
     output_filename = hpf.generate_filename(folder_dict["rsds"], "CF_PV")
     cf_pv_output = os.path.join("CF_PV", output_filename)
     if not overwrite_existing and os.path.exists(cf_pv_output):
         return cf_pv_output
 
-    tas_folder = folder_dict["tas"]
-    rsds_folder = folder_dict["rsds"]
-
-    tas_files = hpf.get_sorted_nc_files(tas_folder)
-    rsds_files = hpf.get_sorted_nc_files(rsds_folder)
-
+    # collect inputs
+    tas_files = hpf.get_sorted_nc_files(folder_dict["tas"])
+    rsds_files = hpf.get_sorted_nc_files(folder_dict["rsds"])
     if len(tas_files) != len(rsds_files):
         raise ValueError("tas and rsds folders do not have the same number of files")
 
-    for index, (tas, rsds) in enumerate(zip(tas_files, rsds_files)):
-        calculate_capacity_factor_pv(tas, rsds, f"/scratch/g/g260190/pv_{index:03}.nc")
+    params = [(i, t, r) for i, (t, r) in enumerate(zip(tas_files, rsds_files))]
 
-    os.system(f"cdo -z zip -cat /scratch/g/g260190/pv_???.nc {cf_pv_output}")
-    os.system("rm /scratch/g/g260190/pv*.nc")
+    # parallel compute per-file CF_pv
+    with Pool(processes=hpf.process_input_args()) as pool:
+        for _ in pool.imap_unordered(_process_pv_task, params, chunksize=1):
+            pass
+
+    # concatenate and clean up
+    os.system(f"cdo -z zip -cat /scratch/g/g260190/pv_*.nc {cf_pv_output}")
+    os.system("rm -f /scratch/g/g260190/pv_*.nc")
+
     return cf_pv_output

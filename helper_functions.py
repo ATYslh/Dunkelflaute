@@ -8,6 +8,7 @@ import sys
 
 import helper_functions as hpf
 import xarray as xr
+import argparse
 
 
 def generate_filename(folder: str, variable: str) -> str:
@@ -71,3 +72,14 @@ def count_timesteps_in_all_files():
                     time_set.add(len(df.time))
 
     print(time_set)
+
+
+def process_input_args() -> int:
+    parser = argparse.ArgumentParser(
+        description="Process input arguments for CMOR check tool."
+    )
+
+    parser.add_argument("-c", "--cpu", type=int, default=1, help="SLURM CPUS PER TASK")
+    args = parser.parse_args()
+
+    return args.cpu
