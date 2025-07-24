@@ -12,5 +12,4 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --account=bb1203
 
-export CDO_DISABLE_CDI_WARNINGS=1
 srun python3 main.py -c ${SLURM_CPUS_PER_TASK}
