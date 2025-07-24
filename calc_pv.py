@@ -5,6 +5,7 @@ This module calculates the PV capacity factor using temperature (tas) and radiat
 import os
 from multiprocessing import Pool
 
+import hashlib
 import numpy as np
 import xarray as xr
 
@@ -101,8 +102,11 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
     output_filename : str
         Final NetCDF file path to write.
     """
-    tas_dummy = "/scratch/g/g260190/tas_dummy.nc"
-    rsds_dummy = "/scratch/g/g260190/rsds_dummy.nc"
+    tas_dummy = (
+        f"/scratch/g/g260190/tas_{hashlib.md5(output_filename.encode()).hexdigest()}.nc"
+    )
+    rsds_dummy = f"/scratch/g/g260190/rsds_{hashlib.md5(output_filename.encode()).hexdigest()}.nc"
+    
     os.system(
         f"cdo -ifthen {hpf.mask_path(rsds)} -selindexbox,{hpf.get_indexbox(rsds,'cdo')} {tas} {tas_dummy}"
     )
@@ -177,5 +181,7 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
     # concatenate and clean up
     os.system(f"cdo -z zip -cat /scratch/g/g260190/pv_*.nc {cf_pv_output}")
     os.system("rm -f /scratch/g/g260190/pv_*.nc")
+    os.system("rm -f /scratch/g/g260190/tas_*.nc")
+    os.system("rm -f /scratch/g/g260190/rsds_*.nc")
 
     return cf_pv_output
