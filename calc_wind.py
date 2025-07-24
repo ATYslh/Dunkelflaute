@@ -133,13 +133,13 @@ def calc_wind_capacity_factor(input_file: str, output_file: str):
                 dask="parallelized",
                 output_dtypes=[np.float32],
             )
-            .rename("CF_wind")
+            .rename("CF_Wind")
             .assign_attrs(units="-")
         )
 
         power.to_netcdf(
             output_file,
-            encoding={"CF_wind": {"zlib": True, "complevel": 4}},
+            encoding={"CF_Wind": {"zlib": True, "complevel": 4}},
         )
 
 

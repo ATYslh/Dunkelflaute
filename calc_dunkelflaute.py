@@ -27,7 +27,7 @@ def calculate_dunkelflaute(wind_filename: str, pv_filename: str, overwrite_exist
             pv_filename
     ) as pv:
         dunkelflaute = np.logical_and(
-            wind["CF_wind"] < 0.2, pv["pv_capacity_factor"] < 0.2
+            wind["CF_wind"] < 0.2, pv["CF_PV"] < 0.2
         )
         dunkelflaute = np.where(np.isnan(wind["CF_wind"]), np.nan, dunkelflaute)
 

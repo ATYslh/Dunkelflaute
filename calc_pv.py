@@ -124,7 +124,7 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
             pv_cap_np,
             coords=tas_c.coords,
             dims=tas_c.dims,
-            name="CF_pv",
+            name="CF_PV",
         )
         da.attrs["long_name"] = "PV capacity factor"
         da.attrs["units"] = "1"  # unitless fraction
