@@ -8,6 +8,7 @@ import numpy as np
 import xarray as xr
 
 import helper_functions as hpf
+from multiprocessing import Pool
 
 
 def module_temperature(
@@ -135,11 +136,13 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str):
 
         da.to_netcdf(f"{output_filename}")
 
+
 def _process_pv_task(args):
     index, tas_file, rsds_file = args
     out_file = f"/scratch/g/g260190/pv_{index:03}.nc"
     calculate_capacity_factor_pv(tas_file, rsds_file, out_file)
     return out_file
+
 
 def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
     """
