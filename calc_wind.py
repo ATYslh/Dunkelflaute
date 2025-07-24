@@ -111,16 +111,14 @@ def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
     ) as ds_u, xr.open_dataset(v_wind).isel(**sel) as ds_v:
         mask = mask_ds["MASK"]
 
-        ds_u = xr.open_dataset(u_wind).isel(**sel)
-        ds_v = xr.open_dataset(v_wind).isel(**sel)
         ua = ds_u["ua100m"]
         va = ds_v["va100m"]
 
-        sfcWind = xr.DataArray(
+        sfcwind = xr.DataArray(
             np.hypot(ua, va), coords=ua.coords, dims=ua.dims, name="sfcWind"
         ).where(mask == 1)
 
-    sfcWind.to_dataset().to_netcdf(outfile)
+    sfcwind.to_dataset().to_netcdf(outfile)
 
 
 def calc_wind_capacity_factor(input_file: str, output_file: str):
@@ -190,9 +188,7 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
     # Launch Pool and wait for all tasks to finish
     num_procs = hpf.process_input_args()
     with Pool(processes=num_procs) as pool:
-        for wind_file, cf_file in pool.imap_unordered(
-            process_wind_task, params, chunksize=1
-        ):
+        for _, _ in pool.imap_unordered(process_wind_task, params, chunksize=1):
             pass
 
     # Concatenate all wind fields and CF files into final outputs

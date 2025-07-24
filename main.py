@@ -20,5 +20,8 @@ if __name__ == "__main__":
         cf_pv = calc_pv.calculate_pv_main(
             nukleus_folders[folder_dict], overwrite_existing
         )
-        print(f"Start Dunkelflaute {folder_dict} at {datetime.datetime.now()}", file=sys.stderr)
+        print(
+            f"Start Dunkelflaute {folder_dict} at {datetime.datetime.now()}",
+            file=sys.stderr,
+        )
         calc_dunkelflaute.calculate_dunkelflaute(cf_wind, cf_pv, overwrite_existing)
