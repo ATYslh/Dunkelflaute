@@ -9,6 +9,8 @@ import sys
 
 import xarray as xr
 
+import find_data
+
 
 def generate_filename(folder: str, variable: str) -> str:
     """
@@ -56,7 +58,7 @@ def mask_path(folder: str) -> str:
 
 
 def count_timesteps_in_all_files():
-    nukleus_folders = hpf.load_folder_locations("nukleus_files.json")
+    nukleus_folders = find_data.load_folder_locations("nukleus_files.json")
     time_set = set()
 
     for index, folder_dict in enumerate(nukleus_folders):
