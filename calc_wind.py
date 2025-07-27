@@ -155,8 +155,11 @@ def process_wind_task(args):
         # Step 2: compute capacity factor
         calc_wind_capacity_factor(input_file=wind_file, output_file=cf_file)
 
-    except Exception:
-        raise
+    except Exception as e:
+        raise RuntimeError(
+            f"Failed to process wind task with inputs: index={index}, "
+            f"u_wind={repr(u_wind)}, v_wind={repr(v_wind)}. Error: {e}"
+        ) from e
 
     return wind_file, cf_file
 
