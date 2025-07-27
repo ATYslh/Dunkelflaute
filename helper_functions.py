@@ -7,6 +7,7 @@ import datetime
 import os
 import sys
 
+import subprocess
 import xarray as xr
 
 import find_data
@@ -32,7 +33,7 @@ def get_sorted_nc_files(folder_path):
     return sorted(nc_files)
 
 
-def get_indexbox(folder: str, process:str="xarray") -> str:
+def get_indexbox(folder: str, process: str = "xarray") -> str:
     """
     Returns the indices which are used to crop the field to only Germany.
     These are for the xarray version. If you use cdo you need to add +1 to each.
@@ -90,3 +91,10 @@ def process_input_args() -> int:
     args = parser.parse_args()
 
     return args.cpu
+
+
+def run_shell_command(command: str, time_minutes: int) -> None:
+    try:
+        subprocess.run(command, timeout=60 * time_minutes, shell=True)
+    except subprocess.TimeoutExpired:
+        print(f"The following command timed out: {command}", file=sys.stderr)

@@ -89,6 +89,7 @@ def capacity_factor(
     """
     return h_rel * (g / g_stc)
 
+
 def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str) -> None:
     """
     Read tas and rsds, compute CF_PV, apply spatial mask via xarray, and save result.
@@ -106,12 +107,12 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str) -> N
     sel = dict(rlon=slice(i0, i1 + 1), rlat=slice(j0, j1 + 1))
 
     # 2. open mask, tas, rsds in one context and slice them
-    with xr.open_dataset(mask_path) as mask_ds, \
-         xr.open_dataset(tas).isel(**sel) as ds_tas, \
-         xr.open_dataset(rsds).isel(**sel) as ds_rsds:
+    with xr.open_dataset(mask_path) as mask_ds, xr.open_dataset(tas).isel(
+        **sel
+    ) as ds_tas, xr.open_dataset(rsds).isel(**sel) as ds_rsds:
 
-        mask = mask_ds["MASK"]               # (rlat, rlon)
-        tas_c = ds_tas["tas"] - 273.15       # convert to °C
+        mask = mask_ds["MASK"]  # (rlat, rlon)
+        tas_c = ds_tas["tas"] - 273.15  # convert to °C
         g = ds_rsds["rsds"].where(ds_rsds["rsds"] >= 1, 1)  # avoid zeros
 
         # 3. do the numpy-based PV efficiency & capacity computations
@@ -120,10 +121,7 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str) -> N
 
         # 4. wrap back into xarray, reapply mask
         da = xr.DataArray(
-            pv_cap_np,
-            coords=tas_c.coords,
-            dims=tas_c.dims,
-            name="CF_PV"
+            pv_cap_np, coords=tas_c.coords, dims=tas_c.dims, name="CF_PV"
         ).where(mask == 1)
 
         # preserve metadata
@@ -134,6 +132,7 @@ def calculate_capacity_factor_pv(tas: str, rsds: str, output_filename: str) -> N
 
         # 5. write out
         da.to_dataset().to_netcdf(output_filename)
+
 
 def _process_pv_task(args):
     index, tas_file, rsds_file = args
@@ -152,7 +151,7 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
         Final concatenated CF_pv NetCDF file.
     """
     # remove any old intermediates
-    os.system("rm -f /scratch/g/g260190/pv_*.nc")
+    hpf.run_shell_command("rm -f /scratch/g/g260190/pv_*.nc", 5)
 
     output_filename = hpf.generate_filename(folder_dict["rsds"], "CF_PV")
     cf_pv_output = os.path.join("CF_PV", output_filename)
@@ -173,9 +172,11 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
             pass
 
     # concatenate and clean up
-    os.system(f"cdo -s -z zip -cat /scratch/g/g260190/pv_*.nc {cf_pv_output}")
-    os.system("rm -f /scratch/g/g260190/pv_*.nc")
-    os.system("rm -f /scratch/g/g260190/tas_*.nc")
-    os.system("rm -f /scratch/g/g260190/rsds_*.nc")
+    hpf.run_shell_command(
+        f"cdo -s -z zip -cat /scratch/g/g260190/pv_*.nc {cf_pv_output}", 20
+    )
+    hpf.run_shell_command("rm -f /scratch/g/g260190/pv_*.nc", 5)
+    hpf.run_shell_command("rm -f /scratch/g/g260190/tas_*.nc", 5)
+    hpf.run_shell_command("rm -f /scratch/g/g260190/rsds_*.nc", 5)
 
     return cf_pv_output

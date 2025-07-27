@@ -174,7 +174,9 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
         return cf_wind_output
 
     # Clean up any old intermediate files
-    os.system("rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc")
+    hpf.run_shell_command(
+        "rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc", 5
+    )
 
     # Gather input file lists
     u_files = hpf.get_sorted_nc_files(folder_dict["ua100m"])
@@ -195,10 +197,16 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
     wind_cat = os.path.join(
         "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
     )
-    os.system(f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}")
-    os.system(f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}")
+    hpf.run_shell_command(
+        f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}", 20
+    )
+    hpf.run_shell_command(
+        f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}", 20
+    )
 
     # Clean up intermediate files
-    os.system("rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc")
+    hpf.run_shell_command(
+        "rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc", 6
+    )
 
     return cf_wind_output
