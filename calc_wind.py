@@ -5,6 +5,8 @@ This module calculates the windspeed and the wind capacity factor.
 import os
 from multiprocessing import Pool
 
+
+import hashlib
 import numpy as np
 import xarray as xr
 
@@ -103,22 +105,24 @@ def _power_curve(ws: np.ndarray) -> np.ndarray:
 
 
 def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
+    """
+    Calculates the wind speed.
+    """
+    u_dummy = f"/scratch/g/g260190/u_{hashlib.md5(outfile.encode()).hexdigest()}.nc"
+    v_dummy = f"/scratch/g/g260190/v_{hashlib.md5(outfile.encode()).hexdigest()}.nc"
+    indexbox = hpf.get_indexbox(u_wind, "cdo")
     mask_path = hpf.mask_path(u_wind)
-    i0, i1, j0, j1 = map(int, hpf.get_indexbox(u_wind).split(","))
-    sel = dict(rlon=slice(i0, i1 + 1), rlat=slice(j0, j1 + 1))
-    with xr.open_dataset(mask_path) as mask_ds, xr.open_dataset(u_wind).isel(
-        **sel
-    ) as ds_u, xr.open_dataset(v_wind).isel(**sel) as ds_v:
-        mask = mask_ds["MASK"]
-
-        ua = ds_u["ua100m"]
-        va = ds_v["va100m"]
-
-        sfcwind = xr.DataArray(
-            np.hypot(ua, va), coords=ua.coords, dims=ua.dims, name="sfcWind"
-        ).where(mask == 1)
-
-    sfcwind.to_dataset().to_netcdf(outfile)
+    hpf.run_shell_command(
+        f"cdo -ifthen {mask_path} -selindexbox,{indexbox} {u_wind} {u_dummy}", 5
+    )
+    hpf.run_shell_command(
+        f"cdo -ifthen {mask_path} -selindexbox,{indexbox} {v_wind} {v_dummy}", 5
+    )
+    hpf.run_shell_command(
+        f"cdo -expr,'sfcWind=hypot(ua100m,va100m)' "
+        f"-merge {u_dummy} {v_dummy} {outfile}",
+        5,
+    )
 
 
 def calc_wind_capacity_factor(input_file: str, output_file: str):
@@ -164,7 +168,7 @@ def process_wind_task(args):
     return wind_file, cf_file
 
 
-def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
+def cf_wind(folder_dict: dict, overwrite_existing: bool):
     """
     Main function for calculating wind speed fields and their capacity factors.
     Returns the path to the concatenated CF file.
@@ -184,6 +188,7 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
     # Gather input file lists
     u_files = hpf.get_sorted_nc_files(folder_dict["ua100m"])
     v_files = hpf.get_sorted_nc_files(folder_dict["va100m"])
+
     if len(u_files) != len(v_files):
         raise ValueError("ua100m and va100m folders have different file counts")
 
@@ -201,15 +206,8 @@ def cf_wind(folder_dict: dict, overwrite_existing: bool) -> str:
         "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
     )
     hpf.run_shell_command(
-        f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}", 20
+        f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}", 60
     )
     hpf.run_shell_command(
-        f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}", 20
+        f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}", 60
     )
-
-    # Clean up intermediate files
-    hpf.run_shell_command(
-        "rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc", 6
-    )
-
-    return cf_wind_output
