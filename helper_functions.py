@@ -21,14 +21,16 @@ def generate_filename(folder: str, variable: str) -> str:
     return "_".join([parts[4], parts[6], parts[7], parts[9], variable]) + ".nc"
 
 
-def get_sorted_nc_files(folder_path):
+def get_sorted_nc_files(folder_path: str, substring=None):
     """
     Returns a sorted list of all nc_files in the folder_path.
     """
     nc_files = [
         os.path.join(folder_path, f)
         for f in os.listdir(folder_path)
-        if f.endswith(".nc") and os.path.isfile(os.path.join(folder_path, f))
+        if f.endswith(".nc")
+        and os.path.isfile(os.path.join(folder_path, f))
+        and (substring is None or substring in f)
     ]
     return sorted(nc_files)
 
@@ -98,3 +100,15 @@ def run_shell_command(command: str, time_minutes: int) -> None:
         subprocess.run(command, timeout=60 * time_minutes, shell=True)
     except subprocess.TimeoutExpired:
         print(f"The following command timed out: {command}", file=sys.stderr)
+
+
+def clean_up():
+    run_shell_command(
+        "rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc", 5
+    )
+    run_shell_command("rm -f /scratch/g/g260190/pv_*.nc", 5)
+    run_shell_command("rm -f /scratch/g/g260190/tas_*.nc", 5)
+    run_shell_command("rm -f /scratch/g/g260190/rsds_*.nc", 5)
+    run_shell_command("rm -f /scratch/g/g260190/dummy.nc", 5)
+    run_shell_command("rm -f /scratch/g/g260190/u_*.nc", 5)
+    run_shell_command("rm -f /scratch/g/g260190/v_*.nc", 5)
