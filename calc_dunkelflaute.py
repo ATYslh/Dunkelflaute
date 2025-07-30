@@ -3,6 +3,7 @@ This calculates the dunkelflaute.
 """
 
 import os
+from multiprocessing import Pool
 
 import numpy as np
 import xarray as xr
@@ -10,22 +11,8 @@ import xarray as xr
 import helper_functions as hpf
 
 
-def calculate_dunkelflaute(
-    wind_filename: str, pv_filename: str, overwrite_existing: bool
-) -> None:
-    """
-    This function calculates the Dunkelflauten file. Uses 20% threshold.
-    :param wind_filename:
-    :param pv_filename:
-    :param overwrite_existing:
-    :return: None
-    """
-    output_filename = os.path.basename(pv_filename).replace("CF_PV", "Dunkelflaute")
-    outfile_name = os.path.join("Dunkelflaute", output_filename)
-    if not overwrite_existing and os.path.exists(outfile_name):
-        return
-
-    with xr.open_dataset(wind_filename) as wind, xr.open_dataset(pv_filename) as pv:
+def dunkelflaute_calcs(cf_wind_file, cf_pv_file, out_file):
+    with xr.open_dataset(cf_wind_file) as wind, xr.open_dataset(cf_pv_file) as pv:
         dunkelflaute = np.logical_and(wind["CF_Wind"] < 0.2, pv["CF_PV"] < 0.2)
         dunkelflaute = np.where(np.isnan(wind["CF_Wind"]), np.nan, dunkelflaute)
 
@@ -38,6 +25,47 @@ def calculate_dunkelflaute(
         da.attrs["long_name"] = "Dunkelflaute"
         da.attrs["units"] = "1"  # unitless fraction
 
-        temp_file_name = "/scratch/g/g260190/dummy.nc"
-        da.to_netcdf(temp_file_name)
-        hpf.run_shell_command(f"cdo -z zip -copy {temp_file_name} {outfile_name}", 20)
+        da.to_netcdf(out_file)
+
+
+def _process_dunkelflaute_task(args):
+    index, cf_wind_file, cf_pv_file = args
+    out_file = f"/scratch/g/g260190/dunkelflaute_{index:03}.nc"
+    dunkelflaute_calcs(cf_wind_file, cf_pv_file, out_file)
+    return out_file
+
+
+def calculate_dunkelflaute(folder_dict: dict, overwrite_existing: bool) -> None:
+    """
+    This function calculates the Dunkelflauten file. Uses 20% threshold.
+    :param wind_filename:
+    :param pv_filename:
+    :param overwrite_existing:
+    :return: None
+    """
+    output_filename = hpf.generate_filename(folder_dict["ua100m"], "Dunkelflaute")
+    outfile_name = os.path.join("Dunkelflaute", output_filename)
+    if not overwrite_existing and os.path.exists(outfile_name):
+        return
+
+    cf_wind_files = hpf.get_sorted_nc_files(
+        folder_path="/scratch/g/g260190/", substring="cf_wind"
+    )
+    cf_pv_files = hpf.get_sorted_nc_files(
+        folder_path="/scratch/g/g260190/", substring="pv_"
+    )
+    if len(cf_wind_files) != len(cf_pv_files):
+        raise ValueError("tas and rsds folders do not have the same number of files")
+
+    params = [(i, t, r) for i, (t, r) in enumerate(zip(cf_wind_files, cf_pv_files))]
+
+    # parallel compute per-file CF_pv
+    with Pool(processes=hpf.process_input_args()) as pool:
+        for _ in pool.imap_unordered(_process_dunkelflaute_task, params, chunksize=1):
+            pass
+
+    hpf.run_shell_command(
+        f"cdo -s -z zip -cat /scratch/g/g260190/dunkelflaute_*.nc {outfile_name}", 60
+    )
+
+    
