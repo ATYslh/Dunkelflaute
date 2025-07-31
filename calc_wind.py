@@ -240,13 +240,13 @@ def calc_wind_capacity_factor(
 
 def process_wind_task(args):
     index, u_wind, v_wind, calc_info = args
-    calculte_wind, calculte_cf_wind, use_power_curve_5 = calc_info
+    calculte_wind_bool, calculte_cf_wind, use_power_curve_5 = calc_info
     wind_file = f"/scratch/g/g260190/wind_{index:03}.nc"
     cf_file = f"/scratch/g/g260190/cf_wind_{index:03}.nc"
 
     try:
         # Step 1: generate wind field
-        if calculte_wind:
+        if calculte_wind_bool:
             calculate_wind(u_wind, v_wind, wind_file)
 
         # Step 2: compute capacity factor
@@ -310,7 +310,7 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
         "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
     )
 
-    calculte_wind, calculte_cf_wind = check_what_to_calc(
+    calculte_wind_bool, calculte_cf_wind = check_what_to_calc(
         config, wind_cat, output_filename
     )
 
@@ -325,7 +325,11 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
         raise ValueError("ua100m and va100m folders have different file counts")
 
     # Prepare arguments for each worker
-    calc_info = (calculte_wind, calculte_cf_wind, config["use_power_curve_5"])
+    calc_info = (
+        calculte_wind_bool,
+        calculte_cf_wind,
+        config["CF_Wind"]["use_power_curve_5"],
+    )
     params = [
         (idx, u, v, calc_info) for idx, (u, v) in enumerate(zip(u_files, v_files))
     ]
