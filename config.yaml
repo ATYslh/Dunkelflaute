@@ -1,0 +1,16 @@
+Wind:
+  overwrite: false
+  split: true
+
+CF_WIND:
+  overwrite: true
+  split: false
+  power: 3_3
+  
+CF_PV:
+  overwrite: false
+  split: true
+
+Dunkelflaute:
+  overwrite: true
+  split: false

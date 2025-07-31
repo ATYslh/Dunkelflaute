@@ -168,7 +168,7 @@ def process_wind_task(args):
     return wind_file, cf_file
 
 
-def cf_wind(folder_dict: dict, overwrite_existing: bool):
+def cf_wind(folder_dict: dict, config: dict) -> None:
     """
     Main function for calculating wind speed fields and their capacity factors.
     Returns the path to the concatenated CF file.

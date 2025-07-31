@@ -6,6 +6,7 @@ import argparse
 import datetime
 import os
 import sys
+import yaml
 
 import subprocess
 import xarray as xr
@@ -112,3 +113,8 @@ def clean_up():
     run_shell_command("rm -f /scratch/g/g260190/dummy.nc", 5)
     run_shell_command("rm -f /scratch/g/g260190/u_*.nc", 5)
     run_shell_command("rm -f /scratch/g/g260190/v_*.nc", 5)
+
+
+def read_config_file(path: str) -> dict:
+    with open(path, "r") as file:
+        config = yaml.safe_load(file)
