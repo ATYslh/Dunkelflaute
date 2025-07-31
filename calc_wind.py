@@ -240,11 +240,13 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
             pass
 
     # Concatenate all wind fields and CF files into final outputs
-    hpf.run_shell_command(
-        f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}", 60
-    )
-    hpf.run_shell_command(
-        f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}", 60
-    )
+    if calculate_wind:
+        hpf.run_shell_command(
+            f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}", 60
+        )
+    if calc_wind_capacity_factor:
+        hpf.run_shell_command(
+            f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}", 60
+        )
 
     return None
