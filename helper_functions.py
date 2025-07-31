@@ -126,5 +126,5 @@ def split_file(path: str, prefix: str) -> None:
     # rename the split files
     nc_files = get_sorted_nc_files("/scratch/g/g260190/", prefix)
     for i, filename in enumerate(nc_files, start=1):
-        new_name = f"{prefix}{i:03d}.nc"
+        new_name = f"/scratch/g/g260190/{prefix}{i:03d}.nc"
         os.rename(filename, new_name)
