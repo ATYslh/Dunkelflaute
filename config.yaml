@@ -2,7 +2,7 @@ Wind:
   overwrite: false
   split: true
 
-CF_WIND:
+CF_Wind:
   overwrite: true
   split: false
   power: 3_3
