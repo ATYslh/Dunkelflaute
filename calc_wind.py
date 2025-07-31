@@ -178,7 +178,10 @@ def early_exit(config: dict, cf_wind_output: str) -> bool:
         return True
     return False
 
-def check_what_to_calc(config:dict,wind_cat:str,output_filename:str)->tuple[bool,bool]:
+
+def check_what_to_calc(
+    config: dict, wind_cat: str, output_filename: str
+) -> tuple[bool, bool]:
     calculte_wind = True
     if config["Wind"]["split"]:
         calculte_wind = False
@@ -189,6 +192,7 @@ def check_what_to_calc(config:dict,wind_cat:str,output_filename:str)->tuple[bool
         calculte_cf_wind = False
         hpf.split_file(output_filename, "cf_wind_")
     return calculte_wind, calculte_cf_wind
+
 
 def cf_wind(folder_dict: dict, config: dict) -> None:
     """
@@ -209,7 +213,9 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
         "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
     )
 
-    calculte_wind,calculte_cf_wind=check_what_to_calc(config,wind_cat,output_filename)
+    calculte_wind, calculte_cf_wind = check_what_to_calc(
+        config, wind_cat, output_filename
+    )
 
     if early_exit(config, wind_cat):
         return None

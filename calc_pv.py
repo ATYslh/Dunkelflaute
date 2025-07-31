@@ -150,7 +150,7 @@ def _process_pv_task(args):
     return out_file
 
 
-def calculate_pv_main(folder_dict: dict, config:dict) -> None:
+def calculate_pv_main(folder_dict: dict, config: dict) -> None:
     """
     Loop through sorted tas/rsds files, compute per-file CF_pv, then concatenate.
 
@@ -166,8 +166,8 @@ def calculate_pv_main(folder_dict: dict, config:dict) -> None:
     cf_pv_output = os.path.join("CF_PV", output_filename)
 
     if config["CF_PV"]["split"]:
-        hpf.split_file(output_filename,"pv_")
-        
+        hpf.split_file(output_filename, "pv_")
+
     if not config["CF_PV"]["overwrite"] and os.path.exists(cf_pv_output):
         return None
 

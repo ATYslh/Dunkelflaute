@@ -12,7 +12,7 @@ if __name__ == "__main__":
         file_name="nukleus_files.json", search=False
     )
 
-    config=hpf.read_config_file("config.yaml")
+    config = hpf.read_config_file("config.yaml")
 
     for index, folder_dict in enumerate(nukleus_folders):
         loop_start_time = datetime.datetime.now()
@@ -32,8 +32,7 @@ if __name__ == "__main__":
             f"[{index+1}/{len(nukleus_folders)}] Start Dunkelflaute {folder_dict} at {datetime.datetime.now()}",
             file=sys.stderr,
         )
-        calc_dunkelflaute.calculate_dunkelflaute(
-            nukleus_folders[folder_dict], config
-        )
+        calc_dunkelflaute.calculate_dunkelflaute(nukleus_folders[folder_dict], config)
+        
         if (datetime.datetime.now() - loop_start_time).seconds > 120:
             hpf.clean_up()
