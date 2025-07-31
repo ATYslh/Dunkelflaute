@@ -2,11 +2,10 @@
 This module calculates the windspeed and the wind capacity factor.
 """
 
+import hashlib
 import os
 from multiprocessing import Pool
 
-
-import hashlib
 import numpy as np
 import xarray as xr
 
@@ -148,16 +147,18 @@ def calc_wind_capacity_factor(input_file: str, output_file: str):
 
 
 def process_wind_task(args):
-    index, u_wind, v_wind = args
+    index, u_wind, v_wind, calculte_wind, calculte_cf_wind = args
     wind_file = f"/scratch/g/g260190/wind_{index:03}.nc"
     cf_file = f"/scratch/g/g260190/cf_wind_{index:03}.nc"
 
     try:
         # Step 1: generate wind field
-        calculate_wind(u_wind, v_wind, wind_file)
+        if calculte_wind:
+            calculate_wind(u_wind, v_wind, wind_file)
 
         # Step 2: compute capacity factor
-        calc_wind_capacity_factor(input_file=wind_file, output_file=cf_file)
+        if calculte_cf_wind:
+            calc_wind_capacity_factor(input_file=wind_file, output_file=cf_file)
 
     except Exception as e:
         raise RuntimeError(
@@ -168,6 +169,27 @@ def process_wind_task(args):
     return wind_file, cf_file
 
 
+def early_exit(config: dict, cf_wind_output: str) -> bool:
+    if (
+        not config["Wind"]["overwrite"]
+        and not config["CF_Wind"]["overwrite"]
+        and os.path.exists(cf_wind_output)
+    ):
+        return True
+    return False
+
+def check_what_to_calc(config:dict,wind_cat:str,output_filename:str)->tuple[bool,bool]:
+    calculte_wind = True
+    if config["Wind"]["split"]:
+        calculte_wind = False
+        hpf.split_file(wind_cat, "wind_")
+
+    calculte_cf_wind = True
+    if config["CF_Wind"]["split"]:
+        calculte_cf_wind = False
+        hpf.split_file(output_filename, "cf_wind_")
+    return calculte_wind, calculte_cf_wind
+
 def cf_wind(folder_dict: dict, config: dict) -> None:
     """
     Main function for calculating wind speed fields and their capacity factors.
@@ -177,13 +199,20 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
     output_filename = hpf.generate_filename(folder_dict["ua100m"], "CF_Wind")
 
     cf_wind_output = os.path.join("CF_Wind", output_filename)
-    if not overwrite_existing and os.path.exists(cf_wind_output):
-        return cf_wind_output
 
     # Clean up any old intermediate files
     hpf.run_shell_command(
         "rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc", 5
     )
+
+    wind_cat = os.path.join(
+        "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
+    )
+
+    calculte_wind,calculte_cf_wind=check_what_to_calc(config,wind_cat,output_filename)
+
+    if early_exit(config, wind_cat):
+        return None
 
     # Gather input file lists
     u_files = hpf.get_sorted_nc_files(folder_dict["ua100m"])
@@ -193,7 +222,10 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
         raise ValueError("ua100m and va100m folders have different file counts")
 
     # Prepare arguments for each worker
-    params = [(idx, u, v) for idx, (u, v) in enumerate(zip(u_files, v_files))]
+    params = [
+        (idx, u, v, calculte_wind, calculte_cf_wind)
+        for idx, (u, v) in enumerate(zip(u_files, v_files))
+    ]
 
     # Launch Pool and wait for all tasks to finish
     num_procs = hpf.process_input_args()
@@ -202,12 +234,11 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
             pass
 
     # Concatenate all wind fields and CF files into final outputs
-    wind_cat = os.path.join(
-        "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
-    )
     hpf.run_shell_command(
         f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}", 60
     )
     hpf.run_shell_command(
         f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}", 60
     )
+
+    return None

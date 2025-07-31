@@ -7,7 +7,6 @@ import calc_wind
 import find_data
 import helper_functions as hpf
 
-
 if __name__ == "__main__":
     nukleus_folders = find_data.nukleus_folders(
         file_name="nukleus_files.json", search=False

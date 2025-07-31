@@ -35,7 +35,7 @@ def _process_dunkelflaute_task(args):
     return out_file
 
 
-def calculate_dunkelflaute(folder_dict: dict, overwrite_existing: bool) -> None:
+def calculate_dunkelflaute(folder_dict: dict, config:dict) -> None:
     """
     This function calculates the Dunkelflauten file. Uses 20% threshold.
     :param wind_filename:
@@ -45,7 +45,7 @@ def calculate_dunkelflaute(folder_dict: dict, overwrite_existing: bool) -> None:
     """
     output_filename = hpf.generate_filename(folder_dict["ua100m"], "Dunkelflaute")
     outfile_name = os.path.join("Dunkelflaute", output_filename)
-    if not overwrite_existing and os.path.exists(outfile_name):
+    if not config["Dunkelflaute"]["overwrite"] and os.path.exists(outfile_name):
         return
 
     cf_wind_files = hpf.get_sorted_nc_files(

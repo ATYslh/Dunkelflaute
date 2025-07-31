@@ -5,11 +5,11 @@ Helper functions.
 import argparse
 import datetime
 import os
-import sys
-import yaml
-
 import subprocess
+import sys
+
 import xarray as xr
+import yaml
 
 import find_data
 
@@ -119,3 +119,11 @@ def read_config_file(path: str) -> dict:
     with open(path, "r") as file:
         config = yaml.safe_load(file)
         return config
+
+def split_file(path:str,prefix:str)->None:
+    run_shell_command(f"cdo splityear {path} {prefix}",20)
+    #rename the split files
+    nc_files=get_sorted_nc_files("/scratch/g/g260190/",prefix)
+    for i, filename in enumerate(nc_files, start=1):
+        new_name = f"{prefix}{i:03d}.nc"
+        os.rename(filename, new_name)

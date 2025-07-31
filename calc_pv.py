@@ -2,9 +2,10 @@
 This module calculates the PV capacity factor using temperature (tas) and radiation (rsds).
 """
 
+import hashlib
 import os
 from multiprocessing import Pool
-import hashlib
+
 import numpy as np
 import xarray as xr
 
@@ -149,7 +150,7 @@ def _process_pv_task(args):
     return out_file
 
 
-def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
+def calculate_pv_main(folder_dict: dict, config:dict) -> None:
     """
     Loop through sorted tas/rsds files, compute per-file CF_pv, then concatenate.
 
@@ -163,8 +164,12 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
 
     output_filename = hpf.generate_filename(folder_dict["rsds"], "CF_PV")
     cf_pv_output = os.path.join("CF_PV", output_filename)
-    if not overwrite_existing and os.path.exists(cf_pv_output):
-        return cf_pv_output
+
+    if config["CF_PV"]["split"]:
+        hpf.split_file(output_filename,"pv_")
+        
+    if not config["CF_PV"]["overwrite"] and os.path.exists(cf_pv_output):
+        return None
 
     # collect inputs
     tas_files = hpf.get_sorted_nc_files(folder_dict["tas"])
@@ -184,3 +189,4 @@ def calculate_pv_main(folder_dict: dict, overwrite_existing: bool) -> str:
     hpf.run_shell_command(
         f"cdo -s -z zip -cat /scratch/g/g260190/pv_*.nc {cf_pv_output}", 60
     )
+    return None
