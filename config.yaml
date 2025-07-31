@@ -5,7 +5,7 @@ Wind:
 CF_Wind:
   overwrite: true
   split: false
-  power: 3_3
+  use_power_curve_5: true
   
 CF_PV:
   overwrite: false

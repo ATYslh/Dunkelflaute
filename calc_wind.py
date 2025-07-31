@@ -11,7 +11,7 @@ import xarray as xr
 
 import helper_functions as hpf
 
-_WIND = np.array(
+_WIND_3_3 = np.array(
     [
         3.25,
         3.5,
@@ -49,7 +49,7 @@ _WIND = np.array(
     dtype=np.float32,
 )
 
-_POWER = (
+_POWER_3_3 = (
     np.array(
         [
             138,
@@ -90,15 +90,104 @@ _POWER = (
     / 3300.0
 )
 
+_WIND_5 = np.array(
+    [
+        4,
+        4.25,
+        4.5,
+        4.75,
+        5,
+        5.25,
+        5.5,
+        5.75,
+        6,
+        6.25,
+        6.5,
+        6.75,
+        7,
+        7.25,
+        7.5,
+        7.75,
+        8,
+        8.25,
+        8.5,
+        8.75,
+        9,
+        9.25,
+        9.5,
+        9.75,
+        10,
+        10.25,
+        10.5,
+        10.75,
+        11,
+        11.25,
+    ],
+    dtype=np.float32,
+)
 
-def _power_curve(ws: np.ndarray) -> np.ndarray:
+_POWER_5 = (
+    np.array(
+        [
+            224,
+            269,
+            319,
+            376,
+            438,
+            507,
+            583,
+            666,
+            757,
+            856,
+            963,
+            1078,
+            1202,
+            1336,
+            1479,
+            1632,
+            1795,
+            1969,
+            2153,
+            2349,
+            2556,
+            2775,
+            3006,
+            3249,
+            3506,
+            3775,
+            4058,
+            4355,
+            4666,
+            4992,
+        ],
+        dtype=np.float32,
+    )
+    / 5000.0
+)
+
+
+def _power_curve_3_3(ws: np.ndarray) -> np.ndarray:
     """
     Calculates the powercurve for all non-nan values.
     """
     nan_mask = np.isnan(ws)
     w = np.where(nan_mask, 0.0, ws)
-    out = np.interp(w, _WIND, _POWER, left=0.0, right=1.0)
+    out = np.interp(w, _WIND_3_3, _POWER_3_3, left=0.0, right=1.0)
     out = np.where(w < 3.25, 0.0, np.where(w > 11.0, 1.0, out))
+    out = np.where(w > 25.0, 0.0, out)
+    out = np.where(nan_mask, np.nan, out)
+    return out.astype(np.float32)
+
+
+def _power_curve_5(ws: np.ndarray) -> np.ndarray:
+    """
+    Calculates the powercurve for all non-nan values.
+    """
+    nan_mask = np.isnan(ws)
+    w = np.where(nan_mask, 0.0, ws)
+    out = np.interp(w, _WIND_5, _POWER_5, left=0.0, right=1.0)
+    out = np.where(w < 4, 0.0, np.where(w > 11.25, 1.0, out))
+    out = np.where(w > 25.0, 0.0, out)
     out = np.where(nan_mask, np.nan, out)
     return out.astype(np.float32)
 
@@ -124,14 +213,17 @@ def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
     )
 
 
-def calc_wind_capacity_factor(input_file: str, output_file: str):
+def calc_wind_capacity_factor(
+    input_file: str, output_file: str, use_power_curve_5: bool
+):
     """
     Calculates the wind capacity factor.
     """
+    power_curve_fn = _power_curve_5 if use_power_curve_5 else _power_curve_3_3
     with xr.open_dataset(input_file) as ds:
         power = (
             xr.apply_ufunc(
-                _power_curve,
+                power_curve_fn,
                 ds["sfcWind"],
                 dask="parallelized",
                 output_dtypes=[np.float32],
@@ -147,7 +239,8 @@ def calc_wind_capacity_factor(input_file: str, output_file: str):
 
 
 def process_wind_task(args):
-    index, u_wind, v_wind, calculte_wind, calculte_cf_wind = args
+    index, u_wind, v_wind, calc_info = args
+    calculte_wind, calculte_cf_wind, use_power_curve_5 = calc_info
     wind_file = f"/scratch/g/g260190/wind_{index:03}.nc"
     cf_file = f"/scratch/g/g260190/cf_wind_{index:03}.nc"
 
@@ -158,7 +251,11 @@ def process_wind_task(args):
 
         # Step 2: compute capacity factor
         if calculte_cf_wind:
-            calc_wind_capacity_factor(input_file=wind_file, output_file=cf_file)
+            calc_wind_capacity_factor(
+                input_file=wind_file,
+                output_file=cf_file,
+                use_power_curve_5=use_power_curve_5,
+            )
 
     except Exception as e:
         raise RuntimeError(
@@ -183,7 +280,7 @@ def check_what_to_calc(
     config: dict, wind_cat: str, output_filename: str
 ) -> tuple[bool, bool]:
     calculte_wind = True
-    if config["Wind"]["split"]:
+    if config["Wind"]["split"] and os.path.exists(wind_cat):
         calculte_wind = False
         hpf.split_file(wind_cat, "wind_")
 
@@ -228,9 +325,9 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
         raise ValueError("ua100m and va100m folders have different file counts")
 
     # Prepare arguments for each worker
+    calc_info = (calculte_wind, calculte_cf_wind, config["use_power_curve_5"])
     params = [
-        (idx, u, v, calculte_wind, calculte_cf_wind)
-        for idx, (u, v) in enumerate(zip(u_files, v_files))
+        (idx, u, v, calc_info) for idx, (u, v) in enumerate(zip(u_files, v_files))
     ]
 
     # Launch Pool and wait for all tasks to finish
@@ -244,7 +341,8 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
         hpf.run_shell_command(
             f"cdo -s -z zip -cat /scratch/g/g260190/wind_*.nc {wind_cat}", 60
         )
-    if calc_wind_capacity_factor:
+
+    if calculte_cf_wind:
         hpf.run_shell_command(
             f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_*.nc {cf_wind_output}", 60
         )
