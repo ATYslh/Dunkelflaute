@@ -51,7 +51,7 @@ def calculate_dunkelflaute(folder_dict: dict, config: dict) -> None:
         folder_path="/scratch/g/g260190/", substring="pv_"
     )
     if len(cf_wind_files) != len(cf_pv_files):
-        raise ValueError("tas and rsds folders do not have the same number of files")
+        raise ValueError("cf_wind and pv do not have the same number of files")
 
     params = [(i, t, r) for i, (t, r) in enumerate(zip(cf_wind_files, cf_pv_files))]
 
