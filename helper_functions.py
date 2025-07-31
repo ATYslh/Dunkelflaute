@@ -122,9 +122,10 @@ def read_config_file(path: str) -> dict:
 
 
 def split_file(path: str, prefix: str) -> None:
-    run_shell_command(f"cdo splityear {path} {prefix}", 20)
+    scratch="/scratch/g/g260190/"
+    run_shell_command(f"cdo splityear {path} {scratch}{prefix}", 20)
     # rename the split files
-    nc_files = get_sorted_nc_files("/scratch/g/g260190/", prefix)
-    for i, filename in enumerate(nc_files, start=1):
-        new_name = f"/scratch/g/g260190/{prefix}{i:03d}.nc"
+    nc_files = get_sorted_nc_files(scratch, prefix)
+    for i, filename in enumerate(nc_files):
+        new_name = f"{scratch}{prefix}{i:03d}.nc"
         os.rename(filename, new_name)
