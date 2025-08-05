@@ -4,7 +4,7 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 /misc.xml
-
 /__pycache__/
+**/__pycache__/
 CF.o*
 Data/**/*.nc
