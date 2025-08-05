@@ -2,8 +2,6 @@ import numpy as np
 import xarray as xr
 import helper_functions as hpf
 import os
-import datetime
-from multiprocessing import Pool
 
 
 def region_indices(path: str):
@@ -75,7 +73,7 @@ def write_selindexboxes():
 
 
 def crop_masks():
-    # Crop the masks first to the same dimension as the Germany mask
+    # Crop the masks first to the same dimension as the Germany mask 
     # and then further down to the bounding box of their data
     os.chdir(f"/work/bb1203/g260190_heinrich/Dunkelflaute/")
     hpf.run_shell_command(
@@ -141,58 +139,45 @@ def get_mask(path: str, region: str):
     )
 
 
-def process_task(task):
-    """
-    Worker function: apply mask & cdo command for one file.
-    Returns (index, filepath, status).
-    """
-    region, subfolder, src_file = task
-    base_dir = "/work/bb1203/g260190_heinrich/Dunkelflaute/Data"
-    regional_dir = os.path.join(base_dir, region, subfolder)
-
-    dest_file = os.path.join(regional_dir, os.path.basename(src_file))
-    if os.path.exists(dest_file):
-        return None
-
-    mask = get_mask(src_file, region)
-    sel_idx = region_indices(mask)
-    cmd = f"cdo -z zip -ifthen {mask} " f"-selindexbox,{sel_idx} {src_file} {dest_file}"
-    hpf.run_shell_command(cmd, timeout=60)
-
-    return None
+import datetime
 
 
 def create_regional_files():
-    base_dir = "/work/bb1203/g260190_heinrich/Dunkelflaute/Data"
-    regions = ["Duisburg", "IAWAK-EE", "ISAP", "KARE", "KlimaKonform", "WAKOS"]
+    index=1
+
+    regions = [
+        "Duisburg",
+        "IAWAK-EE",
+        "ISAP",
+        "KARE",
+        "KlimaKonform",
+        "WAKOS",
+    ]
     subfolders = ["CF_PV", "CF_Wind/3_3MW", "CF_Wind/5MW", "Dunkelflaute", "Wind"]
-    num_procs = hpf.process_input_args()
-    index = 1
-    # open one pool for all subfolders
-    with Pool(processes=num_procs) as pool:
-        for region in regions:
-            for subfolder in subfolders:
-                f"[{index}/30] Starting {region} {subfolder} at {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}"
-                # gather files for this subfolder
-                germany_dir = os.path.join(base_dir, "Germany", subfolder)
-                files = hpf.get_sorted_nc_files(germany_dir)
-                total = len(files)
+    for region in regions:
+        for subfolder in subfolders:
+            regional_folder = os.path.join(
+                "/work/bb1203/g260190_heinrich/Dunkelflaute/Data", region, subfolder
+            )
+            germany_folder = os.path.join(
+                "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany", subfolder
+            )
+            print(f"[{index}/30]: Working on {regional_folder} {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}")
+            for file in hpf.get_sorted_nc_files(germany_folder):
+                output_file=os.path.join(regional_folder,os.path.basename(file))
+                if os.path.exists(output_file):
+                    continue
+                mask = get_mask(file, region)
+                hpf.run_shell_command(
+                    f"cdo -z zip -ifthen {mask} -selindexbox,{region_indices(mask)} {file} {output_file}",
+                    60,
+                )
 
-                # build the small batch of tasks
-                tasks = [
-                    (region, subfolder, fpath, idx + 1, total)
-                    for idx, fpath in enumerate(files)
-                ]
-
-                # dispatch them immediately
-                for idx, filepath, status in pool.imap_unordered(
-                    process_task, tasks, chunksize=1
-                ):
-                    # you can log, collect stats, etc. per file here
-                    pass
-                index += 1
+                exit()
+            index+=1
 
 
 if __name__ == "__main__":
     # Germany is skipped because it is the basis for what we do
-    create_regional_files()
+    hpf.create_gitkeep_in_empty_dirs("/work/bb1203/g260190_heinrich/Dunkelflaute/")
+    #create_regional_files()
