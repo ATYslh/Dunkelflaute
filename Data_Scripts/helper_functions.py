@@ -120,12 +120,14 @@ def read_config_file(path: str) -> dict:
         config = yaml.safe_load(file)
         return config
 
-
+import sys
 def split_file(path: str, prefix: str) -> None:
     scratch="/scratch/g/g260190/"
     run_shell_command(f"cdo splityear {path} {scratch}{prefix}", 20)
     # rename the split files
     nc_files = get_sorted_nc_files(scratch, prefix)
+    print(f"Got the command: cdo splityear {path} {scratch}{prefix}", file=sys.stderr)
+    print(f"Found files: {nc_files}", file=sys.stderr)
     for i, filename in enumerate(nc_files):
         new_name = f"{scratch}{prefix}{i:03d}.nc"
         os.rename(filename, new_name)

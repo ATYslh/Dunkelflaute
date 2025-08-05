@@ -279,16 +279,16 @@ def early_exit(config: dict, cf_wind_output: str) -> bool:
 def check_what_to_calc(
     config: dict, wind_cat: str, output_filename: str
 ) -> tuple[bool, bool]:
-    calculte_wind = True
+    calculte_wind_bool = True
     if config["Wind"]["split"] and os.path.exists(wind_cat):
-        calculte_wind = False
+        calculte_wind_bool = False
         hpf.split_file(wind_cat, "wind_")
 
-    calculte_cf_wind = True
+    calculate_cf_wind = True
     if config["CF_Wind"]["split"]:
-        calculte_cf_wind = False
+        calculate_cf_wind = False
         hpf.split_file(output_filename, "cf_wind_")
-    return calculte_wind, calculte_cf_wind
+    return calculte_wind_bool, calculate_cf_wind
 
 
 def cf_wind(folder_dict: dict, config: dict) -> None:
@@ -311,7 +311,7 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
     )
 
     calculte_wind_bool, calculte_cf_wind = check_what_to_calc(
-        config, wind_cat, output_filename
+        config, wind_cat, cf_wind_output
     )
 
     if early_exit(config, wind_cat):
@@ -341,14 +341,15 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
             pass
 
     # Concatenate all wind fields and CF files into final outputs
-    if calculate_wind:
+    if calculte_wind_bool:
+        hpf.run_shell_command(f"rm -f {wind_cat}", 5)
         hpf.run_shell_command(
             f"cdo -s -z zip -cat /scratch/g/g260190/wind_???.nc {wind_cat}", 60
         )
 
     if calculte_cf_wind:
+        hpf.run_shell_command(f"rm -f {cf_wind_output}", 5)
         hpf.run_shell_command(
             f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_???.nc {cf_wind_output}", 60
         )
-
     return None

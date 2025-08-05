@@ -186,6 +186,7 @@ def calculate_pv_main(folder_dict: dict, config: dict) -> None:
             pass
 
     # concatenate
+    hpf.run_shell_command(f"rm -f {cf_pv_output}", 5)
     hpf.run_shell_command(
         f"cdo -s -z zip -cat /scratch/g/g260190/pv_*.nc {cf_pv_output}", 60
     )

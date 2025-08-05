@@ -33,6 +33,6 @@ if __name__ == "__main__":
             file=sys.stderr,
         )
         calc_dunkelflaute.calculate_dunkelflaute(nukleus_folders[folder_dict], config)
-        exit()
+
         if (datetime.datetime.now() - loop_start_time).seconds > 120:
             hpf.clean_up()

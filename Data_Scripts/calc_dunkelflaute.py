@@ -60,6 +60,7 @@ def calculate_dunkelflaute(folder_dict: dict, config: dict) -> None:
         for _ in pool.imap_unordered(_process_dunkelflaute_task, params, chunksize=1):
             pass
 
+    hpf.run_shell_command(f"rm -f {outfile_name}", 5)
     hpf.run_shell_command(
         f"cdo -s -z zip -cat /scratch/g/g260190/dunkelflaute_*.nc {outfile_name}", 60
     )
