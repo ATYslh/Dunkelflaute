@@ -120,9 +120,9 @@ def read_config_file(path: str) -> dict:
         config = yaml.safe_load(file)
         return config
 
-import sys
+
 def split_file(path: str, prefix: str) -> None:
-    scratch="/scratch/g/g260190/"
+    scratch = "/scratch/g/g260190/"
     run_shell_command(f"cdo splityear {path} {scratch}{prefix}", 20)
     # rename the split files
     nc_files = get_sorted_nc_files(scratch, prefix)
@@ -131,3 +131,21 @@ def split_file(path: str, prefix: str) -> None:
     for i, filename in enumerate(nc_files):
         new_name = f"{scratch}{prefix}{i:03d}.nc"
         os.rename(filename, new_name)
+
+
+def create_gitkeep_in_empty_dirs(root_dir):
+    for dirpath, dirnames, filenames in os.walk(root_dir):
+        # Skip hidden directories
+        if any(part.startswith(".") for part in dirpath.split(os.sep)):
+            continue
+
+        # Filter out hidden subdirectories from dirnames to prevent descending into them
+        dirnames[:] = [d for d in dirnames if not d.startswith(".")]
+
+        # Check if the directory is empty (no files and no subdirectories)
+        if not dirnames and not filenames:
+            gitkeep_path = os.path.join(dirpath, ".gitkeep")
+            if not os.path.exists(gitkeep_path):
+                with open(gitkeep_path, "w") as f:
+                    pass  # Create an empty .gitkeep file
+                print(f"Created .gitkeep in: {dirpath}")
