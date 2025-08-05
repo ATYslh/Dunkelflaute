@@ -146,6 +146,6 @@ def create_gitkeep_in_empty_dirs(root_dir):
         if not dirnames and not filenames:
             gitkeep_path = os.path.join(dirpath, ".gitkeep")
             if not os.path.exists(gitkeep_path):
-                with open(gitkeep_path, "w") as f:
+                with open(gitkeep_path, "w"):
                     pass  # Create an empty .gitkeep file
                 print(f"Created .gitkeep in: {dirpath}")
