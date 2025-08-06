@@ -89,7 +89,7 @@ def find_nukleus_files(
             json.dump(json_entries, file, indent=4)
 
 
-def load_folder_locations(json_file: str) -> dict:
+def load_json_file(json_file: str) -> dict:
     """
     Loads the json file which contains all the Nukleus folder
     that meet the required variable at the correct frequency.
@@ -106,11 +106,11 @@ def nukleus_folders(file_name="nukleus_files.json", search=True) -> dict:
     if search:
         find_nukleus_files(file_name)
 
-    return load_folder_locations(json_file=file_name)
+    return load_json_file(json_file=file_name)
 
 
 def count_timesteps_in_all_files():
-    nukleus_folders = load_folder_locations("nukleus_files.json")
+    nukleus_folders = load_json_file("nukleus_files.json")
     time_set = set()
 
     for index, folder_dict in enumerate(nukleus_folders):
