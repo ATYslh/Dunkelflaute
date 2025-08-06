@@ -37,7 +37,7 @@ def calc_statistics():
     time_info = load_json_file("time.json")
     for region in regions:
         region_dict = {}
-        region_dict[edges] = [
+        region_dict["edges"] = [
             round(p, 1) for p in np.linspace(0, 30, 101, dtype=np.float64)
         ]
         for file_name in time_info.keys():
@@ -72,7 +72,6 @@ def calc_statistics():
                     counts, edges = np.histogram(wind, bins=bins)
                     region_dict[file_name][f"{scenario}"]["counts"] = counts.tolist()
 
-        print(region_dict)
         with open(f"Wind/{region}.json", "w") as file:
             json.dump(region_dict, file, indent=4)
 
