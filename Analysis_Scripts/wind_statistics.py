@@ -3,7 +3,6 @@ import numpy as np
 from pathlib import Path
 import importlib.util
 import os
-import dask.array as da
 import json
 import sys
 
@@ -38,6 +37,9 @@ def calc_statistics():
     time_info = load_json_file("time.json")
     for region in regions:
         region_dict = {}
+        region_dict[edges] = [
+            round(p, 1) for p in np.linspace(0, 30, 101, dtype=np.float64)
+        ]
         for file_name in time_info.keys():
             print(file_name)
             region_dict[file_name] = {}
@@ -48,35 +50,31 @@ def calc_statistics():
                 file_name,
             )
             for scenario in time_info[file_name].keys():
-                with xr.open_dataset(full_path, chunks={"time": 100}) as df:
+                with xr.open_dataset(full_path) as df:
                     region_dict[file_name][f"{scenario}"] = {}
 
                     df = df.sel(
                         time=slice(
-                            f"{time_info[file_name][scenario]["start"]}-01-01",
-                            f"{time_info[file_name][scenario]["end"]}-12-31",
+                            f"{time_info[file_name][scenario]['start']}-01-01",
+                            f"{time_info[file_name][scenario]['end']}-12-31",
                         )
                     )
-                    wind = df["sfcWind"].data
+                    wind = df["sfcWind"].values  # Load data into memory
 
-                    # 99th percentile
-                    percentile = da.percentile(wind.ravel(),90)
-                    percentile = da.compute(percentile)
-                    region_dict[file_name]["90th_percentile"] = percentile
+                    # 90th percentile
+                    percentile = np.percentile(wind, 90)
+                    region_dict[file_name]["90th_percentile"] = percentile.item()
 
                     # Define histogram bins
-                    bins = np.linspace(0, 30, 101)
+                    bins = np.linspace(0, 30, 101, dtype=np.float64)
 
-                    # Compute histogram lazily, then compute the result
-                    counts, edges = da.histogram(wind, bins=bins)
-                    counts, edges = da.compute(counts, edges)
+                    # Compute histogram
+                    counts, edges = np.histogram(wind, bins=bins)
+                    region_dict[file_name][f"{scenario}"]["counts"] = counts.tolist()
 
-                    region_dict[file_name][f"{scenario}"]["counts"] = counts
-                    region_dict[file_name][f"{scenario}"]["edges"] = edges
-
+        print(region_dict)
         with open(f"Wind/{region}.json", "w") as file:
             json.dump(region_dict, file, indent=4)
-        exit()
 
 
 if __name__ == "__main__":
