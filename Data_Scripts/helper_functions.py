@@ -3,16 +3,12 @@ Helper functions.
 """
 
 import argparse
-import datetime
 import os
 import subprocess
 import sys
 
 import xarray as xr
 import yaml
-
-import find_data
-
 
 def generate_filename(folder: str, variable: str) -> str:
     """
@@ -66,23 +62,6 @@ def mask_path(folder: str) -> str:
         raise ValueError("could not identify which mask to use")
     return f"{resolution}_mask.nc"
 
-
-def count_timesteps_in_all_files():
-    nukleus_folders = find_data.load_folder_locations("nukleus_files.json")
-    time_set = set()
-
-    for index, folder_dict in enumerate(nukleus_folders):
-        print(
-            f"[{index+1}/{len(nukleus_folders)}] Start {folder_dict} at {datetime.datetime.now()}",
-            file=sys.stderr,
-        )
-        for folder in nukleus_folders[folder_dict]:
-            files = get_sorted_nc_files(nukleus_folders[folder_dict][folder])
-            for file in files:
-                with xr.open_dataset(file) as df:
-                    time_set.add(len(df.time))
-
-    print(time_set)
 
 
 def process_input_args() -> int:

@@ -2,8 +2,12 @@
 This module is used to find all the nukleus folders and files
 """
 
+import datetime
 import json
 import os
+import sys
+import helper_functions as hpf
+import xarray as xr
 
 
 def find_directories(root_dir: str, frequency: str) -> list[str]:
@@ -103,3 +107,21 @@ def nukleus_folders(file_name="nukleus_files.json", search=True) -> dict:
         find_nukleus_files(file_name)
 
     return load_folder_locations(json_file=file_name)
+
+
+def count_timesteps_in_all_files():
+    nukleus_folders = load_folder_locations("nukleus_files.json")
+    time_set = set()
+
+    for index, folder_dict in enumerate(nukleus_folders):
+        print(
+            f"[{index+1}/{len(nukleus_folders)}] Start {folder_dict} at {datetime.datetime.now()}",
+            file=sys.stderr,
+        )
+        for folder in nukleus_folders[folder_dict]:
+            files = hpf.get_sorted_nc_files(nukleus_folders[folder_dict][folder])
+            for file in files:
+                with xr.open_dataset(file) as df:
+                    time_set.add(len(df.time))
+
+    print(time_set)
