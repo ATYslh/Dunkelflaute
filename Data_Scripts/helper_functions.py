@@ -7,8 +7,8 @@ import os
 import subprocess
 import sys
 
-import xarray as xr
 import yaml
+
 
 def generate_filename(folder: str, variable: str) -> str:
     """
