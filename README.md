@@ -1,29 +1,35 @@
 Wind speed:
-
+------
 Changes to mean wind speed and wind speed distribution
 
-90% percentile
+95% percentile
 
 Analyse if there are regional differences (for one RCM Tabelle?)
 
 Check difference between RCMS/GCMS
 
-Solar radiation:
+Seasonal change?
 
+Solar radiation & Capacity factor:
+---------
 Changes to daily cycle
 
 Analyse if there are regional differences
 
 Check difference between RCMS/GCMS
 
-Capacity factor Wind:
+Seasonal change?
 
+Capacity factor Wind:
+--------------------
 Difference between number of timesteps under 20% capacity when using two different wind turbines profiles (3.3 MW and 5MW)
 
 Check difference between RCMS/GCMS
 
-Dunkelflaute:
+Seasonal change?
 
+Dunkelflaute:
+-------
 Changes to the overall frequency/percentage of Dunkelflauten
 
 Check if the distribution of these events throughout the year is focused mostly on Winter like in previous studies reported.
@@ -36,6 +42,9 @@ Covariation metrics: compute correlation coefficients (or mutual information) be
 
 Check difference between RCMS/GCMS
 
+Visualisierung über Punktwolke. X-achse hat die Anzahl der Flauten. Symbole für die Regionen und Farben für die Szenarien?
+
+Seasonal change?
 
 --------------
 Info:
