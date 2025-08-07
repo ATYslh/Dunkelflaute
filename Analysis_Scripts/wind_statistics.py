@@ -41,7 +41,7 @@ def calc_statistics():
             round(p, 1) for p in np.linspace(0, 30, 101, dtype=np.float64)
         ]
         for file_name in time_info.keys():
-            print(file_name)
+            print(f"{region} {file_name}")
             region_dict[file_name] = {}
             full_path = os.path.join(
                 "/work/bb1203/g260190_heinrich/Dunkelflaute/Data",
@@ -62,8 +62,14 @@ def calc_statistics():
                     wind = df["sfcWind"].values  # Load data into memory
 
                     # 90th percentile
-                    percentile = np.percentile(wind, 90)
-                    region_dict[file_name]["90th_percentile"] = percentile.item()
+                    percentile = np.percentile(wind, 95)
+                    region_dict[file_name]["95th_percentile"] = percentile.item()
+
+                    wind_mean = np.mean(wind, keepdims=True)
+                    region_dict[file_name]["mean"] = wind_mean.item()
+
+                    wind_std = np.std(wind, mean=wind_mean)
+                    region_dict[file_name]["std"] = wind_std.item()
 
                     # Define histogram bins
                     bins = np.linspace(0, 30, 101, dtype=np.float64)
@@ -74,7 +80,6 @@ def calc_statistics():
 
         with open(f"Wind/{region}.json", "w") as file:
             json.dump(region_dict, file, indent=4)
-
-
+            
 if __name__ == "__main__":
     calc_statistics()
