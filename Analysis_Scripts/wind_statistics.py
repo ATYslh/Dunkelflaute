@@ -1,22 +1,9 @@
-import importlib.util
 import json
 import os
 import sys
-from pathlib import Path
 
 import numpy as np
 import xarray as xr
-
-# Dynamically load your helper_functions module
-module_path = Path(
-    "/work/bb1203/g260190_heinrich/Dunkelflaute/Data_Scripts/helper_functions.py"
-)
-module_name = "helper_functions"
-
-spec = importlib.util.spec_from_file_location(module_name, module_path)
-hpf = importlib.util.module_from_spec(spec)
-sys.modules[module_name] = hpf
-spec.loader.exec_module(hpf)
 
 
 def load_json_file(json_file: str) -> dict:
@@ -74,7 +61,7 @@ def calc_statistics() -> None:
 
     for region in regions:
         region_dict = {"edges": [round(p, 1) for p in bins]}
-        for file_name in time_info.keys():
+        for file_name, scenarios in time_info.items():
             print(f"{region} {file_name}", file=sys.stderr)
             region_dict[file_name] = {}
             full_path = os.path.join(
@@ -83,7 +70,7 @@ def calc_statistics() -> None:
                 "Wind",
                 file_name,
             )
-            for scenario in time_info[file_name].keys():
+            for scenario in scenarios:
                 with xr.open_dataset(full_path) as df:
                     region_dict[file_name][scenario] = {}
                     wind = wind_in_time_period(df, time_info, file_name, scenario)
