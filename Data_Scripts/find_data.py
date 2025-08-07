@@ -3,11 +3,12 @@ This module is used to find all the nukleus folders and files
 """
 
 import datetime
-import json
 import os
 import sys
-import helper_functions as hpf
+
 import xarray as xr
+
+import helper_functions as hpf
 
 
 def find_directories(root_dir: str, frequency: str) -> list[str]:
@@ -85,17 +86,7 @@ def find_nukleus_files(
         }
 
     if json_entries:
-        with open(json_file, "w") as file:
-            json.dump(json_entries, file, indent=4)
-
-
-def load_json_file(json_file: str) -> dict:
-    """
-    Loads the json file which contains all the Nukleus folder
-    that meet the required variable at the correct frequency.
-    """
-    with open(json_file, "r", encoding="utf-8") as file:
-        return json.load(file)
+        hpf.write_json_file(json_file, json_entries)
 
 
 def nukleus_folders(file_name="nukleus_files.json", search=True) -> dict:
@@ -106,20 +97,20 @@ def nukleus_folders(file_name="nukleus_files.json", search=True) -> dict:
     if search:
         find_nukleus_files(file_name)
 
-    return load_json_file(json_file=file_name)
+    return hpf.load_json_file(json_file=file_name)
 
 
 def count_timesteps_in_all_files():
-    nukleus_folders = load_json_file("nukleus_files.json")
+    nukleus_folder = hpf.load_json_file("nukleus_files.json")
     time_set = set()
 
-    for index, folder_dict in enumerate(nukleus_folders):
+    for index, folder_dict in enumerate(nukleus_folder):
         print(
-            f"[{index+1}/{len(nukleus_folders)}] Start {folder_dict} at {datetime.datetime.now()}",
+            f"[{index+1}/{len(nukleus_folder)}] Start {folder_dict} at {datetime.datetime.now()}",
             file=sys.stderr,
         )
-        for folder in nukleus_folders[folder_dict]:
-            files = hpf.get_sorted_nc_files(nukleus_folders[folder_dict][folder])
+        for folder in nukleus_folder[folder_dict]:
+            files = hpf.get_sorted_nc_files(nukleus_folder[folder_dict][folder])
             for file in files:
                 with xr.open_dataset(file) as df:
                     time_set.add(len(df.time))

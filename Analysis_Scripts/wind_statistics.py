@@ -1,14 +1,10 @@
-import json
 import os
 import sys
 
 import numpy as np
 import xarray as xr
 
-
-def load_json_file(json_file: str) -> dict:
-    with open(json_file, "r", encoding="utf-8") as file:
-        return json.load(file)
+import Data_Scripts.helper_functions as hpf
 
 
 def wind_in_time_period(
@@ -40,11 +36,6 @@ def compute_statistics(
     return region_dict
 
 
-def write_json_file(region: str, region_dict: dict) -> None:
-    with open(f"Wind/{region}.json", "w") as file:
-        json.dump(region_dict, file, indent=4)
-
-
 def calc_statistics() -> None:
     regions = [
         "Duisburg",
@@ -56,7 +47,7 @@ def calc_statistics() -> None:
         "WAKOS",
     ]
 
-    time_info = load_json_file("time.json")
+    time_info = hpf.load_json_file("time.json")
     bins = np.linspace(0, 30, 101, dtype=np.float64)
 
     for region in regions:
@@ -70,6 +61,7 @@ def calc_statistics() -> None:
                 "Wind",
                 file_name,
             )
+
             for scenario in scenarios:
                 with xr.open_dataset(full_path) as df:
                     region_dict[file_name][scenario] = {}
@@ -77,7 +69,8 @@ def calc_statistics() -> None:
                     region_dict = compute_statistics(
                         wind, region_dict, file_name, bins, scenario
                     )
-            write_json_file(region, region_dict)
+
+            hpf.write_json_file(region, region_dict)
 
 
 if __name__ == "__main__":

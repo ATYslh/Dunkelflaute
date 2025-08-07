@@ -3,6 +3,7 @@ Helper functions.
 """
 
 import argparse
+import json
 import os
 import subprocess
 import sys
@@ -63,7 +64,6 @@ def mask_path(folder: str) -> str:
     return f"{resolution}_mask.nc"
 
 
-
 def process_input_args() -> int:
     parser = argparse.ArgumentParser(
         description="Process input arguments for CMOR check tool."
@@ -80,18 +80,6 @@ def run_shell_command(command: str, time_minutes: int) -> None:
         subprocess.run(command, timeout=60 * time_minutes, shell=True)
     except subprocess.TimeoutExpired:
         print(f"The following command timed out: {command}", file=sys.stderr)
-
-
-def clean_up():
-    run_shell_command(
-        "rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc", 5
-    )
-    run_shell_command("rm -f /scratch/g/g260190/pv_*.nc", 5)
-    run_shell_command("rm -f /scratch/g/g260190/tas_*.nc", 5)
-    run_shell_command("rm -f /scratch/g/g260190/rsds_*.nc", 5)
-    run_shell_command("rm -f /scratch/g/g260190/dummy.nc", 5)
-    run_shell_command("rm -f /scratch/g/g260190/u_*.nc", 5)
-    run_shell_command("rm -f /scratch/g/g260190/v_*.nc", 5)
 
 
 def read_config_file(path: str) -> dict:
@@ -128,3 +116,13 @@ def create_gitkeep_in_empty_dirs(root_dir):
                 with open(gitkeep_path, "w"):
                     pass  # Create an empty .gitkeep file
                 print(f"Created .gitkeep in: {dirpath}")
+
+
+def load_json_file(json_file: str) -> dict:
+    with open(json_file, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def write_json_file(filename: str, content: dict) -> None:
+    with open(filename, "w") as file:
+        json.dump(content, file, indent=4)
