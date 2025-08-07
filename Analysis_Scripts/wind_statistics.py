@@ -9,7 +9,6 @@ from pathlib import Path
 
 def is_remote_cluster():
     cluster_env_vars = ['SLURM_JOB_ID', 'PBS_JOBID', 'KUBERNETES_SERVICE_HOST']
-    print(os.environ)
     return any(var in os.environ for var in cluster_env_vars)
 
 # Dynamically load your helper_functions module
