@@ -29,13 +29,13 @@ else:
     import Data_Scripts.helper_functions as hpf
 
 
-def wind_in_time_period(
+def temperature_in_time_period(
     dataset: xr.Dataset, time_info: dict, file_name: str, scenario: str
 ) -> np.ndarray:
-    """Extract wind data for a specific time period."""
+    """Extract temperature data for a specific time period."""
     start = f"{time_info[file_name][scenario]['start']}-01-01"
     end = f"{time_info[file_name][scenario]['end']}-12-31"
-    return dataset.sel(time=slice(start, end))["sfcWind"].values
+    return dataset.sel(time=slice(start, end))["tas"].values
 
 
 def compute_statistics(
@@ -50,26 +50,26 @@ def compute_statistics(
 
     region_dict[file_name][scenario][season] = {}
 
-    wind = wind_in_time_period(df, time_info, file_name, scenario)
+    temperature = temperature_in_time_period(df, time_info, file_name, scenario)
 
     # 95th percentile
-    percentile = np.percentile(wind, 95)
+    percentile = np.percentile(temperature, 95)
     region_dict[file_name][scenario][season]["95th_percentile"] = percentile.item()
 
-    percentile = np.percentile(wind, 10)
+    percentile = np.percentile(temperature, 10)
     region_dict[file_name]["10th_percentile"] = percentile.item()
 
-    wind_mean = np.mean(wind, keepdims=True)
-    region_dict[file_name][scenario][season]["mean"] = wind_mean.item()
+    temperature_mean = np.mean(temperature, keepdims=True)
+    region_dict[file_name][scenario][season]["mean"] = temperature_mean.item()
 
-    wind_std = np.std(wind, mean=wind_mean)
-    region_dict[file_name][scenario][season]["std"] = wind_std.item()
+    temperature_std = np.std(temperature, mean=temperature_mean)
+    region_dict[file_name][scenario][season]["std"] = temperature_std.item()
 
     # Compute histogram
-    counts, _ = np.histogram(wind, bins=bins)
+    counts, _ = np.histogram(temperature, bins=bins)
     region_dict[file_name][scenario][season]["counts"] = counts.tolist()
 
-    fldmean = df["sfcWind"].mean(dim=["rlat", "rlon"])
+    fldmean = df["tas"].mean(dim=["rlat", "rlon"])
 
     # Group by hour of the day and compute mean
     diurnal_cycle = fldmean.groupby(df["time"].dt.hour).mean(dim="time")
@@ -94,7 +94,7 @@ def calc_statistics(overwrite=False) -> None:
     bins = np.linspace(0, 30, 101, dtype=np.float64)
 
     for region in regions:
-        output_json_file = f"Wind/{region}.json"
+        output_json_file = f"tas/{region}.json"
         region_dict = {"edges": [round(p, 1) for p in bins]}
         if os.path.exists(output_json_file):
             region_dict = hpf.load_json_file(output_json_file)
@@ -107,7 +107,7 @@ def calc_statistics(overwrite=False) -> None:
             full_path = os.path.join(
                 "/work/bb1203/g260190_heinrich/Dunkelflaute/Data",
                 region,
-                "Wind",
+                "tas",
                 file_name,
             )
 
