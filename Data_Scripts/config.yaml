@@ -1,16 +1,24 @@
 Wind:
   overwrite: false
-  split: true
+  split: false
 
 CF_Wind:
-  overwrite: true
+  overwrite: false
   split: false
   use_power_curve_5: true
   
 CF_PV:
   overwrite: false
-  split: true
+  split: false
 
 Dunkelflaute:
-  overwrite: true
+  overwrite: false
+  split: false
+
+TAS:
+  overwrite: false
+  split: false
+
+RSDS:
+  overwrite: false
   split: false
