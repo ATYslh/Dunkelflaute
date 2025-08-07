@@ -120,7 +120,7 @@ def calc_statistics() -> None:
                     current_filename = os.path.splitext(os.path.basename(dataset))[0]
 
                     if len(current_filename) == 3:
-                        season = current_filename[0]
+                        season = current_filename
                     else:
                         season = "Year"
                     with xr.open_dataset(dataset) as df:
@@ -135,7 +135,7 @@ def calc_statistics() -> None:
                             season,
                         )
 
-            hpf.write_json_file(region, region_dict)
+        hpf.write_json_file(f"Wind/{region}.json", region_dict)
 
 
 if __name__ == "__main__":
