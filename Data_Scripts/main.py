@@ -6,7 +6,7 @@ import calc_pv
 import calc_wind
 import find_data
 import helper_functions as hpf
-
+import get_tas_rsds
 
 def clean_up():
     hpf.run_shell_command(
@@ -45,6 +45,12 @@ if __name__ == "__main__":
             file=sys.stderr,
         )
         calc_dunkelflaute.calculate_dunkelflaute(nukleus_folders[folder_dict], config)
+
+        print(
+            f"[{index+1}/{len(nukleus_folders)}] Start getting tas/rsds {folder_dict} at {datetime.datetime.now()}",
+            file=sys.stderr,
+        )
+        get_tas_rsds.get_data(nukleus_folders[folder_dict], config)
 
         if (datetime.datetime.now() - loop_start_time).seconds > 120:
             clean_up()
