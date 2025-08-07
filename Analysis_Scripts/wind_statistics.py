@@ -7,9 +7,11 @@ import xarray as xr
 
 from pathlib import Path
 
+
 def is_remote_cluster():
-    cluster_env_vars = ['SLURM_JOB_ID', 'PBS_JOBID', 'KUBERNETES_SERVICE_HOST']
+    cluster_env_vars = ["SLURM_JOB_ID", "PBS_JOBID", "KUBERNETES_SERVICE_HOST"]
     return any(var in os.environ for var in cluster_env_vars)
+
 
 # Dynamically load your helper_functions module
 if is_remote_cluster():
@@ -25,6 +27,7 @@ if is_remote_cluster():
 
 else:
     import Data_Scripts.helper_functions as hpf
+
 
 def wind_in_time_period(
     dataset: xr.Dataset, time_info: dict, file_name: str, scenario: str
@@ -76,7 +79,7 @@ def compute_statistics(
     return region_dict
 
 
-def calc_statistics() -> None:
+def calc_statistics(overwrite=False) -> None:
     regions = [
         "Duisburg",
         "Germany",
@@ -91,6 +94,8 @@ def calc_statistics() -> None:
     bins = np.linspace(0, 30, 101, dtype=np.float64)
 
     for region in regions:
+        if os.path.exists(f"Wind/{region}.json") and not overwrite:
+            continue
         region_dict = {"edges": [round(p, 1) for p in bins]}
         for file_name, scenarios in time_info.items():
             print(f"{region} {file_name}", file=sys.stderr)
