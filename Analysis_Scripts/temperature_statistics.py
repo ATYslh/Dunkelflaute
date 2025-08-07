@@ -1,11 +1,11 @@
+import datetime
 import importlib.util
 import os
 import sys
-import datetime
+from pathlib import Path
+
 import numpy as np
 import xarray as xr
-
-from pathlib import Path
 
 
 def is_remote_cluster():
