@@ -53,16 +53,16 @@ def compute_statistics(
     wind = wind_in_time_period(df, time_info, file_name, scenario)
 
     # 95th percentile
-    percentile = np.percentile(wind, 95)
+    percentile = np.nanpercentile(wind, 95)
     region_dict[file_name][scenario][season]["95th_percentile"] = percentile.item()
 
-    percentile = np.percentile(wind, 10)
+    percentile = np.nanpercentile(wind, 10)
     region_dict[file_name]["10th_percentile"] = percentile.item()
 
-    wind_mean = np.mean(wind, keepdims=True)
+    wind_mean = np.nanmean(wind, keepdims=True)
     region_dict[file_name][scenario][season]["mean"] = wind_mean.item()
 
-    wind_std = np.std(wind, mean=wind_mean)
+    wind_std = np.nanstd(wind, mean=wind_mean)
     region_dict[file_name][scenario][season]["std"] = wind_std.item()
 
     # Compute histogram
