@@ -94,11 +94,15 @@ def calc_statistics(overwrite=False) -> None:
     bins = np.linspace(0, 30, 101, dtype=np.float64)
 
     for region in regions:
-        if os.path.exists(f"Wind/{region}.json") and not overwrite:
-            continue
+        output_json_file=f"Wind/{region}.json"
         region_dict = {"edges": [round(p, 1) for p in bins]}
+        if os.path.exists():
+            region_dict=hpf.load_json_file(output_json_file)
+
         for file_name, scenarios in time_info.items():
             print(f"{region} {file_name}", file=sys.stderr)
+            if file_name in region_dict:
+                continue
             region_dict[file_name] = {}
             full_path = os.path.join(
                 "/work/bb1203/g260190_heinrich/Dunkelflaute/Data",
@@ -140,7 +144,7 @@ def calc_statistics(overwrite=False) -> None:
                             season,
                         )
 
-        hpf.write_json_file(f"Wind/{region}.json", region_dict)
+            hpf.write_json_file(output_json_file, region_dict)
 
 
 if __name__ == "__main__":
