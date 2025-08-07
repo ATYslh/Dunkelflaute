@@ -266,11 +266,12 @@ def process_wind_task(args):
     return wind_file, cf_file
 
 
-def early_exit(config: dict, cf_wind_output: str) -> bool:
+def early_exit(config: dict, cf_wind_output: str, wind_output: str) -> bool:
     if (
         not config["Wind"]["overwrite"]
         and not config["CF_Wind"]["overwrite"]
         and os.path.exists(cf_wind_output)
+        and os.path.exists(wind_output)
     ):
         return True
     return False
@@ -297,9 +298,14 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
     Returns the path to the concatenated CF file.
     """
     # Prepare output filenames and directories
+    if config["CF_Wind"]["use_power_curve_5"]:
+        turbine = "3_3MW"
+    else:
+        turbine = "5MW"
+
     output_filename = hpf.generate_filename(folder_dict["ua100m"], "CF_Wind")
 
-    cf_wind_output = os.path.join("Data/Germany/CF_Wind", output_filename)
+    cf_wind_output = os.path.join(f"../Data/Germany/CF_Wind/{turbine}", output_filename)
 
     # Clean up any old intermediate files
     hpf.run_shell_command(
@@ -307,14 +313,15 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
     )
 
     wind_cat = os.path.join(
-        "Data/Germany/Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
+        f"../Data/Germany/Wind/",
+        hpf.generate_filename(folder_dict["ua100m"], "wind"),
     )
 
     calculte_wind_bool, calculte_cf_wind = check_what_to_calc(
         config, wind_cat, cf_wind_output
     )
 
-    if early_exit(config, wind_cat):
+    if early_exit(config, cf_wind_output, wind_cat):
         return None
 
     # Gather input file lists

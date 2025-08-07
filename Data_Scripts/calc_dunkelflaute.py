@@ -40,7 +40,13 @@ def calculate_dunkelflaute(folder_dict: dict, config: dict) -> None:
     This function calculates the Dunkelflauten file. Uses 20% threshold.
     """
     output_filename = hpf.generate_filename(folder_dict["ua100m"], "Dunkelflaute")
-    outfile_name = os.path.join("Data/Dunkelflaute/Germany", output_filename)
+    if config["CF_Wind"]["use_power_curve_5"]:
+        turbine = "3_3MW"
+    else:
+        turbine = "5MW"
+    outfile_name = os.path.join(
+        f"../Data/Germany/Dunkelflaute/{turbine}/", output_filename
+    )
     if not config["Dunkelflaute"]["overwrite"] and os.path.exists(outfile_name):
         return
 

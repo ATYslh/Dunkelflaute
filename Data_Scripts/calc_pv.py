@@ -163,7 +163,7 @@ def calculate_pv_main(folder_dict: dict, config: dict) -> None:
     hpf.run_shell_command("rm -f /scratch/g/g260190/pv_*.nc", 5)
 
     output_filename = hpf.generate_filename(folder_dict["rsds"], "CF_PV")
-    cf_pv_output = os.path.join("Data/Germany/CF_PV/", output_filename)
+    cf_pv_output = os.path.join("../Data/Germany/CF_PV/", output_filename)
 
     if config["CF_PV"]["split"]:
         hpf.split_file(cf_pv_output, "pv_")
