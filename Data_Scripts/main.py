@@ -7,6 +7,18 @@ import calc_wind
 import find_data
 import helper_functions as hpf
 
+
+def clean_up():
+    hpf.run_shell_command(
+        "rm -f /scratch/g/g260190/wind_*.nc /scratch/g/g260190/cf_wind_*.nc", 5
+    )
+    hpf.run_shell_command("rm -f /scratch/g/g260190/pv_*.nc", 5)
+    hpf.run_shell_command("rm -f /scratch/g/g260190/tas_*.nc", 5)
+    hpf.run_shell_command("rm -f /scratch/g/g260190/rsds_*.nc", 5)
+    hpf.run_shell_command("rm -f /scratch/g/g260190/dummy.nc", 5)
+    hpf.run_shell_command("rm -f /scratch/g/g260190/u_*.nc", 5)
+    hpf.run_shell_command("rm -f /scratch/g/g260190/v_*.nc", 5)
+
 if __name__ == "__main__":
     nukleus_folders = find_data.nukleus_folders(
         file_name="nukleus_files.json", search=False
@@ -35,4 +47,4 @@ if __name__ == "__main__":
         calc_dunkelflaute.calculate_dunkelflaute(nukleus_folders[folder_dict], config)
 
         if (datetime.datetime.now() - loop_start_time).seconds > 120:
-            hpf.clean_up()
+            clean_up()
