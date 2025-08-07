@@ -23,6 +23,34 @@ def load_json_file(json_file: str):
         return json.load(file)
 
 
+def wind_in_time_period(df, time_info, file_name, scenario):
+    df = df.sel(
+        time=slice(
+            f"{time_info[file_name][scenario]['start']}-01-01",
+            f"{time_info[file_name][scenario]['end']}-12-31",
+        )
+    )
+    return df["sfcWind"].values  # Load data into memory
+
+
+def compute_statistics(wind, region_dict, file_name, bins, scenario):
+    # 90th percentile
+    percentile = np.percentile(wind, 95)
+    region_dict[file_name]["95th_percentile"] = percentile.item()
+
+    wind_mean = np.mean(wind, keepdims=True)
+    region_dict[file_name]["mean"] = wind_mean.item()
+
+    wind_std = np.std(wind, mean=wind_mean)
+    region_dict[file_name]["std"] = wind_std.item()
+
+    # Compute histogram
+    counts, _ = np.histogram(wind, bins=bins)
+    region_dict[file_name][f"{scenario}"]["counts"] = counts.tolist()
+
+    return region_dict
+
+
 def calc_statistics():
     regions = [
         "Duisburg",
@@ -35,13 +63,13 @@ def calc_statistics():
     ]
 
     time_info = load_json_file("time.json")
+    bins = np.linspace(0, 30, 101, dtype=np.float64)
+
     for region in regions:
         region_dict = {}
-        region_dict["edges"] = [
-            round(p, 1) for p in np.linspace(0, 30, 101, dtype=np.float64)
-        ]
+        region_dict["edges"] = [round(p, 1) for p in bins]
         for file_name in time_info.keys():
-            print(f"{region} {file_name}")
+            print(f"{region} {file_name}", file=sys.stderr)
             region_dict[file_name] = {}
             full_path = os.path.join(
                 "/work/bb1203/g260190_heinrich/Dunkelflaute/Data",
@@ -52,34 +80,13 @@ def calc_statistics():
             for scenario in time_info[file_name].keys():
                 with xr.open_dataset(full_path) as df:
                     region_dict[file_name][f"{scenario}"] = {}
-
-                    df = df.sel(
-                        time=slice(
-                            f"{time_info[file_name][scenario]['start']}-01-01",
-                            f"{time_info[file_name][scenario]['end']}-12-31",
-                        )
+                    wind = wind_in_time_period(df, time_info, file_name, scenario)
+                    region_dict = compute_statistics(
+                        wind, region_dict, file_name, bins, scenario
                     )
-                    wind = df["sfcWind"].values  # Load data into memory
-
-                    # 90th percentile
-                    percentile = np.percentile(wind, 95)
-                    region_dict[file_name]["95th_percentile"] = percentile.item()
-
-                    wind_mean = np.mean(wind, keepdims=True)
-                    region_dict[file_name]["mean"] = wind_mean.item()
-
-                    wind_std = np.std(wind, mean=wind_mean)
-                    region_dict[file_name]["std"] = wind_std.item()
-
-                    # Define histogram bins
-                    bins = np.linspace(0, 30, 101, dtype=np.float64)
-
-                    # Compute histogram
-                    counts, edges = np.histogram(wind, bins=bins)
-                    region_dict[file_name][f"{scenario}"]["counts"] = counts.tolist()
-
         with open(f"Wind/{region}.json", "w") as file:
             json.dump(region_dict, file, indent=4)
-            
+
+
 if __name__ == "__main__":
     calc_statistics()
