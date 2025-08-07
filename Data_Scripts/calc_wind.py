@@ -299,7 +299,7 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
     # Prepare output filenames and directories
     output_filename = hpf.generate_filename(folder_dict["ua100m"], "CF_Wind")
 
-    cf_wind_output = os.path.join("CF_Wind", output_filename)
+    cf_wind_output = os.path.join("Data/Germany/CF_Wind", output_filename)
 
     # Clean up any old intermediate files
     hpf.run_shell_command(
@@ -307,7 +307,7 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
     )
 
     wind_cat = os.path.join(
-        "Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
+        "Data/Germany/Wind", hpf.generate_filename(folder_dict["ua100m"], "wind")
     )
 
     calculte_wind_bool, calculte_cf_wind = check_what_to_calc(

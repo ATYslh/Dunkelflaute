@@ -45,7 +45,3 @@ Check difference between RCMS/GCMS
 Visualisierung über Punktwolke. X-achse hat die Anzahl der Flauten. Symbole für die Regionen und Farben für die Szenarien?
 
 Seasonal change?
-
---------------
-Info:
-The paths have not been renamed in the Data_Scripts after moving the files.
