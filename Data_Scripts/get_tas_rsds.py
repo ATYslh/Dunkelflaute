@@ -37,10 +37,10 @@ def get_data(folder_dict: dict, config: dict) -> None:
     hpf.run_shell_command("rm -f /scratch/g/g260190/rsds_*.nc", 5)
 
     output_filename_tas = hpf.generate_filename(folder_dict["tas"], "CF_PV")
-    tas_output = os.path.join("../Data/tas/Germany", output_filename_tas)
+    tas_output = os.path.join("../Data/Germany/tas/", output_filename_tas)
 
     output_filename_tas = hpf.generate_filename(folder_dict["rsds"], "RSDS")
-    rsds_output = os.path.join("../Data/rsds/Germany", output_filename_tas)
+    rsds_output = os.path.join("../Data/Germany/rsds/", output_filename_tas)
 
     if config["RSDS"]["split"]:
         hpf.split_file(rsds_output, "rsds_")
