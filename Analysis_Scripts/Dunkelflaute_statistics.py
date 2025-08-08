@@ -44,9 +44,17 @@ def compute_statistics(
     scenario: str,
 ) -> dict:
 
-    # select time has to be done by cdo too
-    start, end = dunkelflaute_in_time_period(time_info, os.path.basename(dataset), scenario)
-    output_path=f"{os.path.dirname(dataset)}"
+    filename = os.path.basename(dataset)
+    start, end = dunkelflaute_in_time_period(time_info, filename, scenario)
+    output_path = f"{os.path.dirname(dataset)}"
+    hpf.run_shell_command(
+        f"cdo -z zip -timmean seldate,{start},{end} {dataset} {os.path.join(output_path,'timmean',filename)}",
+        60,
+    )
+    hpf.run_shell_command(
+        f"cdo -z zip -fldmean seldate,{start},{end} {dataset} {os.path.join(output_path,'fldmean',filename)}",
+        60,
+    )
     return None
 
 
