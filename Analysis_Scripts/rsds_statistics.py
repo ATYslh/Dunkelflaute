@@ -69,10 +69,10 @@ def compute_statistics(
     counts, _ = np.histogram(rsds, bins=bins)
     region_dict[file_name][scenario][season]["counts"] = counts.tolist()
 
-    fldmean = df["rsds"].mean(dim=["rlat", "rlon"])
+    fldmean = df["rsds"].mean(dim=["rlat", "rlon"], skipna=True)
 
     # Group by hour of the day and compute mean
-    diurnal_cycle = fldmean.groupby(df["time"].dt.hour).mean(dim="time")
+    diurnal_cycle = fldmean.groupby(df["time"].dt.hour).mean(dim="time", skipna=True)
     region_dict[file_name][scenario][season][
         "diurnal_cycle"
     ] = diurnal_cycle.values.tolist()
