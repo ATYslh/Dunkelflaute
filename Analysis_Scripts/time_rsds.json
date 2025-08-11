@@ -1,0 +1,250 @@
+{
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_historical_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_historical_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_historical_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_historical_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2026,
+            "end": 2055
+        }
+    },
+    "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2026,
+            "end": 2055
+        },
+        "GWL3K": {
+            "start": 2062,
+            "end": 2091
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL3K": {
+            "start": 2062,
+            "end": 2091
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2024,
+            "end": 2053
+        }
+    },
+    "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2024,
+            "end": 2053
+        },
+        "GWL3K": {
+            "start": 2047,
+            "end": 2076
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "GWL2K": {
+            "start": 2024,
+            "end": 2053
+        }
+    },
+    "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "GWL2K": {
+            "start": 2024,
+            "end": 2053
+        },
+        "GWL3K": {
+            "start": 2047,
+            "end": 2076
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL3K": {
+            "start": 2047,
+            "end": 2076
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "GWL3K": {
+            "start": 2047,
+            "end": 2076
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp585-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2019,
+            "end": 2048
+        }
+    },
+    "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp585_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2019,
+            "end": 2048
+        },
+        "GWL3K": {
+            "start": 2040,
+            "end": 2069
+        }
+    },
+    "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp585-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL3K": {
+            "start": 2040,
+            "end": 2069
+        }
+    },
+    "CEU-3_MIROC-MIROC6_historical_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "EUR-11_MIROC-MIROC6_historical_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "CEU-3_MIROC-MIROC6_historical_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "EUR-11_MIROC-MIROC6_historical_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "CEU-3_MIROC-MIROC6_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2038,
+            "end": 2067
+        }
+    },
+    "EUR-11_MIROC-MIROC6_ssp370_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2038,
+            "end": 2067
+        },
+        "GWL3K": {
+            "start": 2070,
+            "end": 2099
+        }
+    },
+    "CEU-3_MIROC-MIROC6_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "GWL2K": {
+            "start": 2038,
+            "end": 2067
+        }
+    },
+    "EUR-11_MIROC-MIROC6_ssp370_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "GWL2K": {
+            "start": 2038,
+            "end": 2067
+        },
+        "GWL3K": {
+            "start": 2070,
+            "end": 2099
+        }
+    },
+    "CEU-3_MIROC-MIROC6_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL3K": {
+            "start": 2070,
+            "end": 2099
+        }
+    },
+    "CEU-3_MIROC-MIROC6_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_RSDS.nc": {
+        "GWL3K": {
+            "start": 2070,
+            "end": 2099
+        }
+    },
+    "CEU-3_MPI-M-MPI-ESM1-2-HR_historical_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "EUR-11_MPI-M-MPI-ESM1-2-HR_historical_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "CEU-3_MPI-M-MPI-ESM1-2-HR_historical_CLMcom-Hereon-CCLM-6-0-clm2_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "EUR-11_MPI-M-MPI-ESM1-2-HR_historical_CLMcom-Hereon-CCLM-6-0-clm3_RSDS.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
+    "CEU-3_MPI-M-MPI-ESM1-2-HR_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2037,
+            "end": 2066
+        }
+    },
+    "EUR-11_MPI-M-MPI-ESM1-2-HR_ssp370_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL2K": {
+            "start": 2037,
+            "end": 2066
+        },
+        "GWL3K": {
+            "start": 2066,
+            "end": 2095
+        }
+    },
+    "CEU-3_MPI-M-MPI-ESM1-2-HR_ssp370-GWL2K_CLMcom-Hereon-CCLM-6-0-clm2_RSDS.nc": {
+        "GWL2K": {
+            "start": 2037,
+            "end": 2066
+        }
+    },
+    "EUR-11_MPI-M-MPI-ESM1-2-HR_ssp370_CLMcom-Hereon-CCLM-6-0-clm3_RSDS.nc": {
+        "GWL2K": {
+            "start": 2037,
+            "end": 2066
+        },
+        "GWL3K": {
+            "start": 2066,
+            "end": 2095
+        }
+    },
+    "CEU-3_MPI-M-MPI-ESM1-2-HR_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_RSDS.nc": {
+        "GWL3K": {
+            "start": 2066,
+            "end": 2095
+        }
+    },
+    "CEU-3_MPI-M-MPI-ESM1-2-HR_ssp370-GWL3K_CLMcom-Hereon-CCLM-6-0-clm2_RSDS.nc": {
+        "GWL3K": {
+            "start": 2066,
+            "end": 2095
+        }
+    }
+}
