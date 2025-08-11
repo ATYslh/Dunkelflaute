@@ -53,16 +53,16 @@ def compute_statistics(
     rsds = radiation_in_time_period(df, time_info, file_name, scenario)
 
     # 95th percentile
-    percentile = np.percentile(rsds, 95)
+    percentile = np.nanpercentile(rsds, 95)
     region_dict[file_name][scenario][season]["95th_percentile"] = percentile.item()
 
-    percentile = np.percentile(rsds, 10)
+    percentile = np.nanpercentile(rsds, 10)
     region_dict[file_name]["10th_percentile"] = percentile.item()
 
-    rsds_mean = np.mean(rsds, keepdims=True)
+    rsds_mean = np.nanmean(rsds, keepdims=True)
     region_dict[file_name][scenario][season]["mean"] = rsds_mean.item()
 
-    rsds_std = np.std(rsds, mean=rsds_mean)
+    rsds_std = np.nanstd(rsds, mean=rsds_mean)
     region_dict[file_name][scenario][season]["std"] = rsds_std.item()
 
     # Compute histogram

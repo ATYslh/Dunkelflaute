@@ -53,16 +53,16 @@ def compute_statistics(
     temperature = temperature_in_time_period(df, time_info, file_name, scenario)
 
     # 95th percentile
-    percentile = np.percentile(temperature, 95)
+    percentile = np.nanpercentile(temperature, 95)
     region_dict[file_name][scenario][season]["95th_percentile"] = percentile.item()
 
-    percentile = np.percentile(temperature, 10)
+    percentile = np.nanpercentile(temperature, 10)
     region_dict[file_name]["10th_percentile"] = percentile.item()
 
-    temperature_mean = np.mean(temperature, keepdims=True)
+    temperature_mean = np.nanmean(temperature, keepdims=True)
     region_dict[file_name][scenario][season]["mean"] = temperature_mean.item()
 
-    temperature_std = np.std(temperature, mean=temperature_mean)
+    temperature_std = np.nanstd(temperature, mean=temperature_mean)
     region_dict[file_name][scenario][season]["std"] = temperature_std.item()
 
     # Compute histogram
