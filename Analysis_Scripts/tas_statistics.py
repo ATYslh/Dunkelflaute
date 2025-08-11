@@ -90,7 +90,7 @@ def calc_statistics(overwrite=False) -> None:
         "WAKOS",
     ]
 
-    time_info = hpf.load_json_file("time.json")
+    time_info = hpf.load_json_file("time_tas.json")
     bins = np.linspace(0, 30, 101, dtype=np.float64)
 
     for region in regions:
