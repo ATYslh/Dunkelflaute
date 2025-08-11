@@ -3,7 +3,7 @@ import importlib.util
 import os
 import sys
 from pathlib import Path
-
+import hashlib
 import numpy as np
 import xarray as xr
 
@@ -117,12 +117,13 @@ def calc_statistics(overwrite=False) -> None:
                 hpf.run_shell_command(
                     f"cdo splitseas {full_path} /scratch/g/g260190/", 60
                 )
+                md5_hash={hashlib.md5(full_path.encode()).hexdigest()}
                 datasets = [
                     full_path,
-                    "/scratch/g/g260190/DJF.nc",
-                    "/scratch/g/g260190/MAM.nc",
-                    "/scratch/g/g260190/JJA.nc",
-                    "/scratch/g/g260190/SON.nc",
+                    f"/scratch/g/g260190/DJF_{md5_hash}.nc",
+                    f"/scratch/g/g260190/MAM_{md5_hash}.nc",
+                    f"/scratch/g/g260190/JJA_{md5_hash}.nc",
+                    f"/scratch/g/g260190/SON_{md5_hash}.nc",
                 ]
 
                 for dataset in datasets:
