@@ -197,6 +197,12 @@
             "end": 1990
         }
     },
+    "EUR-11_MPI-M-MPI-ESM1-2-HR_historical_CLMcom-Hereon-CCLM-6-0-clm3_wind.nc": {
+        "historical": {
+            "start": 1961,
+            "end": 1990
+        }
+    },
     "CEU-3_MPI-M-MPI-ESM1-2-HR_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_wind.nc": {
         "GWL2K": {
             "start": 2037,
@@ -217,6 +223,16 @@
         "GWL2K": {
             "start": 2037,
             "end": 2066
+        }
+    },
+    "EUR-11_MPI-M-MPI-ESM1-2-HR_ssp370_CLMcom-Hereon-CCLM-6-0-clm3_wind.nc": {
+        "GWL2K": {
+            "start": 2037,
+            "end": 2066
+        },
+        "GWL3K": {
+            "start": 2066,
+            "end": 2095
         }
     },
     "CEU-3_MPI-M-MPI-ESM1-2-HR_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_wind.nc": {
