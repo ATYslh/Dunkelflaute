@@ -47,14 +47,17 @@ def compute_statistics(
     filename = os.path.basename(dataset)
     start, end = dunkelflaute_in_time_period(time_info, filename, scenario)
     output_path = f"{os.path.dirname(dataset)}"
-    hpf.run_shell_command(
-        f"cdo -z zip -timmean seldate,{start},{end} {dataset} {os.path.join(output_path,'timmean',filename)}",
-        60,
-    )
-    hpf.run_shell_command(
-        f"cdo -z zip -fldmean seldate,{start},{end} {dataset} {os.path.join(output_path,'fldmean',filename)}",
-        60,
-    )
+
+    if not os.path.exists(os.path.join(output_path,'timmean',filename)):
+        hpf.run_shell_command(
+            f"cdo -z zip -timmean -seldate,{start},{end} {dataset} {os.path.join(output_path,'timmean',filename)}",
+            60,
+        )
+    if not os.path.exists(os.path.join(output_path,'fldmean',filename)):
+        hpf.run_shell_command(
+            f"cdo -z zip -fldmean -seldate,{start},{end} {dataset} {os.path.join(output_path,'fldmean',filename)}",
+            60,
+        )
     return None
 
 
@@ -68,12 +71,19 @@ def calc_statistics(overwrite=False) -> None:
         "KlimaKonform",
         "WAKOS",
     ]
-    time_info = hpf.load_json_file("time.json")
+
 
     for region in regions:
-        for file_name, scenarios in time_info.items():
-            print(f"{region} {file_name} at {datetime.datetime.now()}", file=sys.stderr)
-            for turbine in ["5MW", "3_3MW"]:
+        for turbine in ["5MW", "3_3MW"]:
+            if turbine == "5MW":
+                time_info = hpf.load_json_file("/work/bb1203/g260190_heinrich/Dunkelflaute/Analysis_Scripts/time_df_5MW.json")
+            elif turbine =="3_3MW":
+                time_info=hpf.load_json_file("/work/bb1203/g260190_heinrich/Dunkelflaute/Analysis_Scripts/time_df_3_3MW.json")
+            else:
+                raise ValueError("no turbine detected")
+            for file_name, scenarios in time_info.items():
+                print(f"{region} {file_name} at {datetime.datetime.now()}", file=sys.stderr)
+                
                 dataset = os.path.join(
                     "/work/bb1203/g260190_heinrich/Dunkelflaute/Data",
                     region,
