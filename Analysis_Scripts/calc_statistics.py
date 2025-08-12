@@ -1,8 +1,10 @@
 import datetime
 import importlib.util
 import os
+import re
 import sys
 from pathlib import Path
+import argparse
 
 import numpy as np
 import xarray as xr
@@ -29,13 +31,13 @@ else:
     import Data_Scripts.helper_functions as hpf
 
 
-def radiation_in_time_period(
-    dataset: xr.Dataset, time_info: dict, file_name: str, scenario: str
+def data_in_time_period(
+    dataset: xr.Dataset, time_info: dict, file_name: str, scenario: str, variable: str
 ) -> np.ndarray:
-    """Extract radiation data for a specific time period."""
+    """Extract data for a specific time period."""
     start = f"{time_info[file_name][scenario]['start']}-01-01"
     end = f"{time_info[file_name][scenario]['end']}-12-31"
-    return dataset.sel(time=slice(start, end))["rsds"].values
+    return dataset.sel(time=slice(start, end))[variable].values
 
 
 def compute_statistics(
@@ -46,30 +48,31 @@ def compute_statistics(
     bins: np.ndarray,
     scenario: str,
     season: str,
+    variable: str,
 ) -> dict:
 
     region_dict[file_name][scenario][season] = {}
 
-    rsds = radiation_in_time_period(df, time_info, file_name, scenario)
+    data = data_in_time_period(df, time_info, file_name, scenario, variable)
 
     # 95th percentile
-    percentile = np.nanpercentile(rsds, 95)
+    percentile = np.nanpercentile(data, 95)
     region_dict[file_name][scenario][season]["95th_percentile"] = percentile.item()
 
-    percentile = np.nanpercentile(rsds, 10)
+    percentile = np.nanpercentile(data, 10)
     region_dict[file_name]["10th_percentile"] = percentile.item()
 
-    rsds_mean = np.nanmean(rsds, keepdims=True)
-    region_dict[file_name][scenario][season]["mean"] = rsds_mean.item()
+    data_mean = np.nanmean(data, keepdims=True)
+    region_dict[file_name][scenario][season]["mean"] = data_mean.item()
 
-    rsds_std = np.nanstd(rsds, mean=rsds_mean)
-    region_dict[file_name][scenario][season]["std"] = rsds_std.item()
+    data_std = np.nanstd(data, mean=data_mean)
+    region_dict[file_name][scenario][season]["std"] = data_std.item()
 
     # Compute histogram
-    counts, _ = np.histogram(rsds, bins=bins)
+    counts, _ = np.histogram(data, bins=bins)
     region_dict[file_name][scenario][season]["counts"] = counts.tolist()
 
-    fldmean = df["rsds"].mean(dim=["rlat", "rlon"], skipna=True)
+    fldmean = df[variable].mean(dim=["rlat", "rlon"], skipna=True)
 
     # Group by hour of the day and compute mean
     diurnal_cycle = fldmean.groupby(df["time"].dt.hour).mean(dim="time", skipna=True)
@@ -79,7 +82,34 @@ def compute_statistics(
     return region_dict
 
 
-def calc_statistics(overwrite=False) -> None:
+def clean_filename(filename):
+    # Replace '_historical_' with '_'
+    filename = re.sub(r"_historical_", "_", filename)
+
+    # Replace 'sspXXXGWLX_' with '_'
+    filename = re.sub(r"_ssp\d{3}GWL\d_", "_", filename)
+
+    return os.path.splitext(filename)[0]
+
+
+def process_input_args() -> str:
+    parser = argparse.ArgumentParser(
+        description="Input variable for processing."
+    )
+    parser.add_argument(
+        "-v",
+        "--variable",
+        type=str,
+        default="sfcWind",
+        help="Pick a variable to process",
+    )
+
+    args = parser.parse_args()
+
+    return args.variable
+
+
+def calc_statistics(variable: str) -> None:
     regions = [
         "Duisburg",
         "Germany",
@@ -90,39 +120,45 @@ def calc_statistics(overwrite=False) -> None:
         "WAKOS",
     ]
 
-    time_info = hpf.load_json_file("time_rsds.json")
+    time_info = hpf.load_json_file(f"time_{variable}.json")
     bins = np.linspace(0, 30, 101, dtype=np.float64)
 
     for region in regions:
-        output_json_file = f"rsds/{region}.json"
+        output_json_file = f"{variable}/{region}.json"
         region_dict = {"edges": [round(p, 1) for p in bins]}
         if os.path.exists(output_json_file):
             region_dict = hpf.load_json_file(output_json_file)
 
         for file_name, scenarios in time_info.items():
             print(f"{region} {file_name} at {datetime.datetime.now()}", file=sys.stderr)
-            if file_name in region_dict:
-                continue
-            region_dict[file_name] = {}
+            cleaned_filename = clean_filename(file_name)
+            if cleaned_filename not in region_dict:
+                region_dict[cleaned_filename] = {}
             full_path = os.path.join(
                 "/work/bb1203/g260190_heinrich/Dunkelflaute/Data",
                 region,
-                "rsds",
+                variable,
                 file_name,
             )
 
             for scenario in scenarios:
-                region_dict[file_name][scenario] = {}
+                if scenario in region_dict.get(cleaned_filename, {}):
+                    continue
+
+                region_dict[cleaned_filename][scenario] = {}
 
                 hpf.run_shell_command(
                     f"cdo splitseas {full_path} /scratch/g/g260190/", 60
                 )
+
+                if not os.path.exists(f"/scratch/g/g260190/{variable}"):
+                    os.makedirs(f"/scratch/g/g260190/{variable}")
                 datasets = [
                     full_path,
-                    "/scratch/g/g260190/rsds/DJF.nc",
-                    "/scratch/g/g260190/rsds/MAM.nc",
-                    "/scratch/g/g260190/rsds/JJA.nc",
-                    "/scratch/g/g260190/rsds/SON.nc",
+                    f"/scratch/g/g260190/{variable}/DJF.nc",
+                    f"/scratch/g/g260190/{variable}/MAM.nc",
+                    f"/scratch/g/g260190/{variable}/JJA.nc",
+                    f"/scratch/g/g260190/{variable}/SON.nc",
                 ]
 
                 for dataset in datasets:
@@ -138,10 +174,11 @@ def calc_statistics(overwrite=False) -> None:
                             df,
                             time_info,
                             region_dict,
-                            file_name,
+                            cleaned_filename,
                             bins,
                             scenario,
                             season,
+                            variable,
                         )
 
             hpf.write_json_file(output_json_file, region_dict)

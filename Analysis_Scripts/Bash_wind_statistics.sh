@@ -12,4 +12,4 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --account=bb1203
 
-srun python3 sfcWind_statistics.py
+srun python3 calc_statistics.py -v sfcWind
