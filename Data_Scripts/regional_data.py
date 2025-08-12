@@ -28,19 +28,19 @@ def region_indices(path: str):
             return "40,60,216,239"
         raise ValueError("Cannot determine region region_indices()")
     elif "EUR-11" in path:
-        if "Duisburg":
+        if "Duisburg" in path:
             return "5,7,39,41"
-        if "Germany":
+        if "Germany" in path:
             return "1,52,1,70"
-        if "IAWAK-EE":
+        if "IAWAK-EE" in path:
             return "43,46,36,40"
-        if "ISAP":
+        if "ISAP" in path:
             return "15,21,13,17"
-        if "KARE":
+        if "KARE" in path:
             return "26,33,2,6"
-        if "KlimaKonform":
+        if "KlimaKonform" in path:
             return "33,38,26,35"
-        if "WAKOS":
+        if "WAKOS" in path:
             return "11,15,55,60"
         raise ValueError("Cannot determine region region_indices()")
 
@@ -83,8 +83,11 @@ def write_selindexboxes():
 
 
 def crop_masks():
+    # This has to be done on the original mask files from
+    # /work/gg0302/g260190/rsds_analysis/Subregion_Masks
     # Crop the masks first to the same dimension as the Germany mask
-    # and then further down to the bounding box of their data
+    # and then further down to the bounding box of their data.
+    # (Would be easier to do directly on the bounding box of the data.)
     os.chdir(f"/work/bb1203/g260190_heinrich/Dunkelflaute/")
     hpf.run_shell_command(
         "cp -r /work/gg0302/g260190/rsds_analysis/Subregion_Masks/ .", 1
