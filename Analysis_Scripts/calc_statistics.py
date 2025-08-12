@@ -49,34 +49,37 @@ def compute_statistics(
     scenario: str,
     season: str,
     variable: str,
+    cleaned_filename: str,
 ) -> dict:
 
-    region_dict[file_name][scenario][season] = {}
+    region_dict[cleaned_filename][scenario][season] = {}
 
     data = data_in_time_period(df, time_info, file_name, scenario, variable)
 
     # 95th percentile
     percentile = np.nanpercentile(data, 95)
-    region_dict[file_name][scenario][season]["95th_percentile"] = percentile.item()
+    region_dict[cleaned_filename][scenario][season][
+        "95th_percentile"
+    ] = percentile.item()
 
     percentile = np.nanpercentile(data, 10)
-    region_dict[file_name]["10th_percentile"] = percentile.item()
+    region_dict[cleaned_filename]["10th_percentile"] = percentile.item()
 
     data_mean = np.nanmean(data, keepdims=True)
-    region_dict[file_name][scenario][season]["mean"] = data_mean.item()
+    region_dict[cleaned_filename][scenario][season]["mean"] = data_mean.item()
 
     data_std = np.nanstd(data, mean=data_mean)
-    region_dict[file_name][scenario][season]["std"] = data_std.item()
+    region_dict[cleaned_filename][scenario][season]["std"] = data_std.item()
 
     # Compute histogram
     counts, _ = np.histogram(data, bins=bins)
-    region_dict[file_name][scenario][season]["counts"] = counts.tolist()
+    region_dict[cleaned_filename][scenario][season]["counts"] = counts.tolist()
 
     fldmean = df[variable].mean(dim=["rlat", "rlon"], skipna=True)
 
     # Group by hour of the day and compute mean
     diurnal_cycle = fldmean.groupby(df["time"].dt.hour).mean(dim="time", skipna=True)
-    region_dict[file_name][scenario][season][
+    region_dict[cleaned_filename][scenario][season][
         "diurnal_cycle"
     ] = diurnal_cycle.values.tolist()
     return region_dict
@@ -93,9 +96,7 @@ def clean_filename(filename):
 
 
 def process_input_args() -> str:
-    parser = argparse.ArgumentParser(
-        description="Input variable for processing."
-    )
+    parser = argparse.ArgumentParser(description="Input variable for processing.")
     parser.add_argument(
         "-v",
         "--variable",
@@ -146,13 +147,14 @@ def calculate_statistics(variable: str) -> None:
                     continue
 
                 region_dict[cleaned_filename][scenario] = {}
-
-                hpf.run_shell_command(
-                    f"cdo splitseas {full_path} /scratch/g/g260190/", 60
-                )
-
                 if not os.path.exists(f"/scratch/g/g260190/{variable}"):
                     os.makedirs(f"/scratch/g/g260190/{variable}")
+
+                print(f"cdo splitseas {full_path} /scratch/g/g260190/{variable}/")
+                hpf.run_shell_command(
+                    f"cdo splitseas {full_path} /scratch/g/g260190/{variable}/", 60
+                )
+
                 datasets = [
                     full_path,
                     f"/scratch/g/g260190/{variable}/DJF.nc",
@@ -174,11 +176,12 @@ def calculate_statistics(variable: str) -> None:
                             df,
                             time_info,
                             region_dict,
-                            cleaned_filename,
+                            file_name,
                             bins,
                             scenario,
                             season,
                             variable,
+                            cleaned_filename,
                         )
 
             hpf.write_json_file(output_json_file, region_dict)
