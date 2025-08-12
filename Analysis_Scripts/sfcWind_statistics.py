@@ -1,6 +1,7 @@
 import datetime
 import importlib.util
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -79,7 +80,17 @@ def compute_statistics(
     return region_dict
 
 
-def calc_statistics(overwrite=False) -> None:
+def clean_filename(filename):
+    # Replace '_historical_' with '_'
+    filename = re.sub(r"_historical_", "_", filename)
+
+    # Replace 'sspXXXGWLX_' with '_'
+    filename = re.sub(r"_ssp\d{3}GWL\d_", "_", filename)
+
+    return os.path.splitext(filename)[0]
+
+
+def calc_statistics(variable:str) -> None:
     regions = [
         "Duisburg",
         "Germany",
@@ -90,29 +101,32 @@ def calc_statistics(overwrite=False) -> None:
         "WAKOS",
     ]
 
-    time_info = hpf.load_json_file("time_wind.json")
+    time_info = hpf.load_json_file(f"time_{variable}.json")
     bins = np.linspace(0, 30, 101, dtype=np.float64)
 
     for region in regions:
-        output_json_file = f"Wind/{region}.json"
+        output_json_file = f"{variable}/{region}.json"
         region_dict = {"edges": [round(p, 1) for p in bins]}
         if os.path.exists(output_json_file):
             region_dict = hpf.load_json_file(output_json_file)
 
         for file_name, scenarios in time_info.items():
             print(f"{region} {file_name} at {datetime.datetime.now()}", file=sys.stderr)
-            if file_name in region_dict:
-                continue
-            region_dict[file_name] = {}
+            cleaned_filename=clean_filename(file_name)
+            if cleaned_filename not in region_dict:
+                region_dict[cleaned_filename] = {}
             full_path = os.path.join(
                 "/work/bb1203/g260190_heinrich/Dunkelflaute/Data",
                 region,
-                "Wind",
+                variable,
                 file_name,
             )
 
             for scenario in scenarios:
-                region_dict[file_name][scenario] = {}
+                if scenario in region_dict.get(cleaned_filename, {}):
+                    continue
+
+                region_dict[cleaned_filename][scenario] = {}
 
                 hpf.run_shell_command(
                     f"cdo splitseas {full_path} /scratch/g/g260190/", 60
@@ -138,7 +152,7 @@ def calc_statistics(overwrite=False) -> None:
                             df,
                             time_info,
                             region_dict,
-                            file_name,
+                            cleaned_filename,
                             bins,
                             scenario,
                             season,

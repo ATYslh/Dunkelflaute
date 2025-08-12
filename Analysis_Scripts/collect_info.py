@@ -113,5 +113,5 @@ def gather_time_information(data_dir: str, output_file: str = "time.json") -> No
 
 if __name__ == "__main__":
     gather_time_information(
-        "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Duisburg/rsds", "time_rsds.json"
+        "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Duisburg/sfcWind", "time_sfcWind.json"
     )

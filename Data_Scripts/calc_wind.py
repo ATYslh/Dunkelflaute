@@ -313,7 +313,7 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
     )
 
     wind_cat = os.path.join(
-        f"../Data/Germany/Wind/",
+        f"../Data/Germany/sfcWind/",
         hpf.generate_filename(folder_dict["ua100m"], "wind"),
     )
 

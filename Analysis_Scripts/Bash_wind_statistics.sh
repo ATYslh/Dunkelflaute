@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Wind_statistics
+#SBATCH --job-name=sfcWind_statistics
 #SBATCH --output=CF.o%J
 #SBATCH --error=CF.o%J
 #SBATCH --partition=compute
@@ -12,4 +12,4 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --account=bb1203
 
-srun python3 wind_statistics.py
+srun python3 sfcWind_statistics.py

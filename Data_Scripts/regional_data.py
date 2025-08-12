@@ -121,7 +121,7 @@ def create_folders():
     ]:
         hpf.run_shell_command(f"mkdir {region}", 1)
         hpf.run_shell_command(
-            f"mkdir {region}/CF_PV {region}/tas {region}/rsds {region}/CF_Wind {region}/Dunkelflaute {region}/Wind {region}/CF_Wind/3_3MW {region}/CF_Wind/5MW",
+            f"mkdir {region}/CF_PV {region}/tas {region}/rsds {region}/CF_Wind {region}/Dunkelflaute {region}/sfcWind {region}/CF_Wind/3_3MW {region}/CF_Wind/5MW",
             1,
         )
 
@@ -175,7 +175,7 @@ def process_task(task):
 def create_regional_files():
     base_dir = "/work/bb1203/g260190_heinrich/Dunkelflaute/Data"
     regions = ["Duisburg", "IAWAK-EE", "ISAP", "KARE", "KlimaKonform", "WAKOS"]
-    subfolders = ["CF_PV", "CF_Wind/3_3MW", "CF_Wind/5MW", "Dunkelflaute/3_3MW","Dunkelflaute/5MW", "Wind", "tas", "rsds"]
+    subfolders = ["CF_PV", "CF_Wind/3_3MW", "CF_Wind/5MW", "Dunkelflaute/3_3MW","Dunkelflaute/5MW", "sfcWind", "tas", "rsds"]
     num_procs = hpf.process_input_args()
     total_batches = len(regions) * len(subfolders)
     index = 1
