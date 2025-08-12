@@ -3,7 +3,6 @@ import importlib.util
 import os
 import sys
 from pathlib import Path
-import hashlib
 
 import numpy as np
 import xarray as xr
@@ -118,17 +117,17 @@ def calc_statistics(overwrite=False) -> None:
                 hpf.run_shell_command(
                     f"cdo splitseas {full_path} /scratch/g/g260190/", 60
                 )
-                md5_hash={hashlib.md5(full_path.encode()).hexdigest()}
                 datasets = [
                     full_path,
-                    f"/scratch/g/g260190/DJF_{md5_hash}.nc",
-                    f"/scratch/g/g260190/MAM_{md5_hash}.nc",
-                    f"/scratch/g/g260190/JJA_{md5_hash}.nc",
-                    f"/scratch/g/g260190/SON_{md5_hash}.nc",
+                    "/scratch/g/g260190/rsds/DJF.nc",
+                    "/scratch/g/g260190/rsds/MAM.nc",
+                    "/scratch/g/g260190/rsds/JJA.nc",
+                    "/scratch/g/g260190/rsds/SON.nc",
                 ]
 
                 for dataset in datasets:
-                    current_filename = os.path.splitext(os.path.basename(dataset))[0].split("_")[0]
+                    current_filename = os.path.splitext(os.path.basename(dataset))[0]
+
                     if len(current_filename) == 3:
                         season = current_filename
                     else:
