@@ -109,7 +109,7 @@ def process_input_args() -> str:
     return args.variable
 
 
-def calc_statistics(variable: str) -> None:
+def calculate_statistics(variable: str) -> None:
     regions = [
         "Duisburg",
         "Germany",
@@ -185,4 +185,4 @@ def calc_statistics(variable: str) -> None:
 
 
 if __name__ == "__main__":
-    calc_statistics()
+    calculate_statistics(process_input_args())
