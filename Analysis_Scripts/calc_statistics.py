@@ -150,7 +150,6 @@ def calculate_statistics(variable: str) -> None:
                 if not os.path.exists(f"/scratch/g/g260190/{variable}"):
                     os.makedirs(f"/scratch/g/g260190/{variable}")
 
-                print(f"cdo splitseas {full_path} /scratch/g/g260190/{variable}/")
                 hpf.run_shell_command(
                     f"cdo splitseas {full_path} /scratch/g/g260190/{variable}/", 60
                 )
