@@ -85,6 +85,7 @@ def clean_filename(filename):
     # Replace 'sspXXXGWLX_' with '_'
     filename = re.sub(r"_ssp\d{3}-GWL\dK_", "_", filename)
 
+    filename = re.sub(r"_ssp\d{3}_", "_", filename)
     return os.path.splitext(filename)[0]
 
 
