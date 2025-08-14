@@ -1,0 +1,382 @@
+{
+    "5MW": {
+        "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute": {
+            "historical": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_SON.nc"
+                }
+            }
+        },
+        "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute": {
+            "historical": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_historical_SON.nc"
+                }
+            }
+        },
+        "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute": {
+            "historical": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_SON.nc"
+                }
+            }
+        },
+        "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute": {
+            "historical": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_historical_SON.nc"
+                }
+            }
+        },
+        "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute": {
+            "GWL2K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_SON.nc"
+                }
+            }
+        },
+        "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute": {
+            "GWL2K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_SON.nc"
+                }
+            },
+            "GWL3K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp245_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_SON.nc"
+                }
+            }
+        },
+        "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute": {
+            "GWL3K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp245-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_SON.nc"
+                }
+            }
+        },
+        "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute": {
+            "GWL2K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_SON.nc"
+                }
+            }
+        },
+        "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute": {
+            "GWL2K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL2K_SON.nc"
+                }
+            },
+            "GWL3K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_SON.nc"
+                }
+            }
+        },
+        "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute": {
+            "GWL2K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL2K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_SON.nc"
+                }
+            }
+        },
+        "EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute": {
+            "GWL2K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL2K_SON.nc"
+                }
+            },
+            "GWL3K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/EUR-11_EC-Earth-Consortium-EC-Earth3-Veg_ssp370_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_SON.nc"
+                }
+            }
+        },
+        "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute": {
+            "GWL3K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-BTU-ICON-2-6-5-rc_Dunkelflaute_GWL3K_SON.nc"
+                }
+            }
+        },
+        "CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute": {
+            "GWL3K": {
+                "Year": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_Year.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_Year.nc"
+                },
+                "DJF": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_DJF.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_DJF.nc"
+                },
+                "MAM": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_MAM.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_MAM.nc"
+                },
+                "JJA": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_JJA.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_JJA.nc"
+                },
+                "SON": {
+                    "timmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/timmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_SON.nc",
+                    "fldmean": "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Germany/Dunkelflaute/5MW/fldmean/CEU-3_EC-Earth-Consortium-EC-Earth3-Veg_ssp370-GWL3K_CLMcom-KIT-CCLM-6-0-clm2_Dunkelflaute_GWL3K_SON.nc"
+                }
+            }
+        }
+    }
+}
