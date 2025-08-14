@@ -41,8 +41,9 @@ def extract_scenario_key(file_name: str) -> str | None:
     if "historical" in lower:
         return "historical"
 
-    match = re.search(r"GWL\d+K", file_name)
+    match = re.search(r"ssp\d{3}-GWL\dK", file_name)
     return match.group(0) if match else None
+
 
 def same_except_one_digit(s1: str, s2: str) -> bool:
     # quick length check
@@ -53,11 +54,8 @@ def same_except_one_digit(s1: str, s2: str) -> bool:
     diffs = [(c1, c2) for c1, c2 in zip(s1, s2) if c1 != c2]
 
     # must be exactly one mismatch, and both chars there are digits
-    return (
-        len(diffs) == 1
-        and diffs[0][0].isdigit()
-        and diffs[0][1].isdigit()
-    )
+    return len(diffs) == 1 and diffs[0][0].isdigit() and diffs[0][1].isdigit()
+
 
 def find_matching_eur11(ceu3_path: Path, eur11_paths: list[Path]) -> Path | None:
     """
@@ -70,10 +68,10 @@ def find_matching_eur11(ceu3_path: Path, eur11_paths: list[Path]) -> Path | None
     for p in eur11_paths:
         if candidate_clean in p.name:
             return p
-    
-    #Because Hereon EUR-11 uses clm3, while CEU-3 uses clm2
+
+    # Because Hereon EUR-11 uses clm3, while CEU-3 uses clm2
     for p in eur11_paths:
-        if same_except_one_digit(str(p.name),candidate_clean):
+        if same_except_one_digit(str(p.name), candidate_clean):
             return p
     return None
 
@@ -85,7 +83,7 @@ def gather_time_information(data_dir: str, output_file: str = "time.json") -> No
     pair them with their EUR-11 counterparts, and write out JSON.
     """
     data_dir = Path(data_dir)
-    all_paths=[Path(p) for p in hpf.get_sorted_nc_files(data_dir)]
+    all_paths = [Path(p) for p in hpf.get_sorted_nc_files(data_dir)]
 
     ceu3_files = [p for p in all_paths if "CEU-3" in p.name and "EUR-11" not in p.name]
     eur11_files = [p for p in all_paths if "EUR-11" in p.name]
@@ -112,6 +110,8 @@ def gather_time_information(data_dir: str, output_file: str = "time.json") -> No
 
 
 if __name__ == "__main__":
+    variable = "sfcWind"
     gather_time_information(
-        "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Duisburg/sfcWind", "time_sfcWind.json"
+        f"/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Duisburg/{variable}",
+        f"time_{variable}.json",
     )
