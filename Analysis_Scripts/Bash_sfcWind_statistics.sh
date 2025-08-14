@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=sfcWind_statistics
-#SBATCH --output=CF.o%J
-#SBATCH --error=CF.o%J
+#SBATCH --output=sfcWind.o%J
+#SBATCH --error=sfcWind.o%J
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
