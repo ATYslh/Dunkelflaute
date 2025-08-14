@@ -56,15 +56,15 @@ def compute_statistics(
     path_output_timmean = os.path.join(output_path, "timmean", output_filename)
     path_output_fldmean = os.path.join(output_path, "fldmean", output_filename)
 
-    if not os.path.exists(os.path.join(output_path, "timmean", filename)):
+    if not os.path.exists(path_output_timmean):
         hpf.run_shell_command(
             f"cdo -z zip -timmean -seldate,{start},{end} {dataset} {path_output_timmean}",
             60,
         )
 
-    if not os.path.exists(os.path.join(output_path, "fldmean", filename)):
+    if not os.path.exists(path_output_fldmean):
         hpf.run_shell_command(
-            f"cdo -z zip -fldmean -seldate,{start},{end} {dataset} {os.path.join(output_path,'fldmean',filename)}",
+            f"cdo -z zip -fldmean -seldate,{start},{end} {dataset} {path_output_fldmean}",
             60,
         )
 
@@ -83,7 +83,7 @@ def clean_filename(filename):
     filename = re.sub(r"_historical_", "_", filename)
 
     # Replace 'sspXXXGWLX_' with '_'
-    filename = re.sub(r"_ssp\d{3}GWL\d_", "_", filename)
+    filename = re.sub(r"_ssp\d{3}-GWL\dK_", "_", filename)
 
     return os.path.splitext(filename)[0]
 

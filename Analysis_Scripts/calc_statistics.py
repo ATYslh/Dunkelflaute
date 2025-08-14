@@ -90,10 +90,9 @@ def clean_filename(filename):
     filename = re.sub(r"_historical_", "_", filename)
 
     # Replace 'sspXXXGWLX_' with '_'
-    filename = re.sub(r"_ssp\d{3}GWL\d_", "_", filename)
+    filename = re.sub(r"_ssp\d{3}-GWL\dK_", "_", filename)
 
     return os.path.splitext(filename)[0]
-
 
 def process_input_args() -> str:
     parser = argparse.ArgumentParser(description="Input variable for processing.")
