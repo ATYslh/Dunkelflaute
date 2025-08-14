@@ -110,8 +110,8 @@ def gather_time_information(data_dir: str, output_file: str = "time.json") -> No
 
 
 if __name__ == "__main__":
-    variable = "sfcWind"
+    variable = "Dunkelflaute"
     gather_time_information(
-        f"/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Duisburg/{variable}",
+        f"/work/bb1203/g260190_heinrich/Dunkelflaute/Data/Duisburg/{variable}/5MW",
         f"time_{variable}.json",
     )

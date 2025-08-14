@@ -6,6 +6,8 @@ from pathlib import Path
 import re
 import numpy as np
 import xarray as xr
+import shutil
+import hashlib
 
 
 def is_remote_cluster():
@@ -47,6 +49,7 @@ def compute_statistics(
     turbine,
     season,
     org_filename,
+    temp_hash_folder,
 ) -> dict:
 
     filename = os.path.basename(org_filename)
@@ -55,16 +58,28 @@ def compute_statistics(
     output_filename = f"{cleaned_filename}_{scenario}_{season}.nc"
     path_output_timmean = os.path.join(output_path, "timmean", output_filename)
     path_output_fldmean = os.path.join(output_path, "fldmean", output_filename)
+    compute_timmean = not os.path.exists(path_output_timmean)
+    compute_fldmean = not os.path.exists(path_output_fldmean)
+    input_dataset = dataset
 
-    if not os.path.exists(path_output_timmean):
+    if (compute_fldmean or compute_timmean) and "EUR-11" in path_output_fldmean:
+        input_dataset = os.join(
+            temp_hash_folder,
+            f"{hashlib.md5(path_output_timmean.encode()).hexdigest()}.nc",
+        )
         hpf.run_shell_command(
-            f"cdo -z zip -timmean -seldate,{start},{end} {dataset} {path_output_timmean}",
+            f"cdo seldate,{start},{end} {dataset} {input_dataset}", 60
+        )
+
+    if compute_timmean:
+        hpf.run_shell_command(
+            f"cdo -z zip -timmean {input_dataset} {path_output_timmean}",
             60,
         )
 
-    if not os.path.exists(path_output_fldmean):
+    if compute_fldmean:
         hpf.run_shell_command(
-            f"cdo -z zip -fldmean -seldate,{start},{end} {dataset} {path_output_fldmean}",
+            f"cdo -z zip -fldmean {input_dataset} {path_output_fldmean}",
             60,
         )
 
@@ -89,20 +104,6 @@ def clean_filename(filename):
     return os.path.splitext(filename)[0]
 
 
-def get_turbine_info(turbine: str):
-    if turbine == "5MW":
-        time_info = hpf.load_json_file(
-            "/work/bb1203/g260190_heinrich/Dunkelflaute/Analysis_Scripts/time_df_5MW.json"
-        )
-    elif turbine == "3_3MW":
-        time_info = hpf.load_json_file(
-            "/work/bb1203/g260190_heinrich/Dunkelflaute/Analysis_Scripts/time_df_3_3MW.json"
-        )
-    else:
-        raise ValueError("no turbine detected")
-    return time_info
-
-
 def calc_statistics(overwrite=False) -> None:
     regions = [
         "Duisburg",
@@ -114,10 +115,11 @@ def calc_statistics(overwrite=False) -> None:
         "WAKOS",
     ]
     variable = "Dunkelflaute"
+    time_info = hpf.load_json_file(
+        "/work/bb1203/g260190_heinrich/Dunkelflaute/Analysis_Scripts/time_Dunkelflaute.json"
+    )
 
     for turbine in ["5MW", "3_3MW"]:
-        time_info = get_turbine_info(turbine)
-
         for region in regions:
             output_json_file = f"{variable}/{region}.json"
 
@@ -161,16 +163,20 @@ def calc_statistics(overwrite=False) -> None:
                     if not os.path.exists(scratch_dir):
                         os.makedirs(scratch_dir)
 
+                    temp_hash = hashlib.md5(full_path.encode()).hexdigest()
+                    temp_hash_folder = os.path.join(scratch_dir, temp_hash)
+                    os.makedirs(temp_hash_folder, exist_ok=True)
+
                     hpf.run_shell_command(
-                        f"cdo splitseas {full_path} {scratch_dir}/", 60
+                        f"cdo splitseas {full_path} {temp_hash_folder}/", 60
                     )
 
                     datasets = [
                         full_path,
-                        f"{scratch_dir}/DJF.nc",
-                        f"{scratch_dir}/MAM.nc",
-                        f"{scratch_dir}/JJA.nc",
-                        f"{scratch_dir}/SON.nc",
+                        f"{temp_hash_folder}/DJF.nc",
+                        f"{temp_hash_folder}/MAM.nc",
+                        f"{temp_hash_folder}/JJA.nc",
+                        f"{temp_hash_folder}/SON.nc",
                     ]
 
                     for dataset in datasets:
@@ -189,12 +195,13 @@ def calc_statistics(overwrite=False) -> None:
                             turbine,
                             season,
                             full_path,
+                            temp_hash_folder,
                         )
+
+                    shutil.rmtree(temp_hash_folder)
 
                 hpf.write_json_file(output_json_file, region_dict)
 
 
 if __name__ == "__main__":
     calc_statistics()
-
-# One file per turbine spec or one that contains both?
