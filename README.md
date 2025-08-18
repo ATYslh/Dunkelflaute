@@ -1,32 +1,16 @@
-Wind speed:
+Wind speed (and similar things for the other variables):
 ------
-Changes to mean wind speed and wind speed distribution
+Changes to mean wind speed and wind speed distribution (Plot staircase, comparison of mean between datasets?)
 
-95% percentile
+95%/10% percentile changes (plot map)
 
-Analyse if there are regional differences (for one RCM Tabelle?)
+Analyse if there are regional differences (changes between scenarios and historical with timmean)
 
-Check difference between RCMS/GCMS
+Check difference between RCMS/GCMS (fldmean table)
 
-Seasonal change?
+Seasonal change? (for all of the other points)
 
-Solar radiation & Capacity factor:
----------
-Changes to daily cycle
-
-Analyse if there are regional differences
-
-Check difference between RCMS/GCMS
-
-Seasonal change?
-
-Capacity factor Wind:
---------------------
-Difference between number of timesteps under 20% capacity when using two different wind turbines profiles (3.3 MW and 5MW)
-
-Check difference between RCMS/GCMS
-
-Seasonal change?
+Changes to daily cycle (plot just Germany for all seasons?, doing this for all data sets would be too much. How would I even compare numbers here?)
 
 Dunkelflaute:
 -------
