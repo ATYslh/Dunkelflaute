@@ -85,14 +85,12 @@ def compute_statistics(
     return region_dict
 
 
-def clean_filename(filename):
-    # Replace '_historical_' with '_'
+def clean_filename(filename: str) -> str:
     filename = re.sub(r"_historical_", "_", filename)
-
-    # Replace 'sspXXXGWLX_' with '_'
     filename = re.sub(r"_ssp\d{3}-GWL\dK_", "_", filename)
-
+    filename = re.sub(r"_ssp\d{3}_", "_", filename)
     return os.path.splitext(filename)[0]
+
 
 def process_input_args() -> str:
     parser = argparse.ArgumentParser(description="Input variable for processing.")
