@@ -97,8 +97,9 @@ def _process_one_file(args) -> tuple[str, dict]:
             fldmean_path = os.path.join(out_dir, "fldmean", out_file)
             lt02_path = os.path.join(out_dir, "lt02", out_file)
 
-            if not os.path.exists(os.path.dirname(lt02_path)):
-                os.makedirs(os.path.dirname(lt02_path), exist_ok=True)
+            for path in [timmean_path, fldmean_path, lt02_path]:
+                if not os.path.exists(os.path.dirname(path)):
+                    os.makedirs(os.path.dirname(path), exist_ok=True)
 
             compute_tim = not os.path.exists(timmean_path)
             compute_fld = not os.path.exists(fldmean_path)
