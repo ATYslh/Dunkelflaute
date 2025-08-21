@@ -95,9 +95,14 @@ def _process_one_file(args) -> tuple[str, dict]:
 
             timmean_path = os.path.join(out_dir, "timmean", out_file)
             fldmean_path = os.path.join(out_dir, "fldmean", out_file)
+            lt02_path = os.path.join(out_dir, "lt02", out_file)
+
+            if not os.path.exists(os.path.dirname(lt02_path)):
+                os.makedirs(os.path.dirname(lt02_path), exist_ok=True)
 
             compute_tim = not os.path.exists(timmean_path)
             compute_fld = not os.path.exists(fldmean_path)
+            compute_lt02 = not os.path.exists(lt02_path)
 
             input_ds = ds
             if (compute_tim or compute_fld) and "EUR-11" in fldmean_path:
@@ -118,9 +123,14 @@ def _process_one_file(args) -> tuple[str, dict]:
                     f"cdo -z zip -fldmean {input_ds} {fldmean_path}", 60
                 )
 
+            if compute_lt02:
+                hpf.run_shell_command(f"cdo -z zip ltc,0.2 {input_ds} {lt02_path}", 60)
+
+            # compute <0.2
             region_subdict[scenario].setdefault(season, {})
             region_subdict[scenario][season]["timmean"] = timmean_path
             region_subdict[scenario][season]["fldmean"] = fldmean_path
+            region_subdict[scenario][season]["lt02"] = lt02_path
 
         # clean up
         shutil.rmtree(tmpdir)
@@ -187,4 +197,4 @@ def calc_statistics(overwrite: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    calc_statistics()
+    calc_statistics(True)
