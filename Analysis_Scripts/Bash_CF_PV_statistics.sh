@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=CF_Wind
-#SBATCH --output=CF_Wind.o%J
-#SBATCH --error=CF_Wind.o%J
+#SBATCH --job-name=CF_PV
+#SBATCH --output=CF_PV.o%J
+#SBATCH --error=CF_PV.o%J
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -12,4 +12,4 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --account=bb1203
 
-srun python3 CF_Wind_statistics.py -c ${SLURM_CPUS_PER_TASK}
+srun python3 CF_PV_statistics.py -c ${SLURM_CPUS_PER_TASK}
