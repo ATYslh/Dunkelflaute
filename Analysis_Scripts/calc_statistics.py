@@ -78,12 +78,15 @@ def compute_statistics(
 
         if variable == "sfcWind":
             valid = ~np.isnan(season_data)
-            under_cut_in = np.sum(season_data < 3) / np.sum(valid)
+            under_cut_in_3MW = np.sum(season_data < 3.25) / np.sum(valid)
+            under_cut_in_5MW = np.sum(season_data < 4) / np.sum(valid)
             above_cut_out = np.sum(season_data > 25) / np.sum(valid)
-            sect["under_cut_in"] = under_cut_in.item()
+            sect["under_cut_in_3MW"] = under_cut_in_3MW.item()
+            sect["under_cut_in_5MW"] = under_cut_in_5MW.item()
             sect["above_cut_out"] = above_cut_out.item()
-            sect["nominal"] = 1 - under_cut_in.item() - above_cut_out.item()
-
+            sect["nominal_3MW"] = np.sum((season_data <= 25) & (season_data >= 11)) / np.sum(valid)
+            sect["nominal_5MW"] = np.sum((season_data <= 25) & (season_data >= 11.25)) / np.sum(valid)
+        
         # percentiles, mean, std, histogram on the 1D array
         sect["95th_percentile"] = np.nanpercentile(season_data, 95).item()
         sect["10th_percentile"] = np.nanpercentile(season_data, 10).item()
