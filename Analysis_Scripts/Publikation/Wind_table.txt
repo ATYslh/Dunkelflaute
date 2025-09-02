@@ -1,6 +1,6 @@
 \begin{table}[htbp]
 \centering
-\resizebox{1.2\linewidth}{!}{%
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lll|l|r}
 \toprule
 Resolution & GCM & RCM & Scenario & Value \\
@@ -67,5 +67,6 @@ Resolution & GCM & RCM & Scenario & Value \\
 \bottomrule
 \end{tabular}
 }
+\label{Table:Wind_changes}
 \caption{Mean wind speed grouped by Resolution, GCM, RCM and Scenario}
 \end{table}
