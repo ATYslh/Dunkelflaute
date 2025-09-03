@@ -1,72 +1,72 @@
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
+\caption{Mean wind speed grouped by Resolution, GCM, RCM and Scenario}
+\label{Table:Wind_table}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{lll|l|r}
+\begin{tabular}{lll|l|c|c|c|c|c}
 \toprule
-Resolution & GCM & RCM & Scenario & Value \\
+Resolution & GCM & RCM & Scenario & Wind speed & u\_c3M & u\_c5M & nom3M & nom5M\\
 \midrule
-\multirow{22}{*}{CEU-3} & \multirow{10}{*}{EC-Earth-Consortium-EC-Earth3-Veg} & \multirow{7}{*}{CLMcom-BTU-ICON-2-6-5-rc} & historical & 6.26 \\
- &  &  & ssp245-GWL2K & 6.20 \\
- &  &  & ssp245-GWL3K & 6.12 \\
- &  &  & ssp370-GWL2K & 6.24 \\
- &  &  & ssp370-GWL3K & 6.06 \\
- &  &  & ssp585-GWL2K & 6.22 \\
- &  &  & ssp585-GWL3K & 6.18 \\
-\cmidrule(lr){3-5}
- &  & \multirow{3}{*}{CLMcom-KIT-CCLM-6-0-clm2} & historical & 6.43 \\
- &  &  & ssp370-GWL2K & 6.43 \\
- &  &  & ssp370-GWL3K & 6.24 \\
-\cmidrule(lr){3-5}
-\cmidrule(lr){2-5}
- & \multirow{6}{*}{MIROC-MIROC6} & \multirow{3}{*}{CLMcom-BTU-ICON-2-6-5-rc} & historical & 5.94 \\
- &  &  & ssp370-GWL2K & 5.85 \\
- &  &  & ssp370-GWL3K & 5.79 \\
-\cmidrule(lr){3-5}
- &  & \multirow{3}{*}{CLMcom-KIT-CCLM-6-0-clm2} & historical & 6.23 \\
- &  &  & ssp370-GWL2K & 6.14 \\
- &  &  & ssp370-GWL3K & 6.05 \\
-\cmidrule(lr){3-5}
-\cmidrule(lr){2-5}
- & \multirow{6}{*}{MPI-M-MPI-ESM1-2-HR} & \multirow{3}{*}{CLMcom-BTU-ICON-2-6-5-rc} & historical & 6.45 \\
- &  &  & ssp370-GWL2K & 6.27 \\
- &  &  & ssp370-GWL3K & 6.21 \\
-\cmidrule(lr){3-5}
- &  & \multirow{3}{*}{CLMcom-Hereon-CCLM-6-0-clm2} & historical & 6.64 \\
- &  &  & ssp370-GWL2K & 6.45 \\
- &  &  & ssp370-GWL3K & 6.38 \\
+\multirow{22}{*}{CEU-3} & \multirow{10}{*}{EC-Earth} & \multirow{7}{*}{BTU-ICON} & historical & 6.26 & 0.20 & 0.27 & 0.80 & 0.73 \\
+ &  &  & ssp245-GWL2K & 6.20 & 0.20 & 0.28 & 0.80 & 0.72 \\
+ &  &  & ssp245-GWL3K & 6.12 & 0.21 & 0.29 & 0.79 & 0.71 \\
+ &  &  & ssp370-GWL2K & 6.24 & 0.20 & 0.28 & 0.80 & 0.72 \\
+ &  &  & ssp370-GWL3K & 6.06 & 0.21 & 0.29 & 0.79 & 0.71 \\
+ &  &  & ssp585-GWL2K & 6.22 & 0.20 & 0.28 & 0.80 & 0.72 \\
+ &  &  & ssp585-GWL3K & 6.18 & 0.20 & 0.28 & 0.80 & 0.72 \\
+\cmidrule(lr){3-9}
+ &  & \multirow{3}{*}{KIT-CCLM} & historical & 6.43 & 0.18 & 0.26 & 0.82 & 0.74 \\
+ &  &  & ssp370-GWL2K & 6.43 & 0.18 & 0.26 & 0.82 & 0.74 \\
+ &  &  & ssp370-GWL3K & 6.24 & 0.20 & 0.28 & 0.80 & 0.72 \\
+\cmidrule(lr){3-9}
+\cmidrule(lr){2-9}
+ & \multirow{6}{*}{MIRCO} & \multirow{3}{*}{BTU-ICON} & historical & 5.94 & 0.21 & 0.30 & 0.79 & 0.70 \\
+ &  &  & ssp370-GWL2K & 5.85 & 0.22 & 0.30 & 0.78 & 0.70 \\
+ &  &  & ssp370-GWL3K & 5.79 & 0.22 & 0.31 & 0.06 & 0.05 \\
+\cmidrule(lr){3-9}
+ &  & \multirow{3}{*}{KIT-CCLM} & historical & 6.23 & 0.19 & 0.26 & 0.81 & 0.74 \\
+ &  &  & ssp370-GWL2K & 6.14 & 0.19 & 0.27 & 0.07 & 0.06 \\
+ &  &  & ssp370-GWL3K & 6.05 & 0.20 & 0.28 & 0.07 & 0.06 \\
+\cmidrule(lr){3-9}
+\cmidrule(lr){2-9}
+ & \multirow{6}{*}{MPI-ESM} & \multirow{3}{*}{BTU-ICON} & historical & 6.45 & 0.19 & 0.26 & 0.10 & 0.09 \\
+ &  &  & ssp370-GWL2K & 6.27 & 0.19 & 0.27 & 0.09 & 0.08 \\
+ &  &  & ssp370-GWL3K & 6.21 & 0.20 & 0.28 & 0.08 & 0.08 \\
+\cmidrule(lr){3-9}
+ &  & \multirow{3}{*}{Hereon-CCLM} & historical & 6.64 & 0.17 & 0.24 & 0.11 & 0.10 \\
+ &  &  & ssp370-GWL2K & 6.45 & 0.18 & 0.25 & 0.09 & 0.08 \\
+ &  &  & ssp370-GWL3K & 6.38 & 0.18 & 0.26 & 0.09 & 0.08 \\
 \midrule
-\multirow{22}{*}{EUR-11} & \multirow{10}{*}{EC-Earth-Consortium-EC-Earth3-Veg} & \multirow{7}{*}{CLMcom-BTU-ICON-2-6-5-rc} & historical & 5.92 \\
- &  &  & ssp245-GWL2K & 5.85 \\
- &  &  & ssp245-GWL3K & 5.76 \\
- &  &  & ssp370-GWL2K & 5.89 \\
- &  &  & ssp370-GWL3K & 5.71 \\
- &  &  & ssp585-GWL2K & 5.88 \\
- &  &  & ssp585-GWL3K & 5.82 \\
-\cmidrule(lr){3-5}
- &  & \multirow{3}{*}{CLMcom-KIT-CCLM-6-0-clm2} & historical & 6.43 \\
- &  &  & ssp370-GWL2K & 6.43 \\
- &  &  & ssp370-GWL3K & 6.22 \\
-\cmidrule(lr){3-5}
-\cmidrule(lr){2-5}
- & \multirow{6}{*}{MIROC-MIROC6} & \multirow{3}{*}{CLMcom-BTU-ICON-2-6-5-rc} & historical & 5.57 \\
- &  &  & ssp370-GWL2K & 5.48 \\
- &  &  & ssp370-GWL3K & 5.41 \\
-\cmidrule(lr){3-5}
- &  & \multirow{3}{*}{CLMcom-KIT-CCLM-6-0-clm2} & historical & 6.18 \\
- &  &  & ssp370-GWL2K & 6.09 \\
- &  &  & ssp370-GWL3K & 5.98 \\
-\cmidrule(lr){3-5}
-\cmidrule(lr){2-5}
- & \multirow{6}{*}{MPI-M-MPI-ESM1-2-HR} & \multirow{3}{*}{CLMcom-BTU-ICON-2-6-5-rc} & historical & 6.13 \\
- &  &  & ssp370-GWL2K & 5.94 \\
- &  &  & ssp370-GWL3K & 5.88 \\
-\cmidrule(lr){3-5}
- &  & \multirow{3}{*}{CLMcom-Hereon-CCLM-6-0-clm3} & historical & 6.69 \\
- &  &  & ssp370-GWL2K & 6.48 \\
- &  &  & ssp370-GWL3K & 6.41 \\
+\multirow{22}{*}{EUR-11} & \multirow{10}{*}{EC-Earth} & \multirow{7}{*}{BTU-ICON} & historical & 5.92 & 0.25 & 0.33 & 0.75 & 0.67 \\
+ &  &  & ssp245-GWL2K & 5.85 & 0.25 & 0.34 & 0.75 & 0.66 \\
+ &  &  & ssp245-GWL3K & 5.76 & 0.26 & 0.34 & 0.74 & 0.66 \\
+ &  &  & ssp370-GWL2K & 5.89 & 0.25 & 0.33 & 0.75 & 0.67 \\
+ &  &  & ssp370-GWL3K & 5.71 & 0.26 & 0.35 & 0.74 & 0.65 \\
+ &  &  & ssp585-GWL2K & 5.88 & 0.25 & 0.33 & 0.75 & 0.67 \\
+ &  &  & ssp585-GWL3K & 5.82 & 0.26 & 0.34 & 0.74 & 0.66 \\
+\cmidrule(lr){3-9}
+ &  & \multirow{3}{*}{KIT-CCLM} & historical & 6.43 & 0.21 & 0.29 & 0.79 & 0.71 \\
+ &  &  & ssp370-GWL2K & 6.43 & 0.21 & 0.29 & 0.79 & 0.71 \\
+ &  &  & ssp370-GWL3K & 6.22 & 0.23 & 0.31 & 0.77 & 0.69 \\
+\cmidrule(lr){3-9}
+\cmidrule(lr){2-9}
+ & \multirow{6}{*}{MIRCO} & \multirow{3}{*}{BTU-ICON} & historical & 5.57 & 0.26 & 0.35 & 0.74 & 0.65 \\
+ &  &  & ssp370-GWL2K & 5.48 & 0.27 & 0.36 & 0.05 & 0.04 \\
+ &  &  & ssp370-GWL3K & 5.41 & 0.28 & 0.37 & 0.05 & 0.04 \\
+\cmidrule(lr){3-9}
+ &  & \multirow{3}{*}{KIT-CCLM} & historical & 6.18 & 0.21 & 0.30 & 0.79 & 0.70 \\
+ &  &  & ssp370-GWL2K & 6.09 & 0.22 & 0.30 & 0.08 & 0.07 \\
+ &  &  & ssp370-GWL3K & 5.98 & 0.23 & 0.32 & 0.08 & 0.07 \\
+\cmidrule(lr){3-9}
+\cmidrule(lr){2-9}
+ & \multirow{6}{*}{MPI-ESM} & \multirow{3}{*}{BTU-ICON} & historical & 6.13 & 0.23 & 0.31 & 0.09 & 0.08 \\
+ &  &  & ssp370-GWL2K & 5.94 & 0.24 & 0.32 & 0.08 & 0.07 \\
+ &  &  & ssp370-GWL3K & 5.88 & 0.25 & 0.33 & 0.07 & 0.07 \\
+\cmidrule(lr){3-9}
+ &  & \multirow{3}{*}{Hereon-CCLM} & historical & 6.69 & 0.19 & 0.27 & 0.13 & 0.12 \\
+ &  &  & ssp370-GWL2K & 6.48 & 0.20 & 0.28 & 0.11 & 0.10 \\
+ &  &  & ssp370-GWL3K & 6.41 & 0.21 & 0.29 & 0.11 & 0.10 \\
 \bottomrule
 \end{tabular}
 }
-\label{Table:Wind_changes}
-\caption{Mean wind speed grouped by Resolution, GCM, RCM and Scenario}
 \end{table}
