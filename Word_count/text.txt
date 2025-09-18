@@ -1,0 +1,13 @@
+262+20+0 (2/0/2/0) _top_
+954+1+26 (1/1/0/0) Section: Introduction
+38+1+0 (1/0/0/0) Section: Data
+182+2+62 (1/1/10/0) Subsection: Training data
+265+5+38 (1/1/0/0) Subsection: CMIP6 Global Climate Model data
+324+6+93 (1/2/1/0) Section: Methods: Network structure and training process
+0+1+0 (1/0/0/0) Section: Results
+174+2+51 (1/1/2/0) Subsection: Network evaluation
+372+1+134 (1/2/1/0) Subsection: MPI-GE
+358+2+148 (1/2/0/0) Subsection: CMIP6 models
+1085+1+0 (1/0/0/0) Section: Discussion
+229+1+0 (1/0/0/0) Section: Conclusions
+105+1+0 (1/0/0/0) Section: Acknowledgements
