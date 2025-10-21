@@ -7,7 +7,7 @@ def extract_first_number(line):
 
 def should_ignore(line):
     """Checks if the line should be ignored based on keywords."""
-    return '_top_' in line or 'Declaration' in line
+    return '_top_' in line or 'Declaration' in line or "Acknowledgement" in line
 
 def sum_first_numbers(filename):
     total = 0

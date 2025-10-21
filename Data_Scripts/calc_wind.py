@@ -6,10 +6,9 @@ import hashlib
 import os
 from multiprocessing import Pool
 
+import helper_functions as hpf
 import numpy as np
 import xarray as xr
-
-import helper_functions as hpf
 
 _WIND_3_3 = np.array(
     [
@@ -313,7 +312,7 @@ def cf_wind(folder_dict: dict, config: dict) -> None:
     )
 
     wind_cat = os.path.join(
-        f"../Data/Germany/sfcWind/",
+        "../Data/Germany/sfcWind/",
         hpf.generate_filename(folder_dict["ua100m"], "wind"),
     )
 
