@@ -3,69 +3,43 @@
 \caption{Mean wind speed and turbine performance metrics grouped by spatial resolution, global climate model (GCM), regional climate model (RCM), and emission scenario. uci = percentage of time wind speed is below cut-in threshold; rp = percentage of time wind speed is within rated power range. The subscripts indicate the rated power of the turbines.}
 \label{Table:Wind_table}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{lll|l|c|c|c|c|c}
+\begin{tabular}{lll|cc|cc|cc|cc|cc}
 \toprule
-resolution & GCM & RCM & scenario & Wind speed [\si{\meter\per\second}] & uci\textsubscript{3.3MW} [\%] & uci\textsubscript{5MW} [\%] & rp\textsubscript{3.3MW} [\%] & rp\textsubscript{5MW} [\%] \\
+\multicolumn{3}{c|}{\textbf{Model Configuration}} &
+\multicolumn{2}{c|}{\textbf{Wind [\si{\meter\per\second}]}} &
+\multicolumn{2}{c|}{\textbf{uci\textsubscript{3.3MW} [\%]}} &
+\multicolumn{2}{c|}{\textbf{uci\textsubscript{5MW} [\%]}} &
+\multicolumn{2}{c|}{\textbf{rp\textsubscript{3.3MW} [\%]}} &
+\multicolumn{2}{c}{\textbf{rp\textsubscript{5MW} [\%]}} \\
+GCM & RCM & Scenario & CEU-3 & EUR-11 & CEU-3 & EUR-11 & CEU-3 & EUR-11 & CEU-3 & EUR-11 & CEU-3 & EUR-11 \\
 \midrule
-\multirow{22}{*}{CEU-3} & \multirow{10}{*}{EC-Earth} & \multirow{7}{*}{ICON} & historical & 6.26 & 19.64 & 27.43 & 8.50 & 7.62 \\
- &  &  & ssp245-GWL2K & 6.20 & 20.22 & 28.16 & 8.28 & 7.43 \\
- &  &  & ssp245-GWL3K & 6.12 & 20.70 & 28.82 & 7.85 & 7.04 \\
- &  &  & ssp370-GWL2K & 6.24 & 19.87 & 27.71 & 8.47 & 7.61 \\
- &  &  & ssp370-GWL3K & 6.06 & 21.09 & 29.32 & 7.54 & 6.74 \\
- &  &  & ssp585-GWL2K & 6.22 & 19.92 & 27.80 & 8.34 & 7.49 \\
- &  &  & ssp585-GWL3K & 6.18 & 20.39 & 28.43 & 8.28 & 7.45 \\
-\cmidrule(lr){3-9}
- &  & \multirow{3}{*}{CCLM} & historical & 6.43 & 17.91 & 25.54 & 9.25 & 8.31 \\
- &  &  & ssp370-GWL2K & 6.43 & 18.24 & 25.91 & 9.45 & 8.51 \\
- &  &  & ssp370-GWL3K & 6.24 & 19.55 & 27.68 & 8.51 & 7.64 \\
-\cmidrule(lr){3-9}
-\cmidrule(lr){2-9}
- & \multirow{6}{*}{MIROC} & \multirow{3}{*}{ICON} & historical & 5.94 & 21.14 & 29.53 & 6.23 & 5.51 \\
- &  &  & ssp370-GWL2K & 5.85 & 21.63 & 30.26 & 5.77 & 5.10 \\
- &  &  & ssp370-GWL3K & 5.79 & 22.20 & 30.97 & 5.53 & 4.87 \\
-\cmidrule(lr){3-9}
- &  & \multirow{3}{*}{CCLM} & historical & 6.23 & 18.51 & 26.39 & 7.48 & 6.63 \\
- &  &  & ssp370-GWL2K & 6.14 & 19.12 & 27.26 & 7.03 & 6.23 \\
- &  &  & ssp370-GWL3K & 6.05 & 19.82 & 28.20 & 6.69 & 5.93 \\
-\cmidrule(lr){3-9}
-\cmidrule(lr){2-9}
- & \multirow{6}{*}{MPI-ESM} & \multirow{3}{*}{ICON} & historical & 6.45 & 18.54 & 26.05 & 9.87 & 8.92 \\
- &  &  & ssp370-GWL2K & 6.27 & 19.32 & 27.12 & 8.52 & 7.64 \\
- &  &  & ssp370-GWL3K & 6.21 & 19.84 & 27.75 & 8.36 & 7.50 \\
-\cmidrule(lr){3-9}
- &  & \multirow{3}{*}{CCLM} & historical & 6.64 & 16.97 & 24.24 & 10.85 & 9.82 \\
- &  &  & ssp370-GWL2K & 6.45 & 17.76 & 25.36 & 9.41 & 8.46 \\
- &  &  & ssp370-GWL3K & 6.38 & 18.40 & 26.13 & 9.17 & 8.25 \\
+\multirow{10}{*}{EC-Earth} & \multirow{7}{*}{ICON} & historical & 6.26 & 5.92 & 19.64 & 24.51 & 27.43 & 32.69 & 8.50 & 7.59 & 7.62 & 6.79 \\
+ &  & ssp245-GWL2K & 6.20 & 5.85 & 20.22 & 25.35 & 28.16 & 33.66 & 8.28 & 7.43 & 7.43 & 6.66 \\
+ &  & ssp245-GWL3K & 6.12 & 5.76 & 20.70 & 25.97 & 28.82 & 34.45 & 7.85 & 7.00 & 7.04 & 6.27 \\
+ &  & ssp370-GWL2K & 6.24 & 5.89 & 19.87 & 24.86 & 27.71 & 33.08 & 8.47 & 7.56 & 7.61 & 6.78 \\
+ &  & ssp370-GWL3K & 6.06 & 5.71 & 21.09 & 26.41 & 29.32 & 35.01 & 7.54 & 6.67 & 6.74 & 5.96 \\
+ &  & ssp585-GWL2K & 6.22 & 5.88 & 19.92 & 24.91 & 27.80 & 33.19 & 8.34 & 7.47 & 7.49 & 6.69 \\
+ &  & ssp585-GWL3K & 6.18 & 5.82 & 20.39 & 25.66 & 28.43 & 34.10 & 8.28 & 7.41 & 7.45 & 6.66 \\
+\cmidrule{2-13}
+ & \multirow{3}{*}{CCLM} & historical & 6.43 & 6.43 & 17.91 & 20.93 & 25.54 & 28.73 & 9.25 & 10.98 & 8.31 & 9.96 \\
+ &  & ssp370-GWL2K & 6.43 & 6.43 & 18.24 & 21.13 & 25.91 & 28.93 & 9.45 & 11.14 & 8.51 & 10.13 \\
+ &  & ssp370-GWL3K & 6.24 & 6.22 & 19.55 & 22.73 & 27.68 & 30.99 & 8.51 & 10.15 & 7.64 & 9.21 \\
 \midrule
-\multirow{22}{*}{EUR-11} & \multirow{10}{*}{EC-Earth} & \multirow{7}{*}{ICON} & historical & 5.92 & 24.51 & 32.69 & 7.59 & 6.79 \\
- &  &  & ssp245-GWL2K & 5.85 & 25.35 & 33.66 & 7.43 & 6.66 \\
- &  &  & ssp245-GWL3K & 5.76 & 25.97 & 34.45 & 7.00 & 6.27 \\
- &  &  & ssp370-GWL2K & 5.89 & 24.86 & 33.08 & 7.56 & 6.78 \\
- &  &  & ssp370-GWL3K & 5.71 & 26.41 & 35.01 & 6.67 & 5.96 \\
- &  &  & ssp585-GWL2K & 5.88 & 24.91 & 33.19 & 7.47 & 6.69 \\
- &  &  & ssp585-GWL3K & 5.82 & 25.66 & 34.10 & 7.41 & 6.66 \\
-\cmidrule(lr){3-9}
- &  & \multirow{3}{*}{CCLM} & historical & 6.43 & 20.93 & 28.73 & 10.98 & 9.96 \\
- &  &  & ssp370-GWL2K & 6.43 & 21.13 & 28.93 & 11.14 & 10.13 \\
- &  &  & ssp370-GWL3K & 6.22 & 22.73 & 30.99 & 10.15 & 9.21 \\
-\cmidrule(lr){3-9}
-\cmidrule(lr){2-9}
- & \multirow{6}{*}{MIROC} & \multirow{3}{*}{ICON} & historical & 5.57 & 26.41 & 35.21 & 5.30 & 4.67 \\
- &  &  & ssp370-GWL2K & 5.48 & 27.17 & 36.22 & 4.94 & 4.36 \\
- &  &  & ssp370-GWL3K & 5.41 & 27.98 & 37.13 & 4.73 & 4.16 \\
-\cmidrule(lr){3-9}
- &  & \multirow{3}{*}{CCLM} & historical & 6.18 & 21.45 & 29.56 & 8.67 & 7.76 \\
- &  &  & ssp370-GWL2K & 6.09 & 22.15 & 30.49 & 8.22 & 7.37 \\
- &  &  & ssp370-GWL3K & 5.98 & 23.00 & 31.56 & 7.86 & 7.05 \\
-\cmidrule(lr){3-9}
-\cmidrule(lr){2-9}
- & \multirow{6}{*}{MPI-ESM} & \multirow{3}{*}{ICON} & historical & 6.13 & 22.88 & 30.75 & 8.90 & 8.02 \\
- &  &  & ssp370-GWL2K & 5.94 & 23.99 & 32.16 & 7.65 & 6.85 \\
- &  &  & ssp370-GWL3K & 5.88 & 24.75 & 33.01 & 7.49 & 6.70 \\
-\cmidrule(lr){3-9}
- &  & \multirow{3}{*}{CCLM} & historical & 6.69 & 19.36 & 26.75 & 12.86 & 11.76 \\
- &  &  & ssp370-GWL2K & 6.48 & 20.23 & 27.96 & 11.34 & 10.31 \\
- &  &  & ssp370-GWL3K & 6.41 & 21.06 & 28.87 & 11.00 & 10.01 \\
+\multirow{6}{*}{MIROC} & \multirow{3}{*}{ICON} & historical & 5.94 & 5.57 & 21.14 & 26.41 & 29.53 & 35.21 & 6.23 & 5.30 & 5.51 & 4.67 \\
+ &  & ssp370-GWL2K & 5.85 & 5.48 & 21.63 & 27.17 & 30.26 & 36.22 & 5.77 & 4.94 & 5.10 & 4.36 \\
+ &  & ssp370-GWL3K & 5.79 & 5.41 & 22.20 & 27.98 & 30.97 & 37.13 & 5.53 & 4.73 & 4.87 & 4.16 \\
+\cmidrule{2-13}
+ & \multirow{3}{*}{CCLM} & historical & 6.23 & 6.18 & 18.51 & 21.45 & 26.39 & 29.56 & 7.48 & 8.67 & 6.63 & 7.76 \\
+ &  & ssp370-GWL2K & 6.14 & 6.09 & 19.12 & 22.15 & 27.26 & 30.49 & 7.03 & 8.22 & 6.23 & 7.37 \\
+ &  & ssp370-GWL3K & 6.05 & 5.98 & 19.82 & 23.00 & 28.20 & 31.56 & 6.69 & 7.86 & 5.93 & 7.05 \\
+\midrule
+\multirow{6}{*}{MPI-ESM} & \multirow{3}{*}{ICON} & historical & 6.45 & 6.13 & 18.54 & 22.88 & 26.05 & 30.75 & 9.87 & 8.90 & 8.92 & 8.02 \\
+ &  & ssp370-GWL2K & 6.27 & 5.94 & 19.32 & 23.99 & 27.12 & 32.16 & 8.52 & 7.65 & 7.64 & 6.85 \\
+ &  & ssp370-GWL3K & 6.21 & 5.88 & 19.84 & 24.75 & 27.75 & 33.01 & 8.36 & 7.49 & 7.50 & 6.70 \\
+\cmidrule{2-13}
+ & \multirow{3}{*}{CCLM} & historical & 6.64 & 6.69 & 16.97 & 19.36 & 24.24 & 26.75 & 10.85 & 12.86 & 9.82 & 11.76 \\
+ &  & ssp370-GWL2K & 6.45 & 6.48 & 17.76 & 20.23 & 25.36 & 27.96 & 9.41 & 11.34 & 8.46 & 10.31 \\
+ &  & ssp370-GWL3K & 6.38 & 6.41 & 18.40 & 21.06 & 26.13 & 28.87 & 9.17 & 11.00 & 8.25 & 10.01 \\
 \bottomrule
 \end{tabular}
 }
