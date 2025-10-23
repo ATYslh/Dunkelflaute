@@ -7,7 +7,7 @@
 #SBATCH --ntasks=1
 #SBATCH --mem=256G
 #SBATCH --cpus-per-task=10
-#SBATCH --time=08:00:00
+#SBATCH --time=03:00:00
 #SBATCH --mail-user=philipp.heinrich@hereon.de
 #SBATCH --mail-type=END,FAIL
 #SBATCH --account=bb1203

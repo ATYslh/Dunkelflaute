@@ -3,6 +3,7 @@ This module calculates the windspeed and the wind capacity factor for a 5MW turb
 """
 
 import hashlib
+import sys
 from multiprocessing import Pool
 
 import helper_functions as hpf
@@ -126,11 +127,21 @@ def calculate_wind(u_wind: str, v_wind: str, outfile: str) -> None:
         5,
     )
 
+    print(
+        f"finished {outfile}",
+        file=sys.stderr,
+    )
+
 
 def calc_wind_capacity_factor(input_file: str, output_file: str) -> None:
     """
     Calculates the wind capacity factor using the 5MW turbine curve.
     """
+    print(
+        f"starting calc_wind_capacity_factor for {input_file}",
+        file=sys.stderr,
+    )
+
     with xr.open_dataset(input_file) as ds:
         power = (
             xr.apply_ufunc(
@@ -142,7 +153,10 @@ def calc_wind_capacity_factor(input_file: str, output_file: str) -> None:
             .rename("CF_Wind")
             .assign_attrs(units="-")
         )
-
+        print(
+            f"starting to save file {output_file}",
+            file=sys.stderr,
+        )
         power.to_netcdf(
             output_file,
             encoding={"CF_Wind": {"zlib": True, "complevel": 4}},
@@ -156,11 +170,15 @@ def process_wind_task(args):
 
     try:
         calculate_wind(u_wind, v_wind, wind_file)
+        print(
+            "Finished calculating separate wind files. Starting CF next.",
+            file=sys.stderr,
+        )
 
         calc_wind_capacity_factor(
-                input_file=wind_file,
-                output_file=cf_file,
-            )
+            input_file=wind_file,
+            output_file=cf_file,
+        )
 
     except Exception as e:
         raise RuntimeError(
@@ -170,12 +188,12 @@ def process_wind_task(args):
 
     return wind_file, cf_file
 
+
 def cf_wind() -> None:
     """
     Main function for calculating wind speed fields and their capacity factors for 5MW turbine.
     """
     folders = [
-        "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/historical/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua250m/v20240201",
         "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL2K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua250m/v20240201",
         "/work/bb1203/data_NUKLEUS_CMOR/CEU-3/CLMcom-BTU/EC-Earth-Consortium-EC-Earth3-Veg/ssp370-GWL3K/r1i1p1f1/CLMcom-BTU-ICON-2-6-5-rc/nukleus-x2yn2-v1/1hr/ua250m/v20240201",
     ]
@@ -198,9 +216,17 @@ def cf_wind() -> None:
         params = [(idx, u, v) for idx, (u, v) in enumerate(zip(u_files, v_files))]
 
         num_procs = hpf.process_input_args()
+        if num_procs>10:
+            num_procs=10
+
         with Pool(processes=num_procs) as pool:
             for _, _ in pool.imap_unordered(process_wind_task, params, chunksize=1):
                 pass
+
+        print(
+            "finished creating all the wind files. Next step is cat",
+            file=sys.stderr,
+        )
 
         hpf.run_shell_command(f"rm -f {output_filename}", 5)
         hpf.run_shell_command(
@@ -212,7 +238,8 @@ def cf_wind() -> None:
             f"cdo -s -z zip -cat /scratch/g/g260190/cf_wind_???.nc {cf_wind_output}", 60
         )
 
-        return None
+
 
 if __name__ == "__main__":
     cf_wind()
+
