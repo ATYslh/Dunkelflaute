@@ -24,13 +24,14 @@ def main():
     temp_folder = "/scratch/g/g260190/"
     bins = np.linspace(0, 30, 101, dtype=np.float64)
     seasons = ["DJF", "MAM", "JJA", "SON"]
-
+    scenarios=["historical","ssp370-GWL2K","ssp370-GWL3K"]
     files = [
+        "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/wind_historical.nc",
         "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/wind_ssp370-GWL2K.nc",
         "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/wind_ssp370-GWL3K.nc",
     ]
 
-    for file in files:
+    for scenario, file in zip(scenarios,files):
         stats = {}
         # split into seasons for frequency analysis
         run_shell_command(f"cdo splitseas {file} {temp_folder}", 60)
@@ -42,7 +43,7 @@ def main():
                 stats[season] = counts.tolist()
 
         write_json_file(
-            f"/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/frequency/{os.path.splitext(os.path.basename(file))[0]}.json",
+            f"/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/frequency/{scenario}.json",
             stats,
         )
         # calc timmean for entire year
