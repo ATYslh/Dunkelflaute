@@ -5,7 +5,7 @@
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --mem=128G
+#SBATCH --mem=40G
 #SBATCH --cpus-per-task=1
 #SBATCH --time=04:00:00
 #SBATCH --mail-user=philipp.heinrich@hereon.de

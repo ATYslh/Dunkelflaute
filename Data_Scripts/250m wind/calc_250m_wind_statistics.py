@@ -51,5 +51,19 @@ def main():
         timmean_file = os.path.join(timmean_path, file_name)
         run_shell_command(f"cdo -z zip -timmean {file} {timmean_file}", 60)
 
+def cf_main():
+    timmean_path = "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/timmean"
+    scenarios=["historical","ssp370-GWL2K","ssp370-GWL3K"]
+    files = [
+        "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/cf_wind_historical.nc",
+        "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/cf_wind_ssp370-GWL2K.nc",
+        "/work/bb1203/g260190_heinrich/Dunkelflaute/Data/250m/cf_wind_ssp370-GWL3K.nc",
+    ]
+
+    for scenario, file in zip(scenarios,files):
+        file_name = os.path.basename(file)
+        timmean_file = os.path.join(timmean_path, file_name)
+        run_shell_command(f"cdo -z zip -timmean {file} {timmean_file}", 60)
+
 if __name__ == "__main__":
-    main()
+    cf_main()
