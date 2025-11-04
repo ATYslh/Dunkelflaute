@@ -1,17 +1,17 @@
-291+18+0 (2/0/1/0) _top_
-614+1+0 (1/0/0/0) Section: Introduction
-71+1+0 (1/0/0/0) Section: Data
-162+4+0 (1/0/0/0) Subsection: Forcing data and periods
-82+2+70 (1/1/0/0) Subsection: RCM-data description
-31+1+0 (1/0/0/0) Section: Methods
+273+18+0 (2/0/1/0) _top_
+619+1+0 (1/0/0/0) Section: Introduction
+72+1+0 (1/0/0/0) Section: Data
+167+4+0 (1/0/0/0) Subsection: Forcing data and periods
+84+5+70 (1/1/0/0) Subsection: Regional climate model data description
+30+1+0 (1/0/0/0) Section: Methods
 157+3+25 (1/1/3/1) Subsection: Wind capacity factor
-134+3+0 (1/0/16/3) Subsection: PV capacity factor
+135+3+0 (1/0/16/3) Subsection: PV capacity factor
 69+1+0 (1/0/0/1) Subsection: Dunkelflaute
 75+1+0 (1/0/0/0) Section: Results
-419+4+190 (1/3/8/0) Subsection: Changes to wind speed
-171+3+95 (1/2/1/0) Subsection: Changes to PV
-316+3+100 (1/2/4/0) Subsection: Changes to Dunkelflaute
+484+4+196 (1/3/9/0) Subsection: Changes to wind speed
+164+3+96 (1/2/1/0) Subsection: Changes to PV
+309+3+102 (1/2/4/0) Subsection: Changes to Dunkelflaute
 796+1+0 (1/0/0/0) Section: Discussion
-147+1+0 (1/0/0/0) Section: Conclusion
+138+1+0 (1/0/0/0) Section: Conclusion
 66+1+0 (1/0/0/0) Section: Declaration
-128+1+0 (1/0/0/0) Section: Acknowledgement
+130+1+0 (1/0/0/0) Section: Acknowledgement
