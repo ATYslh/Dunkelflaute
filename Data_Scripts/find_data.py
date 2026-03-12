@@ -6,9 +6,8 @@ import datetime
 import os
 import sys
 
-import xarray as xr
-
 import helper_functions as hpf
+import xarray as xr
 
 
 def find_directories(root_dir: str, frequency: str) -> list[str]:
@@ -68,8 +67,8 @@ def find_nukleus_files(
     """
     json_entries = {}
     for directory in find_directories(root_dir=base_directory, frequency="1hr"):
-        if "evaluation" in directory:
-            continue
+        # if "evaluation" in directory:
+        #     continue
 
         rsds_folder = go_to_version_folder(os.path.join(directory, "rsds"))
         tas_folder = go_to_version_folder(os.path.join(directory, "tas"))

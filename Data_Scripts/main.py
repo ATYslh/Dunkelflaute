@@ -22,7 +22,7 @@ def clean_up():
 
 if __name__ == "__main__":
     nukleus_folders = find_data.nukleus_folders(
-        file_name="nukleus_files.json", search=False
+        file_name="nukleus_files.json", search=True
     )
 
     config = hpf.read_config_file("config.yaml")
